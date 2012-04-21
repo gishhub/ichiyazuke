@@ -13,7 +13,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B2094B02153B312B00E57181"
+               BlueprintIdentifier = "B2412A901542D7F300E56CD7"
                BuildableName = "app_ichiyazuke_ios.app"
                BlueprintName = "app_ichiyazuke_ios"
                ReferencedContainer = "container:app_ichiyazuke_ios.xcodeproj">
@@ -31,7 +31,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B2094B23153B312B00E57181"
+               BlueprintIdentifier = "B2412AB11542D7F400E56CD7"
                BuildableName = "app_ichiyazuke_iosTests.octest"
                BlueprintName = "app_ichiyazuke_iosTests"
                ReferencedContainer = "container:app_ichiyazuke_ios.xcodeproj">
@@ -41,7 +41,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B2094B02153B312B00E57181"
+            BlueprintIdentifier = "B2412A901542D7F300E56CD7"
             BuildableName = "app_ichiyazuke_ios.app"
             BlueprintName = "app_ichiyazuke_ios"
             ReferencedContainer = "container:app_ichiyazuke_ios.xcodeproj">
@@ -60,7 +60,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B2094B02153B312B00E57181"
+            BlueprintIdentifier = "B2412A901542D7F300E56CD7"
             BuildableName = "app_ichiyazuke_ios.app"
             BlueprintName = "app_ichiyazuke_ios"
             ReferencedContainer = "container:app_ichiyazuke_ios.xcodeproj">
@@ -78,7 +78,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B2094B02153B312B00E57181"
+            BlueprintIdentifier = "B2412A901542D7F300E56CD7"
             BuildableName = "app_ichiyazuke_ios.app"
             BlueprintName = "app_ichiyazuke_ios"
             ReferencedContainer = "container:app_ichiyazuke_ios.xcodeproj">

@@ -1,14 +1,14 @@
 //
-//  CounterAppDelegate.m
+//  IchiyazukeAppDelegate.m
 //  app_ichiyazuke_ios
 //
-//  Created by 広樹 増井 on 12/04/16.
-//  Copyright (c) 2012年 キラメックス株式会社. All rights reserved.
+//  Created by 広樹 増井 on 12/04/21.
+//  Copyright (c) 2012年 gishuhub.com All rights reserved.
 //
 
-#import "CounterAppDelegate.h"
+#import "IchiyazukeAppDelegate.h"
 
-@implementation CounterAppDelegate
+@implementation IchiyazukeAppDelegate
 
 @synthesize window = _window;
 

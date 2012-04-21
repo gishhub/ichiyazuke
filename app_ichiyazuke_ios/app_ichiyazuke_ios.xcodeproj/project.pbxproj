@@ -7,146 +7,161 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B2094B08153B312B00E57181 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2094B07153B312B00E57181 /* UIKit.framework */; };
-		B2094B0A153B312B00E57181 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2094B09153B312B00E57181 /* Foundation.framework */; };
-		B2094B0C153B312B00E57181 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2094B0B153B312B00E57181 /* CoreGraphics.framework */; };
-		B2094B12153B312B00E57181 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2094B10153B312B00E57181 /* InfoPlist.strings */; };
-		B2094B14153B312B00E57181 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B2094B13153B312B00E57181 /* main.m */; };
-		B2094B18153B312B00E57181 /* CounterAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B2094B17153B312B00E57181 /* CounterAppDelegate.m */; };
-		B2094B1B153B312B00E57181 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2094B19153B312B00E57181 /* MainStoryboard.storyboard */; };
-		B2094B1E153B312B00E57181 /* CounterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2094B1D153B312B00E57181 /* CounterViewController.m */; };
-		B2094B26153B312B00E57181 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2094B25153B312B00E57181 /* SenTestingKit.framework */; };
-		B2094B27153B312B00E57181 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2094B07153B312B00E57181 /* UIKit.framework */; };
-		B2094B28153B312B00E57181 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2094B09153B312B00E57181 /* Foundation.framework */; };
-		B2094B30153B312B00E57181 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2094B2E153B312B00E57181 /* InfoPlist.strings */; };
-		B2094B33153B312B00E57181 /* app_ichiyazuke_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B2094B32153B312B00E57181 /* app_ichiyazuke_iosTests.m */; };
+		B2412A961542D7F300E56CD7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2412A951542D7F300E56CD7 /* UIKit.framework */; };
+		B2412A981542D7F300E56CD7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2412A971542D7F300E56CD7 /* Foundation.framework */; };
+		B2412A9A1542D7F300E56CD7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2412A991542D7F300E56CD7 /* CoreGraphics.framework */; };
+		B2412AA01542D7F300E56CD7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2412A9E1542D7F300E56CD7 /* InfoPlist.strings */; };
+		B2412AA21542D7F300E56CD7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B2412AA11542D7F300E56CD7 /* main.m */; };
+		B2412AA61542D7F300E56CD7 /* IchiyazukeAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B2412AA51542D7F300E56CD7 /* IchiyazukeAppDelegate.m */; };
+		B2412AA91542D7F300E56CD7 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2412AA71542D7F300E56CD7 /* MainStoryboard.storyboard */; };
+		B2412AAC1542D7F300E56CD7 /* IchiyazukeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2412AAB1542D7F300E56CD7 /* IchiyazukeViewController.m */; };
+		B2412AB41542D7F400E56CD7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2412AB31542D7F400E56CD7 /* SenTestingKit.framework */; };
+		B2412AB51542D7F400E56CD7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2412A951542D7F300E56CD7 /* UIKit.framework */; };
+		B2412AB61542D7F400E56CD7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2412A971542D7F300E56CD7 /* Foundation.framework */; };
+		B2412ABE1542D7F400E56CD7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2412ABC1542D7F400E56CD7 /* InfoPlist.strings */; };
+		B2412AC11542D7F400E56CD7 /* app_ichiyazuke_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B2412AC01542D7F400E56CD7 /* app_ichiyazuke_iosTests.m */; };
+		B2412ACE1542D86200E56CD7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2412ACA1542D86200E56CD7 /* Default@2x.png */; };
+		B2412AD11542D86200E56CD7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B2412ACD1542D86200E56CD7 /* Default.png */; };
+		B2412AD31542D87700E56CD7 /* ichiyazuke_icon_001.png in Resources */ = {isa = PBXBuildFile; fileRef = B2412AD21542D87700E56CD7 /* ichiyazuke_icon_001.png */; };
+		B2412AD51542D87D00E56CD7 /* ichiyazuke_icon_002.png in Resources */ = {isa = PBXBuildFile; fileRef = B2412AD41542D87D00E56CD7 /* ichiyazuke_icon_002.png */; };
+		B2412ADB1542DFE000E56CD7 /* sample_001.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2412ADA1542DFE000E56CD7 /* sample_001.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B2094B29153B312B00E57181 /* PBXContainerItemProxy */ = {
+		B2412AB71542D7F400E56CD7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B2094AFA153B312A00E57181 /* Project object */;
+			containerPortal = B2412A881542D7F300E56CD7 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B2094B02153B312B00E57181;
+			remoteGlobalIDString = B2412A901542D7F300E56CD7;
 			remoteInfo = app_ichiyazuke_ios;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B2094B03153B312B00E57181 /* app_ichiyazuke_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = app_ichiyazuke_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B2094B07153B312B00E57181 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		B2094B09153B312B00E57181 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		B2094B0B153B312B00E57181 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		B2094B0F153B312B00E57181 /* app_ichiyazuke_ios-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "app_ichiyazuke_ios-Info.plist"; sourceTree = "<group>"; };
-		B2094B11153B312B00E57181 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B2094B13153B312B00E57181 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B2094B15153B312B00E57181 /* app_ichiyazuke_ios-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "app_ichiyazuke_ios-Prefix.pch"; sourceTree = "<group>"; };
-		B2094B16153B312B00E57181 /* CounterAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CounterAppDelegate.h; sourceTree = "<group>"; };
-		B2094B17153B312B00E57181 /* CounterAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CounterAppDelegate.m; sourceTree = "<group>"; };
-		B2094B1A153B312B00E57181 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		B2094B1C153B312B00E57181 /* CounterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CounterViewController.h; sourceTree = "<group>"; };
-		B2094B1D153B312B00E57181 /* CounterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CounterViewController.m; sourceTree = "<group>"; };
-		B2094B24153B312B00E57181 /* app_ichiyazuke_iosTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = app_ichiyazuke_iosTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B2094B25153B312B00E57181 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		B2094B2D153B312B00E57181 /* app_ichiyazuke_iosTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "app_ichiyazuke_iosTests-Info.plist"; sourceTree = "<group>"; };
-		B2094B2F153B312B00E57181 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B2094B31153B312B00E57181 /* app_ichiyazuke_iosTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = app_ichiyazuke_iosTests.h; sourceTree = "<group>"; };
-		B2094B32153B312B00E57181 /* app_ichiyazuke_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = app_ichiyazuke_iosTests.m; sourceTree = "<group>"; };
+		B2412A911542D7F300E56CD7 /* app_ichiyazuke_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = app_ichiyazuke_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2412A951542D7F300E56CD7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B2412A971542D7F300E56CD7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B2412A991542D7F300E56CD7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B2412A9D1542D7F300E56CD7 /* app_ichiyazuke_ios-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "app_ichiyazuke_ios-Info.plist"; sourceTree = "<group>"; };
+		B2412A9F1542D7F300E56CD7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B2412AA11542D7F300E56CD7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B2412AA31542D7F300E56CD7 /* app_ichiyazuke_ios-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "app_ichiyazuke_ios-Prefix.pch"; sourceTree = "<group>"; };
+		B2412AA41542D7F300E56CD7 /* IchiyazukeAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IchiyazukeAppDelegate.h; sourceTree = "<group>"; };
+		B2412AA51542D7F300E56CD7 /* IchiyazukeAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IchiyazukeAppDelegate.m; sourceTree = "<group>"; };
+		B2412AA81542D7F300E56CD7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		B2412AAA1542D7F300E56CD7 /* IchiyazukeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IchiyazukeViewController.h; sourceTree = "<group>"; };
+		B2412AAB1542D7F300E56CD7 /* IchiyazukeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IchiyazukeViewController.m; sourceTree = "<group>"; };
+		B2412AB21542D7F400E56CD7 /* app_ichiyazuke_iosTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = app_ichiyazuke_iosTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2412AB31542D7F400E56CD7 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		B2412ABB1542D7F400E56CD7 /* app_ichiyazuke_iosTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "app_ichiyazuke_iosTests-Info.plist"; sourceTree = "<group>"; };
+		B2412ABD1542D7F400E56CD7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B2412ABF1542D7F400E56CD7 /* app_ichiyazuke_iosTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = app_ichiyazuke_iosTests.h; sourceTree = "<group>"; };
+		B2412AC01542D7F400E56CD7 /* app_ichiyazuke_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = app_ichiyazuke_iosTests.m; sourceTree = "<group>"; };
+		B2412ACA1542D86200E56CD7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../../../Default@2x.png"; sourceTree = "<group>"; };
+		B2412ACD1542D86200E56CD7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../../../Default.png; sourceTree = "<group>"; };
+		B2412AD21542D87700E56CD7 /* ichiyazuke_icon_001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ichiyazuke_icon_001.png; path = ../ichiyazuke_icon_001.png; sourceTree = "<group>"; };
+		B2412AD41542D87D00E56CD7 /* ichiyazuke_icon_002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ichiyazuke_icon_002.png; path = ../ichiyazuke_icon_002.png; sourceTree = "<group>"; };
+		B2412ADA1542DFE000E56CD7 /* sample_001.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sample_001.jpg; path = ../../../sample_001.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B2094B00153B312B00E57181 /* Frameworks */ = {
+		B2412A8E1542D7F300E56CD7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2094B08153B312B00E57181 /* UIKit.framework in Frameworks */,
-				B2094B0A153B312B00E57181 /* Foundation.framework in Frameworks */,
-				B2094B0C153B312B00E57181 /* CoreGraphics.framework in Frameworks */,
+				B2412A961542D7F300E56CD7 /* UIKit.framework in Frameworks */,
+				B2412A981542D7F300E56CD7 /* Foundation.framework in Frameworks */,
+				B2412A9A1542D7F300E56CD7 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B2094B20153B312B00E57181 /* Frameworks */ = {
+		B2412AAE1542D7F400E56CD7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2094B26153B312B00E57181 /* SenTestingKit.framework in Frameworks */,
-				B2094B27153B312B00E57181 /* UIKit.framework in Frameworks */,
-				B2094B28153B312B00E57181 /* Foundation.framework in Frameworks */,
+				B2412AB41542D7F400E56CD7 /* SenTestingKit.framework in Frameworks */,
+				B2412AB51542D7F400E56CD7 /* UIKit.framework in Frameworks */,
+				B2412AB61542D7F400E56CD7 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B2094AF8153B312A00E57181 = {
+		B2412A861542D7F300E56CD7 = {
 			isa = PBXGroup;
 			children = (
-				B2094B0D153B312B00E57181 /* app_ichiyazuke_ios */,
-				B2094B2B153B312B00E57181 /* app_ichiyazuke_iosTests */,
-				B2094B06153B312B00E57181 /* Frameworks */,
-				B2094B04153B312B00E57181 /* Products */,
+				B2412A9B1542D7F300E56CD7 /* app_ichiyazuke_ios */,
+				B2412AB91542D7F400E56CD7 /* app_ichiyazuke_iosTests */,
+				B2412A941542D7F300E56CD7 /* Frameworks */,
+				B2412A921542D7F300E56CD7 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		B2094B04153B312B00E57181 /* Products */ = {
+		B2412A921542D7F300E56CD7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B2094B03153B312B00E57181 /* app_ichiyazuke_ios.app */,
-				B2094B24153B312B00E57181 /* app_ichiyazuke_iosTests.octest */,
+				B2412A911542D7F300E56CD7 /* app_ichiyazuke_ios.app */,
+				B2412AB21542D7F400E56CD7 /* app_ichiyazuke_iosTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B2094B06153B312B00E57181 /* Frameworks */ = {
+		B2412A941542D7F300E56CD7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B2094B07153B312B00E57181 /* UIKit.framework */,
-				B2094B09153B312B00E57181 /* Foundation.framework */,
-				B2094B0B153B312B00E57181 /* CoreGraphics.framework */,
-				B2094B25153B312B00E57181 /* SenTestingKit.framework */,
+				B2412A951542D7F300E56CD7 /* UIKit.framework */,
+				B2412A971542D7F300E56CD7 /* Foundation.framework */,
+				B2412A991542D7F300E56CD7 /* CoreGraphics.framework */,
+				B2412AB31542D7F400E56CD7 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B2094B0D153B312B00E57181 /* app_ichiyazuke_ios */ = {
+		B2412A9B1542D7F300E56CD7 /* app_ichiyazuke_ios */ = {
 			isa = PBXGroup;
 			children = (
-				B2094B16153B312B00E57181 /* CounterAppDelegate.h */,
-				B2094B17153B312B00E57181 /* CounterAppDelegate.m */,
-				B2094B19153B312B00E57181 /* MainStoryboard.storyboard */,
-				B2094B1C153B312B00E57181 /* CounterViewController.h */,
-				B2094B1D153B312B00E57181 /* CounterViewController.m */,
-				B2094B0E153B312B00E57181 /* Supporting Files */,
+				B2412ADA1542DFE000E56CD7 /* sample_001.jpg */,
+				B2412AD21542D87700E56CD7 /* ichiyazuke_icon_001.png */,
+				B2412AD41542D87D00E56CD7 /* ichiyazuke_icon_002.png */,
+				B2412ACA1542D86200E56CD7 /* Default@2x.png */,
+				B2412ACD1542D86200E56CD7 /* Default.png */,
+				B2412AA41542D7F300E56CD7 /* IchiyazukeAppDelegate.h */,
+				B2412AA51542D7F300E56CD7 /* IchiyazukeAppDelegate.m */,
+				B2412AA71542D7F300E56CD7 /* MainStoryboard.storyboard */,
+				B2412AAA1542D7F300E56CD7 /* IchiyazukeViewController.h */,
+				B2412AAB1542D7F300E56CD7 /* IchiyazukeViewController.m */,
+				B2412A9C1542D7F300E56CD7 /* Supporting Files */,
 			);
 			path = app_ichiyazuke_ios;
 			sourceTree = "<group>";
 		};
-		B2094B0E153B312B00E57181 /* Supporting Files */ = {
+		B2412A9C1542D7F300E56CD7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B2094B0F153B312B00E57181 /* app_ichiyazuke_ios-Info.plist */,
-				B2094B10153B312B00E57181 /* InfoPlist.strings */,
-				B2094B13153B312B00E57181 /* main.m */,
-				B2094B15153B312B00E57181 /* app_ichiyazuke_ios-Prefix.pch */,
+				B2412A9D1542D7F300E56CD7 /* app_ichiyazuke_ios-Info.plist */,
+				B2412A9E1542D7F300E56CD7 /* InfoPlist.strings */,
+				B2412AA11542D7F300E56CD7 /* main.m */,
+				B2412AA31542D7F300E56CD7 /* app_ichiyazuke_ios-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		B2094B2B153B312B00E57181 /* app_ichiyazuke_iosTests */ = {
+		B2412AB91542D7F400E56CD7 /* app_ichiyazuke_iosTests */ = {
 			isa = PBXGroup;
 			children = (
-				B2094B31153B312B00E57181 /* app_ichiyazuke_iosTests.h */,
-				B2094B32153B312B00E57181 /* app_ichiyazuke_iosTests.m */,
-				B2094B2C153B312B00E57181 /* Supporting Files */,
+				B2412ABF1542D7F400E56CD7 /* app_ichiyazuke_iosTests.h */,
+				B2412AC01542D7F400E56CD7 /* app_ichiyazuke_iosTests.m */,
+				B2412ABA1542D7F400E56CD7 /* Supporting Files */,
 			);
 			path = app_ichiyazuke_iosTests;
 			sourceTree = "<group>";
 		};
-		B2094B2C153B312B00E57181 /* Supporting Files */ = {
+		B2412ABA1542D7F400E56CD7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B2094B2D153B312B00E57181 /* app_ichiyazuke_iosTests-Info.plist */,
-				B2094B2E153B312B00E57181 /* InfoPlist.strings */,
+				B2412ABB1542D7F400E56CD7 /* app_ichiyazuke_iosTests-Info.plist */,
+				B2412ABC1542D7F400E56CD7 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -154,13 +169,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B2094B02153B312B00E57181 /* app_ichiyazuke_ios */ = {
+		B2412A901542D7F300E56CD7 /* app_ichiyazuke_ios */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B2094B36153B312B00E57181 /* Build configuration list for PBXNativeTarget "app_ichiyazuke_ios" */;
+			buildConfigurationList = B2412AC41542D7F400E56CD7 /* Build configuration list for PBXNativeTarget "app_ichiyazuke_ios" */;
 			buildPhases = (
-				B2094AFF153B312B00E57181 /* Sources */,
-				B2094B00153B312B00E57181 /* Frameworks */,
-				B2094B01153B312B00E57181 /* Resources */,
+				B2412A8D1542D7F300E56CD7 /* Sources */,
+				B2412A8E1542D7F300E56CD7 /* Frameworks */,
+				B2412A8F1542D7F300E56CD7 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -168,78 +183,83 @@
 			);
 			name = app_ichiyazuke_ios;
 			productName = app_ichiyazuke_ios;
-			productReference = B2094B03153B312B00E57181 /* app_ichiyazuke_ios.app */;
+			productReference = B2412A911542D7F300E56CD7 /* app_ichiyazuke_ios.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B2094B23153B312B00E57181 /* app_ichiyazuke_iosTests */ = {
+		B2412AB11542D7F400E56CD7 /* app_ichiyazuke_iosTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B2094B39153B312B00E57181 /* Build configuration list for PBXNativeTarget "app_ichiyazuke_iosTests" */;
+			buildConfigurationList = B2412AC71542D7F400E56CD7 /* Build configuration list for PBXNativeTarget "app_ichiyazuke_iosTests" */;
 			buildPhases = (
-				B2094B1F153B312B00E57181 /* Sources */,
-				B2094B20153B312B00E57181 /* Frameworks */,
-				B2094B21153B312B00E57181 /* Resources */,
-				B2094B22153B312B00E57181 /* ShellScript */,
+				B2412AAD1542D7F400E56CD7 /* Sources */,
+				B2412AAE1542D7F400E56CD7 /* Frameworks */,
+				B2412AAF1542D7F400E56CD7 /* Resources */,
+				B2412AB01542D7F400E56CD7 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B2094B2A153B312B00E57181 /* PBXTargetDependency */,
+				B2412AB81542D7F400E56CD7 /* PBXTargetDependency */,
 			);
 			name = app_ichiyazuke_iosTests;
 			productName = app_ichiyazuke_iosTests;
-			productReference = B2094B24153B312B00E57181 /* app_ichiyazuke_iosTests.octest */;
+			productReference = B2412AB21542D7F400E56CD7 /* app_ichiyazuke_iosTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		B2094AFA153B312A00E57181 /* Project object */ = {
+		B2412A881542D7F300E56CD7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = Counter;
+				CLASSPREFIX = Ichiyazuke;
 				LastUpgradeCheck = 0430;
-				ORGANIZATIONNAME = "キラメックス株式会社";
+				ORGANIZATIONNAME = gishhub;
 			};
-			buildConfigurationList = B2094AFD153B312A00E57181 /* Build configuration list for PBXProject "app_ichiyazuke_ios" */;
+			buildConfigurationList = B2412A8B1542D7F300E56CD7 /* Build configuration list for PBXProject "app_ichiyazuke_ios" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = B2094AF8153B312A00E57181;
-			productRefGroup = B2094B04153B312B00E57181 /* Products */;
+			mainGroup = B2412A861542D7F300E56CD7;
+			productRefGroup = B2412A921542D7F300E56CD7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B2094B02153B312B00E57181 /* app_ichiyazuke_ios */,
-				B2094B23153B312B00E57181 /* app_ichiyazuke_iosTests */,
+				B2412A901542D7F300E56CD7 /* app_ichiyazuke_ios */,
+				B2412AB11542D7F400E56CD7 /* app_ichiyazuke_iosTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		B2094B01153B312B00E57181 /* Resources */ = {
+		B2412A8F1542D7F300E56CD7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2094B12153B312B00E57181 /* InfoPlist.strings in Resources */,
-				B2094B1B153B312B00E57181 /* MainStoryboard.storyboard in Resources */,
+				B2412AA01542D7F300E56CD7 /* InfoPlist.strings in Resources */,
+				B2412AA91542D7F300E56CD7 /* MainStoryboard.storyboard in Resources */,
+				B2412ACE1542D86200E56CD7 /* Default@2x.png in Resources */,
+				B2412AD11542D86200E56CD7 /* Default.png in Resources */,
+				B2412AD31542D87700E56CD7 /* ichiyazuke_icon_001.png in Resources */,
+				B2412AD51542D87D00E56CD7 /* ichiyazuke_icon_002.png in Resources */,
+				B2412ADB1542DFE000E56CD7 /* sample_001.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B2094B21153B312B00E57181 /* Resources */ = {
+		B2412AAF1542D7F400E56CD7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2094B30153B312B00E57181 /* InfoPlist.strings in Resources */,
+				B2412ABE1542D7F400E56CD7 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B2094B22153B312B00E57181 /* ShellScript */ = {
+		B2412AB01542D7F400E56CD7 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -255,55 +275,55 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		B2094AFF153B312B00E57181 /* Sources */ = {
+		B2412A8D1542D7F300E56CD7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2094B14153B312B00E57181 /* main.m in Sources */,
-				B2094B18153B312B00E57181 /* CounterAppDelegate.m in Sources */,
-				B2094B1E153B312B00E57181 /* CounterViewController.m in Sources */,
+				B2412AA21542D7F300E56CD7 /* main.m in Sources */,
+				B2412AA61542D7F300E56CD7 /* IchiyazukeAppDelegate.m in Sources */,
+				B2412AAC1542D7F300E56CD7 /* IchiyazukeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B2094B1F153B312B00E57181 /* Sources */ = {
+		B2412AAD1542D7F400E56CD7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2094B33153B312B00E57181 /* app_ichiyazuke_iosTests.m in Sources */,
+				B2412AC11542D7F400E56CD7 /* app_ichiyazuke_iosTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B2094B2A153B312B00E57181 /* PBXTargetDependency */ = {
+		B2412AB81542D7F400E56CD7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B2094B02153B312B00E57181 /* app_ichiyazuke_ios */;
-			targetProxy = B2094B29153B312B00E57181 /* PBXContainerItemProxy */;
+			target = B2412A901542D7F300E56CD7 /* app_ichiyazuke_ios */;
+			targetProxy = B2412AB71542D7F400E56CD7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B2094B10153B312B00E57181 /* InfoPlist.strings */ = {
+		B2412A9E1542D7F300E56CD7 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B2094B11153B312B00E57181 /* en */,
+				B2412A9F1542D7F300E56CD7 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		B2094B19153B312B00E57181 /* MainStoryboard.storyboard */ = {
+		B2412AA71542D7F300E56CD7 /* MainStoryboard.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B2094B1A153B312B00E57181 /* en */,
+				B2412AA81542D7F300E56CD7 /* en */,
 			);
 			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
-		B2094B2E153B312B00E57181 /* InfoPlist.strings */ = {
+		B2412ABC1542D7F400E56CD7 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B2094B2F153B312B00E57181 /* en */,
+				B2412ABD1542D7F400E56CD7 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -311,7 +331,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		B2094B34153B312B00E57181 /* Debug */ = {
+		B2412AC21542D7F400E56CD7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -336,7 +356,7 @@
 			};
 			name = Debug;
 		};
-		B2094B35153B312B00E57181 /* Release */ = {
+		B2412AC31542D7F400E56CD7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -356,7 +376,7 @@
 			};
 			name = Release;
 		};
-		B2094B37153B312B00E57181 /* Debug */ = {
+		B2412AC51542D7F400E56CD7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -367,7 +387,7 @@
 			};
 			name = Debug;
 		};
-		B2094B38153B312B00E57181 /* Release */ = {
+		B2412AC61542D7F400E56CD7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -378,7 +398,7 @@
 			};
 			name = Release;
 		};
-		B2094B3A153B312B00E57181 /* Debug */ = {
+		B2412AC81542D7F400E56CD7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/app_ichiyazuke_ios.app/app_ichiyazuke_ios";
@@ -395,7 +415,7 @@
 			};
 			name = Debug;
 		};
-		B2094B3B153B312B00E57181 /* Release */ = {
+		B2412AC91542D7F400E56CD7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/app_ichiyazuke_ios.app/app_ichiyazuke_ios";
@@ -415,32 +435,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B2094AFD153B312A00E57181 /* Build configuration list for PBXProject "app_ichiyazuke_ios" */ = {
+		B2412A8B1542D7F300E56CD7 /* Build configuration list for PBXProject "app_ichiyazuke_ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B2094B34153B312B00E57181 /* Debug */,
-				B2094B35153B312B00E57181 /* Release */,
+				B2412AC21542D7F400E56CD7 /* Debug */,
+				B2412AC31542D7F400E56CD7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B2094B36153B312B00E57181 /* Build configuration list for PBXNativeTarget "app_ichiyazuke_ios" */ = {
+		B2412AC41542D7F400E56CD7 /* Build configuration list for PBXNativeTarget "app_ichiyazuke_ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B2094B37153B312B00E57181 /* Debug */,
-				B2094B38153B312B00E57181 /* Release */,
+				B2412AC51542D7F400E56CD7 /* Debug */,
+				B2412AC61542D7F400E56CD7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		B2094B39153B312B00E57181 /* Build configuration list for PBXNativeTarget "app_ichiyazuke_iosTests" */ = {
+		B2412AC71542D7F400E56CD7 /* Build configuration list for PBXNativeTarget "app_ichiyazuke_iosTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B2094B3A153B312B00E57181 /* Debug */,
-				B2094B3B153B312B00E57181 /* Release */,
+				B2412AC81542D7F400E56CD7 /* Debug */,
+				B2412AC91542D7F400E56CD7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = B2094AFA153B312A00E57181 /* Project object */;
+	rootObject = B2412A881542D7F300E56CD7 /* Project object */;
 }
