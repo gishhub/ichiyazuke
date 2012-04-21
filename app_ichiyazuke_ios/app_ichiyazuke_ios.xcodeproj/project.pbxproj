@@ -20,6 +20,10 @@
 		B2094B28153B312B00E57181 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2094B09153B312B00E57181 /* Foundation.framework */; };
 		B2094B30153B312B00E57181 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2094B2E153B312B00E57181 /* InfoPlist.strings */; };
 		B2094B33153B312B00E57181 /* app_ichiyazuke_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B2094B32153B312B00E57181 /* app_ichiyazuke_iosTests.m */; };
+		B2B03664154273AF003E211D /* ichiyazuke_icon_002.png in Resources */ = {isa = PBXBuildFile; fileRef = B2B03662154273AF003E211D /* ichiyazuke_icon_002.png */; };
+		B2B0366615427459003E211D /* ichiyazuke_icon_001.png in Resources */ = {isa = PBXBuildFile; fileRef = B2B0366515427459003E211D /* ichiyazuke_icon_001.png */; };
+		B2B0366A15427873003E211D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B2B0366915427873003E211D /* Default.png */; };
+		B2B0366E15427A27003E211D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2B0366D15427A27003E211D /* Default@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +56,10 @@
 		B2094B2F153B312B00E57181 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B2094B31153B312B00E57181 /* app_ichiyazuke_iosTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = app_ichiyazuke_iosTests.h; sourceTree = "<group>"; };
 		B2094B32153B312B00E57181 /* app_ichiyazuke_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = app_ichiyazuke_iosTests.m; sourceTree = "<group>"; };
+		B2B03662154273AF003E211D /* ichiyazuke_icon_002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ichiyazuke_icon_002.png; path = ../ichiyazuke_icon_002.png; sourceTree = "<group>"; };
+		B2B0366515427459003E211D /* ichiyazuke_icon_001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ichiyazuke_icon_001.png; path = ../ichiyazuke_icon_001.png; sourceTree = "<group>"; };
+		B2B0366915427873003E211D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
+		B2B0366D15427A27003E211D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +119,10 @@
 		B2094B0D153B312B00E57181 /* app_ichiyazuke_ios */ = {
 			isa = PBXGroup;
 			children = (
+				B2B0366915427873003E211D /* Default.png */,
+				B2B0366D15427A27003E211D /* Default@2x.png */,
+				B2B0366515427459003E211D /* ichiyazuke_icon_001.png */,
+				B2B03662154273AF003E211D /* ichiyazuke_icon_002.png */,
 				B2094B16153B312B00E57181 /* CounterAppDelegate.h */,
 				B2094B17153B312B00E57181 /* CounterAppDelegate.m */,
 				B2094B19153B312B00E57181 /* MainStoryboard.storyboard */,
@@ -225,6 +237,10 @@
 			files = (
 				B2094B12153B312B00E57181 /* InfoPlist.strings in Resources */,
 				B2094B1B153B312B00E57181 /* MainStoryboard.storyboard in Resources */,
+				B2B03664154273AF003E211D /* ichiyazuke_icon_002.png in Resources */,
+				B2B0366615427459003E211D /* ichiyazuke_icon_001.png in Resources */,
+				B2B0366A15427873003E211D /* Default.png in Resources */,
+				B2B0366E15427A27003E211D /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +447,7 @@
 				B2094B38153B312B00E57181 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B2094B39153B312B00E57181 /* Build configuration list for PBXNativeTarget "app_ichiyazuke_iosTests" */ = {
 			isa = XCConfigurationList;
@@ -439,6 +456,7 @@
 				B2094B3B153B312B00E57181 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
