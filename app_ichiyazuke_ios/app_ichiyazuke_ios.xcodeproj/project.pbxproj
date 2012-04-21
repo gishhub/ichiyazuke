@@ -1,0 +1,462 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B2412A961542D7F300E56CD7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2412A951542D7F300E56CD7 /* UIKit.framework */; };
+		B2412A981542D7F300E56CD7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2412A971542D7F300E56CD7 /* Foundation.framework */; };
+		B2412A9A1542D7F300E56CD7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2412A991542D7F300E56CD7 /* CoreGraphics.framework */; };
+		B2412AA01542D7F300E56CD7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2412A9E1542D7F300E56CD7 /* InfoPlist.strings */; };
+		B2412AA21542D7F300E56CD7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B2412AA11542D7F300E56CD7 /* main.m */; };
+		B2412AA61542D7F300E56CD7 /* IchiyazukeAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B2412AA51542D7F300E56CD7 /* IchiyazukeAppDelegate.m */; };
+		B2412AA91542D7F300E56CD7 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2412AA71542D7F300E56CD7 /* MainStoryboard.storyboard */; };
+		B2412AAC1542D7F300E56CD7 /* IchiyazukeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2412AAB1542D7F300E56CD7 /* IchiyazukeViewController.m */; };
+		B2412AB41542D7F400E56CD7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2412AB31542D7F400E56CD7 /* SenTestingKit.framework */; };
+		B2412AB51542D7F400E56CD7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2412A951542D7F300E56CD7 /* UIKit.framework */; };
+		B2412AB61542D7F400E56CD7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2412A971542D7F300E56CD7 /* Foundation.framework */; };
+		B2412ABE1542D7F400E56CD7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2412ABC1542D7F400E56CD7 /* InfoPlist.strings */; };
+		B2412AC11542D7F400E56CD7 /* app_ichiyazuke_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B2412AC01542D7F400E56CD7 /* app_ichiyazuke_iosTests.m */; };
+		B2412ACE1542D86200E56CD7 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2412ACA1542D86200E56CD7 /* Default@2x.png */; };
+		B2412AD11542D86200E56CD7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B2412ACD1542D86200E56CD7 /* Default.png */; };
+		B2412AD31542D87700E56CD7 /* ichiyazuke_icon_001.png in Resources */ = {isa = PBXBuildFile; fileRef = B2412AD21542D87700E56CD7 /* ichiyazuke_icon_001.png */; };
+		B2412AD51542D87D00E56CD7 /* ichiyazuke_icon_002.png in Resources */ = {isa = PBXBuildFile; fileRef = B2412AD41542D87D00E56CD7 /* ichiyazuke_icon_002.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B2412AB71542D7F400E56CD7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B2412A881542D7F300E56CD7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B2412A901542D7F300E56CD7;
+			remoteInfo = app_ichiyazuke_ios;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B2412A911542D7F300E56CD7 /* app_ichiyazuke_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = app_ichiyazuke_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2412A951542D7F300E56CD7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B2412A971542D7F300E56CD7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B2412A991542D7F300E56CD7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B2412A9D1542D7F300E56CD7 /* app_ichiyazuke_ios-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "app_ichiyazuke_ios-Info.plist"; sourceTree = "<group>"; };
+		B2412A9F1542D7F300E56CD7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B2412AA11542D7F300E56CD7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B2412AA31542D7F300E56CD7 /* app_ichiyazuke_ios-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "app_ichiyazuke_ios-Prefix.pch"; sourceTree = "<group>"; };
+		B2412AA41542D7F300E56CD7 /* IchiyazukeAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IchiyazukeAppDelegate.h; sourceTree = "<group>"; };
+		B2412AA51542D7F300E56CD7 /* IchiyazukeAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IchiyazukeAppDelegate.m; sourceTree = "<group>"; };
+		B2412AA81542D7F300E56CD7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		B2412AAA1542D7F300E56CD7 /* IchiyazukeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IchiyazukeViewController.h; sourceTree = "<group>"; };
+		B2412AAB1542D7F300E56CD7 /* IchiyazukeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IchiyazukeViewController.m; sourceTree = "<group>"; };
+		B2412AB21542D7F400E56CD7 /* app_ichiyazuke_iosTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = app_ichiyazuke_iosTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2412AB31542D7F400E56CD7 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		B2412ABB1542D7F400E56CD7 /* app_ichiyazuke_iosTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "app_ichiyazuke_iosTests-Info.plist"; sourceTree = "<group>"; };
+		B2412ABD1542D7F400E56CD7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B2412ABF1542D7F400E56CD7 /* app_ichiyazuke_iosTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = app_ichiyazuke_iosTests.h; sourceTree = "<group>"; };
+		B2412AC01542D7F400E56CD7 /* app_ichiyazuke_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = app_ichiyazuke_iosTests.m; sourceTree = "<group>"; };
+		B2412ACA1542D86200E56CD7 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../../../Default@2x.png"; sourceTree = "<group>"; };
+		B2412ACD1542D86200E56CD7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../../../Default.png; sourceTree = "<group>"; };
+		B2412AD21542D87700E56CD7 /* ichiyazuke_icon_001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ichiyazuke_icon_001.png; path = ../ichiyazuke_icon_001.png; sourceTree = "<group>"; };
+		B2412AD41542D87D00E56CD7 /* ichiyazuke_icon_002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ichiyazuke_icon_002.png; path = ../ichiyazuke_icon_002.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B2412A8E1542D7F300E56CD7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2412A961542D7F300E56CD7 /* UIKit.framework in Frameworks */,
+				B2412A981542D7F300E56CD7 /* Foundation.framework in Frameworks */,
+				B2412A9A1542D7F300E56CD7 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2412AAE1542D7F400E56CD7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2412AB41542D7F400E56CD7 /* SenTestingKit.framework in Frameworks */,
+				B2412AB51542D7F400E56CD7 /* UIKit.framework in Frameworks */,
+				B2412AB61542D7F400E56CD7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B2412A861542D7F300E56CD7 = {
+			isa = PBXGroup;
+			children = (
+				B2412A9B1542D7F300E56CD7 /* app_ichiyazuke_ios */,
+				B2412AB91542D7F400E56CD7 /* app_ichiyazuke_iosTests */,
+				B2412A941542D7F300E56CD7 /* Frameworks */,
+				B2412A921542D7F300E56CD7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B2412A921542D7F300E56CD7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B2412A911542D7F300E56CD7 /* app_ichiyazuke_ios.app */,
+				B2412AB21542D7F400E56CD7 /* app_ichiyazuke_iosTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B2412A941542D7F300E56CD7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B2412A951542D7F300E56CD7 /* UIKit.framework */,
+				B2412A971542D7F300E56CD7 /* Foundation.framework */,
+				B2412A991542D7F300E56CD7 /* CoreGraphics.framework */,
+				B2412AB31542D7F400E56CD7 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B2412A9B1542D7F300E56CD7 /* app_ichiyazuke_ios */ = {
+			isa = PBXGroup;
+			children = (
+				B2412AD21542D87700E56CD7 /* ichiyazuke_icon_001.png */,
+				B2412AD41542D87D00E56CD7 /* ichiyazuke_icon_002.png */,
+				B2412ACA1542D86200E56CD7 /* Default@2x.png */,
+				B2412ACD1542D86200E56CD7 /* Default.png */,
+				B2412AA41542D7F300E56CD7 /* IchiyazukeAppDelegate.h */,
+				B2412AA51542D7F300E56CD7 /* IchiyazukeAppDelegate.m */,
+				B2412AA71542D7F300E56CD7 /* MainStoryboard.storyboard */,
+				B2412AAA1542D7F300E56CD7 /* IchiyazukeViewController.h */,
+				B2412AAB1542D7F300E56CD7 /* IchiyazukeViewController.m */,
+				B2412A9C1542D7F300E56CD7 /* Supporting Files */,
+			);
+			path = app_ichiyazuke_ios;
+			sourceTree = "<group>";
+		};
+		B2412A9C1542D7F300E56CD7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B2412A9D1542D7F300E56CD7 /* app_ichiyazuke_ios-Info.plist */,
+				B2412A9E1542D7F300E56CD7 /* InfoPlist.strings */,
+				B2412AA11542D7F300E56CD7 /* main.m */,
+				B2412AA31542D7F300E56CD7 /* app_ichiyazuke_ios-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B2412AB91542D7F400E56CD7 /* app_ichiyazuke_iosTests */ = {
+			isa = PBXGroup;
+			children = (
+				B2412ABF1542D7F400E56CD7 /* app_ichiyazuke_iosTests.h */,
+				B2412AC01542D7F400E56CD7 /* app_ichiyazuke_iosTests.m */,
+				B2412ABA1542D7F400E56CD7 /* Supporting Files */,
+			);
+			path = app_ichiyazuke_iosTests;
+			sourceTree = "<group>";
+		};
+		B2412ABA1542D7F400E56CD7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B2412ABB1542D7F400E56CD7 /* app_ichiyazuke_iosTests-Info.plist */,
+				B2412ABC1542D7F400E56CD7 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B2412A901542D7F300E56CD7 /* app_ichiyazuke_ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B2412AC41542D7F400E56CD7 /* Build configuration list for PBXNativeTarget "app_ichiyazuke_ios" */;
+			buildPhases = (
+				B2412A8D1542D7F300E56CD7 /* Sources */,
+				B2412A8E1542D7F300E56CD7 /* Frameworks */,
+				B2412A8F1542D7F300E56CD7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = app_ichiyazuke_ios;
+			productName = app_ichiyazuke_ios;
+			productReference = B2412A911542D7F300E56CD7 /* app_ichiyazuke_ios.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B2412AB11542D7F400E56CD7 /* app_ichiyazuke_iosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B2412AC71542D7F400E56CD7 /* Build configuration list for PBXNativeTarget "app_ichiyazuke_iosTests" */;
+			buildPhases = (
+				B2412AAD1542D7F400E56CD7 /* Sources */,
+				B2412AAE1542D7F400E56CD7 /* Frameworks */,
+				B2412AAF1542D7F400E56CD7 /* Resources */,
+				B2412AB01542D7F400E56CD7 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B2412AB81542D7F400E56CD7 /* PBXTargetDependency */,
+			);
+			name = app_ichiyazuke_iosTests;
+			productName = app_ichiyazuke_iosTests;
+			productReference = B2412AB21542D7F400E56CD7 /* app_ichiyazuke_iosTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B2412A881542D7F300E56CD7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Ichiyazuke;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = gishhub;
+			};
+			buildConfigurationList = B2412A8B1542D7F300E56CD7 /* Build configuration list for PBXProject "app_ichiyazuke_ios" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B2412A861542D7F300E56CD7;
+			productRefGroup = B2412A921542D7F300E56CD7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B2412A901542D7F300E56CD7 /* app_ichiyazuke_ios */,
+				B2412AB11542D7F400E56CD7 /* app_ichiyazuke_iosTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B2412A8F1542D7F300E56CD7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2412AA01542D7F300E56CD7 /* InfoPlist.strings in Resources */,
+				B2412AA91542D7F300E56CD7 /* MainStoryboard.storyboard in Resources */,
+				B2412ACE1542D86200E56CD7 /* Default@2x.png in Resources */,
+				B2412AD11542D86200E56CD7 /* Default.png in Resources */,
+				B2412AD31542D87700E56CD7 /* ichiyazuke_icon_001.png in Resources */,
+				B2412AD51542D87D00E56CD7 /* ichiyazuke_icon_002.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2412AAF1542D7F400E56CD7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2412ABE1542D7F400E56CD7 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B2412AB01542D7F400E56CD7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B2412A8D1542D7F300E56CD7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2412AA21542D7F300E56CD7 /* main.m in Sources */,
+				B2412AA61542D7F300E56CD7 /* IchiyazukeAppDelegate.m in Sources */,
+				B2412AAC1542D7F300E56CD7 /* IchiyazukeViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2412AAD1542D7F400E56CD7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2412AC11542D7F400E56CD7 /* app_ichiyazuke_iosTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B2412AB81542D7F400E56CD7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B2412A901542D7F300E56CD7 /* app_ichiyazuke_ios */;
+			targetProxy = B2412AB71542D7F400E56CD7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B2412A9E1542D7F300E56CD7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B2412A9F1542D7F300E56CD7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B2412AA71542D7F300E56CD7 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B2412AA81542D7F300E56CD7 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		B2412ABC1542D7F400E56CD7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B2412ABD1542D7F400E56CD7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B2412AC21542D7F400E56CD7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		B2412AC31542D7F400E56CD7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B2412AC51542D7F400E56CD7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "app_ichiyazuke_ios/app_ichiyazuke_ios-Prefix.pch";
+				INFOPLIST_FILE = "app_ichiyazuke_ios/app_ichiyazuke_ios-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B2412AC61542D7F400E56CD7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "app_ichiyazuke_ios/app_ichiyazuke_ios-Prefix.pch";
+				INFOPLIST_FILE = "app_ichiyazuke_ios/app_ichiyazuke_ios-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		B2412AC81542D7F400E56CD7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/app_ichiyazuke_ios.app/app_ichiyazuke_ios";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "app_ichiyazuke_ios/app_ichiyazuke_ios-Prefix.pch";
+				INFOPLIST_FILE = "app_ichiyazuke_iosTests/app_ichiyazuke_iosTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		B2412AC91542D7F400E56CD7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/app_ichiyazuke_ios.app/app_ichiyazuke_ios";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "app_ichiyazuke_ios/app_ichiyazuke_ios-Prefix.pch";
+				INFOPLIST_FILE = "app_ichiyazuke_iosTests/app_ichiyazuke_iosTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B2412A8B1542D7F300E56CD7 /* Build configuration list for PBXProject "app_ichiyazuke_ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2412AC21542D7F400E56CD7 /* Debug */,
+				B2412AC31542D7F400E56CD7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B2412AC41542D7F400E56CD7 /* Build configuration list for PBXNativeTarget "app_ichiyazuke_ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2412AC51542D7F400E56CD7 /* Debug */,
+				B2412AC61542D7F400E56CD7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B2412AC71542D7F400E56CD7 /* Build configuration list for PBXNativeTarget "app_ichiyazuke_iosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B2412AC81542D7F400E56CD7 /* Debug */,
+				B2412AC91542D7F400E56CD7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B2412A881542D7F300E56CD7 /* Project object */;
+}
