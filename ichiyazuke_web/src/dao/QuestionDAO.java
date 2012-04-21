@@ -27,7 +27,6 @@ public class QuestionDAO {
 					rset.getString(5), rset.getString(6),rset.getString(7),rset.getString(8), rset.getString(9), rset.getString(10), rset.getString(11), rset.getDate(12),rset.getDate(13));
 		}
 		
-		return q;
-		
+		return q;		
 	}
 }

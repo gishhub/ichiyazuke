@@ -11,7 +11,7 @@ public class ConnectionManager {
 		Connection con = null;
 		try {
 			Class.forName("org.gjt.mm.mysql.Driver");
-			con = DriverManager.getConnection("jdbc:mysql" + "//" + "?", "webuser" + "password");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ichiyazuke_db" + "?usernicode=true&characterEncoding=Windows-31J", "ichiyazuke_user", "password");
 			
 		} catch (ClassNotFoundException e) {
 			throw new SQLException(e.getMessage());

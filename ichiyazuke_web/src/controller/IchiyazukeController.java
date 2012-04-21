@@ -19,7 +19,11 @@ public class IchiyazukeController {
 	public static String perform(HttpServletRequest request,
 			HttpServletResponse response) {
 		// TODO Auto-generated method stub
+		
+		// where to send question informatio.
 		String nextPage = "/ichiyazuke/HelloWorld";
+		
+		// question id をキーにして、データを取得
 		String questionIdString = request.getParameter("questionId");
 		int questionId = Integer.parseInt(questionIdString);
 		
@@ -28,16 +32,14 @@ public class IchiyazukeController {
 		try{
 			con = ConnectionManager.getConnection();
 			QuestionDAO dao = new QuestionDAO(con);
-			
 			Question question = dao.selectById(questionId);
+			
 		} catch(SQLException e){
 			e.printStackTrace();
 			request.setAttribute("error", "ERROR in DB");
+			
 		}
-		
-		
-		
+
 		return nextPage;
 	}
-
 }
