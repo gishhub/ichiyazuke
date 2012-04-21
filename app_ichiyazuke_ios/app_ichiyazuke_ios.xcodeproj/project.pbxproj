@@ -24,6 +24,7 @@
 		B2412AD11542D86200E56CD7 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B2412ACD1542D86200E56CD7 /* Default.png */; };
 		B2412AD31542D87700E56CD7 /* ichiyazuke_icon_001.png in Resources */ = {isa = PBXBuildFile; fileRef = B2412AD21542D87700E56CD7 /* ichiyazuke_icon_001.png */; };
 		B2412AD51542D87D00E56CD7 /* ichiyazuke_icon_002.png in Resources */ = {isa = PBXBuildFile; fileRef = B2412AD41542D87D00E56CD7 /* ichiyazuke_icon_002.png */; };
+		B2412ADB1542DFE000E56CD7 /* sample_001.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2412ADA1542DFE000E56CD7 /* sample_001.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		B2412ACD1542D86200E56CD7 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../../../Default.png; sourceTree = "<group>"; };
 		B2412AD21542D87700E56CD7 /* ichiyazuke_icon_001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ichiyazuke_icon_001.png; path = ../ichiyazuke_icon_001.png; sourceTree = "<group>"; };
 		B2412AD41542D87D00E56CD7 /* ichiyazuke_icon_002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ichiyazuke_icon_002.png; path = ../ichiyazuke_icon_002.png; sourceTree = "<group>"; };
+		B2412ADA1542DFE000E56CD7 /* sample_001.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sample_001.jpg; path = ../../../sample_001.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 		B2412A9B1542D7F300E56CD7 /* app_ichiyazuke_ios */ = {
 			isa = PBXGroup;
 			children = (
+				B2412ADA1542DFE000E56CD7 /* sample_001.jpg */,
 				B2412AD21542D87700E56CD7 /* ichiyazuke_icon_001.png */,
 				B2412AD41542D87D00E56CD7 /* ichiyazuke_icon_002.png */,
 				B2412ACA1542D86200E56CD7 /* Default@2x.png */,
@@ -241,6 +244,7 @@
 				B2412AD11542D86200E56CD7 /* Default.png in Resources */,
 				B2412AD31542D87700E56CD7 /* ichiyazuke_icon_001.png in Resources */,
 				B2412AD51542D87D00E56CD7 /* ichiyazuke_icon_002.png in Resources */,
+				B2412ADB1542DFE000E56CD7 /* sample_001.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +451,7 @@
 				B2412AC61542D7F400E56CD7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B2412AC71542D7F400E56CD7 /* Build configuration list for PBXNativeTarget "app_ichiyazuke_iosTests" */ = {
 			isa = XCConfigurationList;
@@ -455,6 +460,7 @@
 				B2412AC91542D7F400E56CD7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
