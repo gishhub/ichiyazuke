@@ -37,20 +37,20 @@
 		B2094B07153B312B00E57181 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B2094B09153B312B00E57181 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B2094B0B153B312B00E57181 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		B2094B0F153B312B00E57181 /* app_ichiyazuke_ios-Info.plist */ = {isa = PBXFileReference; path = "app_ichiyazuke_ios-Info.plist"; sourceTree = "<group>"; };
+		B2094B0F153B312B00E57181 /* app_ichiyazuke_ios-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "app_ichiyazuke_ios-Info.plist"; sourceTree = "<group>"; };
 		B2094B11153B312B00E57181 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B2094B13153B312B00E57181 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B2094B15153B312B00E57181 /* app_ichiyazuke_ios-Prefix.pch */ = {isa = PBXFileReference; path = "app_ichiyazuke_ios-Prefix.pch"; sourceTree = "<group>"; };
-		B2094B16153B312B00E57181 /* CounterAppDelegate.h */ = {isa = PBXFileReference; path = CounterAppDelegate.h; sourceTree = "<group>"; };
+		B2094B15153B312B00E57181 /* app_ichiyazuke_ios-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "app_ichiyazuke_ios-Prefix.pch"; sourceTree = "<group>"; };
+		B2094B16153B312B00E57181 /* CounterAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CounterAppDelegate.h; sourceTree = "<group>"; };
 		B2094B17153B312B00E57181 /* CounterAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CounterAppDelegate.m; sourceTree = "<group>"; };
 		B2094B1A153B312B00E57181 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		B2094B1C153B312B00E57181 /* CounterViewController.h */ = {isa = PBXFileReference; path = CounterViewController.h; sourceTree = "<group>"; };
+		B2094B1C153B312B00E57181 /* CounterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CounterViewController.h; sourceTree = "<group>"; };
 		B2094B1D153B312B00E57181 /* CounterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CounterViewController.m; sourceTree = "<group>"; };
 		B2094B24153B312B00E57181 /* app_ichiyazuke_iosTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = app_ichiyazuke_iosTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2094B25153B312B00E57181 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		B2094B2D153B312B00E57181 /* app_ichiyazuke_iosTests-Info.plist */ = {isa = PBXFileReference; path = "app_ichiyazuke_iosTests-Info.plist"; sourceTree = "<group>"; };
+		B2094B2D153B312B00E57181 /* app_ichiyazuke_iosTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "app_ichiyazuke_iosTests-Info.plist"; sourceTree = "<group>"; };
 		B2094B2F153B312B00E57181 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B2094B31153B312B00E57181 /* app_ichiyazuke_iosTests.h */ = {isa = PBXFileReference; path = app_ichiyazuke_iosTests.h; sourceTree = "<group>"; };
+		B2094B31153B312B00E57181 /* app_ichiyazuke_iosTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = app_ichiyazuke_iosTests.h; sourceTree = "<group>"; };
 		B2094B32153B312B00E57181 /* app_ichiyazuke_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = app_ichiyazuke_iosTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
