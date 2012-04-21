@@ -1,8 +1,0 @@
-redmine:
-   type: ruby
-   approot: redmine-1.2.1
-   config:
-      ruby-version: ree
-
-db:
-   type: mysql
