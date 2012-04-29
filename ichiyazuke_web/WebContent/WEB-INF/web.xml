@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
-  <display-name>ichiyazuke_web</display-name>
+  <display-name>Ichiyazuke</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
@@ -10,23 +10,18 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
-    <description></description>
-    <display-name>HelloWorld</display-name>
-    <servlet-name>HelloWorld</servlet-name>
-    <servlet-class>ichiyazuke.ichiyazuke.com.HelloWorld</servlet-class>
+    <servlet-name>Initialize</servlet-name>
+    <servlet-class>init.Initialize</servlet-class>
+    <load-on-startup>0</load-on-startup>
   </servlet>
-  <servlet-mapping>
-    <servlet-name>HelloWorld</servlet-name>
-    <url-pattern>/HelloWorld</url-pattern>
-  </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>ControllerServlet</display-name>
-    <servlet-name>ControllerServlet</servlet-name>
-    <servlet-class>controller.ControllerServlet</servlet-class>
+    <display-name>IchiyazukeServlet</display-name>
+    <servlet-name>IchiyazukeServlet</servlet-name>
+    <servlet-class>servlet.IchiyazukeServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ControllerServlet</servlet-name>
-    <url-pattern>/ControllerServlet</url-pattern>
+    <servlet-name>IchiyazukeServlet</servlet-name>
+    <url-pattern>/*</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import dto.Question;
 
@@ -20,6 +21,8 @@ public class QuestionDAO {
 		Statement stmt = con.createStatement();
 		
 		ResultSet rset = stmt.executeQuery(sql);
+		
+//		ArrayList questionList = JSONArray.fromObject()
 		
 		if (rset.next()) {
 			q = new Question(rset.getInt(1),
