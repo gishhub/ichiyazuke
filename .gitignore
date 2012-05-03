@@ -1,2 +1,7 @@
 # Mac
 .DS_Store
+
+# ichiyazuke.properties
+ichiyazuke_web/src/init/ichiyazuke.properties
+
+
