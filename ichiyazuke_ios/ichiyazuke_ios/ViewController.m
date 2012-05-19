@@ -13,7 +13,6 @@
 @end
 
 @implementation ViewController
-@synthesize udidLabel;
 
 - (void)viewDidLoad
 {
@@ -23,7 +22,6 @@
 
 - (void)viewDidUnload
 {
-    [self setUdidLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -33,8 +31,25 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
-- (IBAction)udidButton:(id)sender {
-    NSString *udid = [UIDevice currentDevice].uniqueIdentifier;
-    self.udidLabel.text = udid;
+- (IBAction)loginButton:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ログイン"
+                                                    message:nil
+                                                   delegate:nil
+                                          cancelButtonTitle:@"Cancel"
+                                          otherButtonTitles:@"OK",nil];
+    alert.delegate = self;
+    alert.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
+    [alert show];
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        UITextField *loginNameField = [alertView textFieldAtIndex:0];
+        UITextField *passField = [alertView textFieldAtIndex:1];
+        NSString *login = loginNameField.text;
+        NSString *pass = passField.text;
+        NSLog(@"id: %@",login);
+        NSLog(@"password: %@",pass);
+    }
 }
 @end

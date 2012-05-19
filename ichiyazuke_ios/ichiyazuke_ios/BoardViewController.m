@@ -44,8 +44,20 @@
 }
 
 - (IBAction)tweetButton:(id)sender {
+    
     NSString *url         = @"http://twitter.com/statuses/public_timeline.json";
+    
+    /* GET */
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+
+    /* POST */
+    //NSString *keyValue = @"key1=val1&key2=val2";
+    //NSData *post = [keyValue dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    //NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    //[request setURL:[NSURL URLWithString:url]];
+    //[request setHTTPMethod:@"POST"];
+    //[request setHTTPBody:post];
+
     NSData *response      = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     SBJsonParser *parser  = [[SBJsonParser alloc] init];
     NSArray *tweets       = [parser objectWithData: response];

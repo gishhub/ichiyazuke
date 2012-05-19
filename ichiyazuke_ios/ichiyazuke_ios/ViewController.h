@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UILabel *udidLabel;
-- (IBAction)udidButton:(id)sender;
+- (IBAction)loginButton:(id)sender;
 
 @end
