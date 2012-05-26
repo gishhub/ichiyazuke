@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -72,6 +74,7 @@ public class IchiyazukeServlet extends HttpServlet {
 				ArrayList<Integer> idList = questionMaker.getQuestionNumbers();
 				String tmp = JSON.encode(idList);
 				out.println(tmp);
+				
 				//			for (Object obj : idList) {
 				//				if (obj instanceof String) { // Stringå^ÇÃèÍçá
 				//					out.println((String) obj);
@@ -79,15 +82,20 @@ public class IchiyazukeServlet extends HttpServlet {
 				//					out.println(((Integer) obj).intValue());
 				//				}
 				//			}
+				out.println("aaaa");
 				out.println("</body>");
 				out.println("</html>");
 				idList.remove(0);
 				out.close();
+//			} catch (Exception e) {
+//				// TODO: handle exception
+//				out.println("<h1>1430</h1>");
+//				out.println("</body>");
+//				out.println("</html>");
+//			}
 			} catch (Exception e) {
 				// TODO: handle exception
-				out.println("<h1>1430</h1>");
-				out.println("</body>");
-				out.println("</html>");
+				e.printStackTrace();
 			}
 			
 		} else if ("/select_question_by_id".equals(requestStr)) {
@@ -95,45 +103,53 @@ public class IchiyazukeServlet extends HttpServlet {
 				out.println("<h1>NeverHelloWorld</h1>");
 				int questionId = Integer.parseInt(request.getParameter("questionId"));
 				QuestionMaker questionMaker = new QuestionMaker(questionId);
-				ArrayList<String> questionList = questionMaker.getQuestionById();
+				HashMap<String,String> questionHashMap = questionMaker.getQuestionById();
 
-				String tmp = JSON.encode(questionList);
+				String tmp = JSON.encode(questionHashMap);
 				out.println(tmp);
 				
-//			
+//		        Iterator it = questionList.keySet().iterator();
+//		        while (it.hasNext()) {
+//		            Object o = it.next();
+//		            System.out.println(o + " = " + questionList.get(o));
+//		        }
+		          
+			
 //			for (Object obj : questionList) {
 //				if (obj instanceof String) { // Stringå^ÇÃèÍçá
 //					out.println((String) obj);
 //				} else if (obj instanceof Integer) { // Integerå^ÇÃèÍçá
 //					out.println(((Integer) obj).intValue());
 //				}
-//			}a
-				questionList.remove(0);
+//			}
+				questionHashMap.remove(0);
 				out.println("</body>");
 				out.println("</html>");
 				out.close();
-			} catch (NumberFormatException e) {
-				// TODO Auto-generated catch block
-				out.println("<h1>1430</h1>");
-				out.println("</body>");
-				out.println("</html>");
-
-//				e.printStackTrace();
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				out.println("<h1>1430</h1>");
-				out.println("</body>");
-				out.println("</html>");
+//			} catch (NumberFormatException e) {
+//				// TODO Auto-generated catch block
+//				out.println("<h1>1430</h1>");
+//				out.println("</body>");
+//				out.println("</html>");
 //
-//				e.printStackTrace();
-			} catch (Exception e) {
-				// TODO: handle exception
-				out.println("<h1>1430</h1>");
-				out.println("</body>");
-				out.println("</html>");
+////				e.printStackTrace();
+//			} catch (JSONException e) {
+//				// TODO Auto-generated catch block
+//				out.println("<h1>1430</h1>");
+//				out.println("</body>");
+//				out.println("</html>");
+////
+////				e.printStackTrace();
+//			} catch (Exception e) {
+//				// TODO: handle exception
+//				out.println("<h1>1430</h1>");
+//				out.println("</body>");
+//				out.println("</html>");
+			} catch (Exception e){
+				e.printStackTrace();
 			}
 		} else {
-			out.println("<h1>NotHelloWorld</h1>");
+			out.println("<h1>NotHelloWorld!</h1>");
 			out.close();
 		}
 	}
