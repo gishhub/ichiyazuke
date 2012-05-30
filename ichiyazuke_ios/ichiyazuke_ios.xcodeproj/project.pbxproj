@@ -29,6 +29,9 @@
 		FD5F30B515525BBF0076879C /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5F30A715525BBF0076879C /* SBJsonTokeniser.m */; };
 		FD5F30B615525BBF0076879C /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5F30A915525BBF0076879C /* SBJsonUTF8Stream.m */; };
 		FD5F30B715525BBF0076879C /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5F30AB15525BBF0076879C /* SBJsonWriter.m */; };
+		FD7605D9157093010078D464 /* GradeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7605D8157093010078D464 /* GradeTableViewController.m */; };
+		FD7605E01570D54F0078D464 /* CategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7605DF1570D54F0078D464 /* CategoryTableViewController.m */; };
+		FD7605E31570D7C90078D464 /* LevelTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7605E21570D7C80078D464 /* LevelTableViewController.m */; };
 		FDC5CD9E155516E000FC64BA /* icon_01.png in Resources */ = {isa = PBXBuildFile; fileRef = FDC5CD9D155516E000FC64BA /* icon_01.png */; };
 		FDC5CDA0155516EA00FC64BA /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FDC5CD9F155516EA00FC64BA /* Default.png */; };
 /* End PBXBuildFile section */
@@ -76,6 +79,12 @@
 		FD5F30A915525BBF0076879C /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
 		FD5F30AA15525BBF0076879C /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		FD5F30AB15525BBF0076879C /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		FD7605D7157093010078D464 /* GradeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradeTableViewController.h; sourceTree = "<group>"; };
+		FD7605D8157093010078D464 /* GradeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradeTableViewController.m; sourceTree = "<group>"; };
+		FD7605DE1570D54E0078D464 /* CategoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryTableViewController.h; sourceTree = "<group>"; };
+		FD7605DF1570D54F0078D464 /* CategoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryTableViewController.m; sourceTree = "<group>"; };
+		FD7605E11570D7C80078D464 /* LevelTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelTableViewController.h; sourceTree = "<group>"; };
+		FD7605E21570D7C80078D464 /* LevelTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelTableViewController.m; sourceTree = "<group>"; };
 		FDC5CD9D155516E000FC64BA /* icon_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_01.png; sourceTree = "<group>"; };
 		FDC5CD9F155516EA00FC64BA /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,6 +145,12 @@
 				FD5F309015525A750076879C /* BoardViewController.m */,
 				FD579422156798E700FC8EDB /* SettingTableViewController.h */,
 				FD579423156798E800FC8EDB /* SettingTableViewController.m */,
+				FD7605D7157093010078D464 /* GradeTableViewController.h */,
+				FD7605D8157093010078D464 /* GradeTableViewController.m */,
+				FD7605DE1570D54E0078D464 /* CategoryTableViewController.h */,
+				FD7605DF1570D54F0078D464 /* CategoryTableViewController.m */,
+				FD7605E11570D7C80078D464 /* LevelTableViewController.h */,
+				FD7605E21570D7C80078D464 /* LevelTableViewController.m */,
 			);
 			path = ichiyazuke_ios;
 			sourceTree = "<group>";
@@ -274,6 +289,9 @@
 				FD5F30B615525BBF0076879C /* SBJsonUTF8Stream.m in Sources */,
 				FD5F30B715525BBF0076879C /* SBJsonWriter.m in Sources */,
 				FD579424156798E800FC8EDB /* SettingTableViewController.m in Sources */,
+				FD7605D9157093010078D464 /* GradeTableViewController.m in Sources */,
+				FD7605E01570D54F0078D464 /* CategoryTableViewController.m in Sources */,
+				FD7605E31570D7C90078D464 /* LevelTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

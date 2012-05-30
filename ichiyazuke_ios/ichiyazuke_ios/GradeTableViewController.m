@@ -50,16 +50,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return 6;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -68,7 +66,24 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
-    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    if(indexPath.section == 0) {
+        if(indexPath.row == 0) {
+            cell.textLabel.text = @"中学１年生";
+        }else if(indexPath.row == 1) {
+            cell.textLabel.text = @"中学２年生";
+        }else if(indexPath.row == 2){
+            cell.textLabel.text = @"中学３年生";
+        }else if(indexPath.row == 3){
+            cell.textLabel.text = @"高校１年生";
+        }else if(indexPath.row == 4){
+            cell.textLabel.text = @"高校２年生";
+        }else {
+            cell.textLabel.text = @"高校３年生";
+        }
+    }
     return cell;
 }
 
@@ -115,13 +130,30 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    // デフォルトでは選択されたrowはずっとハイライトされるけど、スッとそのハイライトが消えるようにする
+    //[tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSString *myValue = @"";
+
+    // そのsectionのそのrowが選択されたら
+    if(indexPath.section == 0) {
+        if(indexPath.row == 0) {
+            myValue = @"0";
+        } else if(indexPath.row == 1) {
+            myValue = @"1";
+        } else {
+            myValue = @"other";
+        }
+        // 前画面に戻る
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    //選択されたcellを取得
+	UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+	if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
+		cell.accessoryType = UITableViewCellAccessoryNone;
+	}else {
+		cell.accessoryType = UITableViewCellAccessoryCheckmark;
+	}
+    NSLog(@"myValue:%d",myValue);
 }
 
 @end
