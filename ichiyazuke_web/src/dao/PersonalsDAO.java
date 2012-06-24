@@ -1,13 +1,10 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
-import util.ConfReader;
 
 public class PersonalsDAO extends IchiyazukeDAO {
 
@@ -50,9 +47,7 @@ public class PersonalsDAO extends IchiyazukeDAO {
             ps.setInt(4, 1);
 
             result = ps.execute();
-//            while (rs.next()) {
-//                idList.add(rs.getInt(QUESTION_ID));
-//            }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

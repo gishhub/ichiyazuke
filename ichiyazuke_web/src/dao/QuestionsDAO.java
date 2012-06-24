@@ -1,7 +1,6 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,7 +8,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
-import util.ConfReader;
 
 public class QuestionsDAO extends IchiyazukeDAO {
 
@@ -99,7 +97,6 @@ public class QuestionsDAO extends IchiyazukeDAO {
             	qHashMap.put("answer",      rs.getString("answer"));
             	qHashMap.put("explanation", rs.getString("explanation"));
             }
-//            qList.add(rs.getString("contents"))
         } catch (SQLException e) {
             e.printStackTrace();
         } 

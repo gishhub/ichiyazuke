@@ -7,7 +7,6 @@ import java.sql.SQLException;
 public class ConnectionManager {
 
 	public static Connection getConnection() throws SQLException {
-		// TODO Auto-generated method stub
 		Connection con = null;
 		try {
 			Class.forName("org.gjt.mm.mysql.Driver");
