@@ -19,6 +19,7 @@ import net.sf.json.JSONArray;
 //import net.sf.json.JSONArray;
 
 import make.QuestionMaker;
+import make.UpdateInfomation;
 
 /**
  * Servlet implementation class IchiyazukeServlet
@@ -148,6 +149,14 @@ public class IchiyazukeServlet extends HttpServlet {
 			} catch (Exception e){
 				e.printStackTrace();
 			}
+		} else if ("/update_infomation".equals(requestStr)) {
+			int personalId = Integer.parseInt(request.getParameter("personalId"));
+			int questionId = Integer.parseInt(request.getParameter("questionId"));
+			
+			UpdateInfomation resultUpdater = new UpdateInfomation(personalId, questionId);
+//			resultUpdater.update(resultId);
+			out.println(resultUpdater.resultUpdate());
+			
 		} else {
 			out.println("<h1>NotHelloWorld!</h1>");
 			out.close();
