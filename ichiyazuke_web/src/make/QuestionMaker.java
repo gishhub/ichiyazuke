@@ -2,14 +2,15 @@ package make;
 
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import dao.PersonalsDAO;
 import dao.QuestionsDAO;
 
 public class QuestionMaker {
 
-    private final String PERSONALS_DB_NAME = "ichiyazuke_db";
-    private final String QUESTIONS_DB_NAME = "ichiyazuke_db";
+    private final String PERSONALS_DB_NAME = "onenight";
+    private final String QUESTIONS_DB_NAME = "onenight";
 
     private int grade;
     private int level;
@@ -46,16 +47,16 @@ public class QuestionMaker {
         return idList;
     }
 
-	public ArrayList<String> getQuestionById() {
+	public HashMap<String,String> getQuestionById() {
 		
         QuestionsDAO questionsDao = new QuestionsDAO();
         Connection questionsCon = questionsDao.getConection(QUESTIONS_DB_NAME);
-        ArrayList<String> qList = questionsDao.selectQuestionById(questionsCon, questionId);
+        HashMap<String,String> qHashMap = questionsDao.selectQuestionById(questionsCon, questionId);
         questionsDao.closeConnection(questionsCon);
 		
 		
 
-		return qList;
+		return qHashMap;
 	}
     
 //    public ArrayList<String> getQestion() {

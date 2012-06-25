@@ -1,14 +1,13 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
-import util.ConfReader;
 
 public class QuestionsDAO extends IchiyazukeDAO {
 
@@ -22,9 +21,8 @@ public class QuestionsDAO extends IchiyazukeDAO {
     private final String AND_GRADE = " AND grade = ?";
     private final String AND_LEVEL = " AND level = ?";
     private final String AND_CATEGORY = " AND category = ?";
-    
 
-    private final String SELECT_QUESTIONS_BY_ID = "SELECT title, contents, choice1, choice2, choice3, choice4, answer, explanation, regDate FROM questions WHERE id = ?";
+    private final String SELECT_QUESTIONS_BY_ID = "SELECT title, contents, choice1, choice2, choice3, choice4, answer, explanation, reg_date FROM questions WHERE id = ?";
 
     public ArrayList<Integer> selectQuestionIds(Connection con, int grade, int level, ArrayList<Integer> notList, String category) {
         StringBuffer sb = new StringBuffer();
@@ -73,10 +71,10 @@ public class QuestionsDAO extends IchiyazukeDAO {
         return idList;
     }
 
-	public ArrayList<String> selectQuestionById(Connection con, int questionId) {
+	public HashMap<String,String> selectQuestionById(Connection con, int questionId) {
 		
         StringBuffer sb = new StringBuffer();
-		ArrayList<String> qList = new ArrayList<String>();
+		HashMap<String,String> qHashMap = new HashMap<String,String>();
         String sql = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -90,20 +88,19 @@ public class QuestionsDAO extends IchiyazukeDAO {
 
             rs = ps.executeQuery();
             while (rs.next()) {
-            	qList.add(rs.getString("title"));
-            	qList.add(rs.getString("contents"));
-            	qList.add(rs.getString("choice1"));
-            	qList.add(rs.getString("choice2"));
-            	qList.add(rs.getString("choice3"));
-            	qList.add(rs.getString("choice4"));
-            	qList.add(rs.getString("answer"));
-            	qList.add(rs.getString("explanation"));
+            	qHashMap.put("title",       rs.getString("title"));
+            	qHashMap.put("contents",    rs.getString("contents"));
+            	qHashMap.put("choice1",     rs.getString("choice1"));
+            	qHashMap.put("choice2",     rs.getString("choice2"));
+            	qHashMap.put("choice3",     rs.getString("choice3"));
+            	qHashMap.put("choice4",     rs.getString("choice4"));
+            	qHashMap.put("answer",      rs.getString("answer"));
+            	qHashMap.put("explanation", rs.getString("explanation"));
             }
-//            qList.add(rs.getString("contents"))
         } catch (SQLException e) {
             e.printStackTrace();
         } 
     	
-		return qList;
+		return qHashMap;
 	}
 }
