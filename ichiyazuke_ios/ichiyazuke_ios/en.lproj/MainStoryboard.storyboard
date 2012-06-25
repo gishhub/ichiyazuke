@@ -51,13 +51,13 @@
                     <navigationItem key="navigationItem" title="いちやずけ" id="YMI-ms-TLA">
                         <barButtonItem key="rightBarButtonItem" title="設定" id="hMF-Vy-uoK">
                             <connections>
-                                <segue destination="lw5-YI-ddu" kind="push" id="Na2-il-AnU"/>
+                                <segue destination="lw5-YI-ddu" kind="push" id="Y0K-CO-pxm"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1133" y="83"/>
+            <point key="canvasLocation" x="707" y="749"/>
         </scene>
         <!--Grade Table View Controller-->
         <scene sceneID="U8y-bn-jbL">
@@ -135,7 +135,7 @@
                     </tableView>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="2092" y="-326"/>
+            <point key="canvasLocation" x="1746" y="-320"/>
         </scene>
         <!--Setting Table View Controller - 設定-->
         <scene sceneID="qSU-2z-yZ7">
@@ -202,7 +202,7 @@
                     </navigationItem>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="1621" y="83"/>
+            <point key="canvasLocation" x="1219" y="83"/>
         </scene>
         <!--Category Table View Controller - カテゴリ-->
         <scene sceneID="5KI-uG-3Xs">
@@ -272,7 +272,7 @@
                     <navigationItem key="navigationItem" title="カテゴリ" id="Z8f-xc-R7N"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="2092" y="292"/>
+            <point key="canvasLocation" x="1746" y="278"/>
         </scene>
         <!--Board View Controller - パネル画面-->
         <scene sceneID="3Mo-yI-imY">
@@ -314,7 +314,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1621" y="689"/>
+            <point key="canvasLocation" x="1149" y="749"/>
         </scene>
         <!--Level Table View Controller-->
         <scene sceneID="flp-fx-xfh">
@@ -368,7 +368,7 @@
                     <navigationItem key="navigationItem" id="aiQ-zW-beR"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="2092" y="882"/>
+            <point key="canvasLocation" x="1746" y="890"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Eb3-7t-NGC">
@@ -387,11 +387,11 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="2" kind="relationship" relationship="rootViewController" id="O1W-gf-dB8"/>
+                        <segue destination="2" kind="relationship" relationship="rootViewController" id="sG2-wy-w0s"/>
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="707" y="83"/>
+            <point key="canvasLocation" x="327" y="159"/>
         </scene>
     </scenes>
     <classes>

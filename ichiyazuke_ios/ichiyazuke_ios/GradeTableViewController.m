@@ -6,6 +6,7 @@
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
+#import "SettingTableViewController.h"
 #import "GradeTableViewController.h"
 
 @interface GradeTableViewController ()
@@ -26,19 +27,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -87,73 +80,54 @@
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // デフォルトでは選択されたrowはずっとハイライトされるけど、スッとそのハイライトが消えるようにする
-    //[tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSString *myValue = @"";
 
-    // そのsectionのそのrowが選択されたら
-    if(indexPath.section == 0) {
-        if(indexPath.row == 0) {
-            myValue = @"0";
-        } else if(indexPath.row == 1) {
-            myValue = @"1";
-        } else {
-            myValue = @"other";
-        }
-        // 前画面に戻る
-        [self.navigationController popViewControllerAnimated:YES];
-    }
+    // デフォルトでは選択されたrowはずっとハイライトされるけど、スッとそのハイライトが消えるようにする
+    //[tableView deselectRowAtIndexPath:indexPath animated:YES];
+
     //選択されたcellを取得
 	UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    //チェックマークをつけたりはずしたりする
 	if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
 		cell.accessoryType = UITableViewCellAccessoryNone;
 	}else {
 		cell.accessoryType = UITableViewCellAccessoryCheckmark;
 	}
-    NSLog(@"myValue:%d",myValue);
+    
+    //ひとつ前のViewControllerを取得するために配列を使う
+    NSArray *naviArray = [self.navigationController viewControllers];
+    NSInteger nowIndex = [naviArray count];
+    SettingTableViewController *settingTableViewController = (SettingTableViewController *)[naviArray objectAtIndex:nowIndex-2];
+
+    // そのsectionのそのrowが選択されたら
+    if(indexPath.section == 0) {
+        if(indexPath.row == 0) {
+            settingTableViewController.selectedGrade = @"中学1年生";
+        } else if(indexPath.row == 1) {
+            settingTableViewController.selectedGrade = @"中学2年生";
+        } else if(indexPath.row == 2) {
+            settingTableViewController.selectedGrade = @"中学3年生";
+        } else if(indexPath.row == 3) {
+            settingTableViewController.selectedGrade = @"高校1年生";
+        } else if(indexPath.row == 4) {
+            settingTableViewController.selectedGrade = @"高校2年生";
+        } else if(indexPath.row == 5) {
+            settingTableViewController.selectedGrade = @"高校3年生";
+        } else {
+            myValue = @"設定してない列です";
+        }
+        //settingTableViewControllerのreloadTableメソッドを呼ぶ
+        [settingTableViewController reloadTable];
+
+        // 前画面に戻る
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    NSLog(@"myValue:%@", myValue);
 }
 
 @end
