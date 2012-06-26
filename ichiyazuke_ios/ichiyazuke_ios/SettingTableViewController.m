@@ -33,6 +33,13 @@
 
 - (void)viewDidLoad
 {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+
+    // NSUserDefaultsに値を保存
+    selectedGrade    = [defaults stringForKey:@"selectedGrade"];
+    selectedCategory = [defaults stringForKey:@"selectedCategory"];
+    selectedLevel    = [defaults stringForKey:@"selectedLevel"];
+
     [super viewDidLoad];
 }
 
@@ -47,8 +54,17 @@
 }
 
 #pragma mark - Table view data source
-- (void) reloadTable
+- (void)reloadTable
 {
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+
+    // NSUserDefaultsに保存された値を読み込み
+    [defaults setObject:selectedGrade    forKey:@"selectedGrade"];
+    [defaults setObject:selectedCategory forKey:@"selectedCategory"];
+    [defaults setObject:selectedLevel    forKey:@"selectedLevel"];    
+    [defaults synchronize];
+
+    //TableViewを再表示
     [self.tableView reloadData];
 }
 

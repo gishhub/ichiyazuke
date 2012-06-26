@@ -28,14 +28,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
 
 - (void)viewDidUnload
 {
     [self setTweetLabel:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -64,7 +62,7 @@
     
     for (NSDictionary *tweet in tweets)
     {
-        NSString *tweettext      = [tweet objectForKey:@"text"];
+        NSString *tweettext  = [tweet objectForKey:@"text"];
         self.tweetLabel.text = tweettext;
         
         NSLog(@"%@ \n %@", [[tweet objectForKey:@"user"] objectForKey:@"screen_name"],[tweet objectForKey:@"text"]);

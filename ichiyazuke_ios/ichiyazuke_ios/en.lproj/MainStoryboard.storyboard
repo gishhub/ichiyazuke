@@ -12,7 +12,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
                 <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uKh-Mq-aPU">
@@ -26,9 +26,6 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="8XO-Cr-xef" kind="push" id="tpq-FQ-PxM"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6Lc-Dk-GQR">
                                 <rect key="frame" x="118" y="189" width="85" height="37"/>
@@ -49,15 +46,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="いちやずけ" id="YMI-ms-TLA">
-                        <barButtonItem key="rightBarButtonItem" title="設定" id="hMF-Vy-uoK">
-                            <connections>
-                                <segue destination="lw5-YI-ddu" kind="push" id="Y0K-CO-pxm"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="設定" id="hMF-Vy-uoK"/>
                     </navigationItem>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="707" y="749"/>
+            <point key="canvasLocation" x="694" y="-485"/>
         </scene>
         <!--Grade Table View Controller-->
         <scene sceneID="U8y-bn-jbL">
@@ -198,11 +191,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="設定" id="Fzt-jw-fzf">
-                        <barButtonItem key="backBarButtonItem" title="戻る" id="c9Z-UW-u3C"/>
+                        <barButtonItem key="rightBarButtonItem" title="更新" id="a4I-io-I5q">
+                            <connections>
+                                <segue destination="8XO-Cr-xef" kind="push" id="V3H-wP-2AL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="1219" y="83"/>
+            <point key="canvasLocation" x="1184" y="106"/>
         </scene>
         <!--Category Table View Controller - カテゴリ-->
         <scene sceneID="5KI-uG-3Xs">
@@ -308,13 +305,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="パネル画面" id="O9m-Qa-L2D"/>
+                    <navigationItem key="navigationItem" title="パネル画面" id="O9m-Qa-L2D">
+                        <barButtonItem key="leftBarButtonItem" title="設定" id="PDd-kx-NeA">
+                            <connections>
+                                <segue destination="lw5-YI-ddu" kind="push" id="673-Iu-ic9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tweetLabel" destination="WgI-Rn-fX6" id="RLF-gm-ww2"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1149" y="749"/>
+            <point key="canvasLocation" x="1267" y="-485"/>
         </scene>
         <!--Level Table View Controller-->
         <scene sceneID="flp-fx-xfh">
@@ -387,11 +390,11 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="2" kind="relationship" relationship="rootViewController" id="sG2-wy-w0s"/>
+                        <segue destination="8XO-Cr-xef" kind="relationship" relationship="rootViewController" id="EV1-0W-olv"/>
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="327" y="159"/>
+            <point key="canvasLocation" x="704" y="106"/>
         </scene>
     </scenes>
     <classes>
