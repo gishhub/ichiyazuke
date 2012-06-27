@@ -3,7 +3,7 @@
 //  ichiyazuke_ios
 //
 //  Created by 高田 祐一 on 12/05/26.
-//  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012年 gishhub. All rights reserved.
 //
 
 #import "SettingTableViewController.h"
@@ -84,7 +84,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *myValue = @"";
+    NSString *logger = @"";
 
     // デフォルトでは選択されたrowはずっとハイライトされるけど、スッとそのハイライトが消えるようにする
     //[tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -119,7 +119,8 @@
         } else if(indexPath.row == 5) {
             settingTableViewController.selectedGrade = @"高校3年生";
         } else {
-            myValue = @"設定してない列です";
+            logger = @"設定してない列です";
+            NSLog(@"%@", logger);
         }
         //settingTableViewControllerのreloadTableメソッドを呼ぶ
         [settingTableViewController reloadTable];
@@ -127,7 +128,6 @@
         // 前画面に戻る
         [self.navigationController popViewControllerAnimated:YES];
     }
-    NSLog(@"myValue:%@", myValue);
 }
 
 @end

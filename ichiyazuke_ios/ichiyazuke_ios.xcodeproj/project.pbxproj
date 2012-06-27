@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD24C46A159B65CF00AE6262 /* PanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD24C469159B65CF00AE6262 /* PanelViewController.m */; };
 		FD579424156798E800FC8EDB /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD579423156798E800FC8EDB /* SettingTableViewController.m */; };
 		FD5F3073155258EC0076879C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5F3072155258EC0076879C /* UIKit.framework */; };
 		FD5F3075155258EC0076879C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5F3074155258EC0076879C /* Foundation.framework */; };
@@ -15,8 +16,6 @@
 		FD5F307F155258EC0076879C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5F307E155258EC0076879C /* main.m */; };
 		FD5F3083155258EC0076879C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5F3082155258EC0076879C /* AppDelegate.m */; };
 		FD5F3086155258EC0076879C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD5F3084155258EC0076879C /* MainStoryboard.storyboard */; };
-		FD5F3089155258EC0076879C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5F3088155258EC0076879C /* ViewController.m */; };
-		FD5F309115525A750076879C /* BoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5F309015525A750076879C /* BoardViewController.m */; };
 		FD5F30AC15525BBF0076879C /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5F309415525BBF0076879C /* NSObject+SBJson.m */; };
 		FD5F30AD15525BBF0076879C /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5F309715525BBF0076879C /* SBJsonParser.m */; };
 		FD5F30AE15525BBF0076879C /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5F309915525BBF0076879C /* SBJsonStreamParser.m */; };
@@ -37,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FD24C468159B65CF00AE6262 /* PanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelViewController.h; sourceTree = "<group>"; };
+		FD24C469159B65CF00AE6262 /* PanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelViewController.m; sourceTree = "<group>"; };
 		FD579422156798E700FC8EDB /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
 		FD579423156798E800FC8EDB /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
 		FD5F306E155258EC0076879C /* ichiyazuke_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ichiyazuke_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,10 +51,6 @@
 		FD5F3081155258EC0076879C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FD5F3082155258EC0076879C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FD5F3085155258EC0076879C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		FD5F3087155258EC0076879C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		FD5F3088155258EC0076879C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		FD5F308F15525A750076879C /* BoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardViewController.h; sourceTree = "<group>"; };
-		FD5F309015525A750076879C /* BoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardViewController.m; sourceTree = "<group>"; };
 		FD5F309315525BBF0076879C /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
 		FD5F309415525BBF0076879C /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
 		FD5F309515525BBF0076879C /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
@@ -139,10 +136,8 @@
 				FD5F3081155258EC0076879C /* AppDelegate.h */,
 				FD5F3082155258EC0076879C /* AppDelegate.m */,
 				FD5F3084155258EC0076879C /* MainStoryboard.storyboard */,
-				FD5F3087155258EC0076879C /* ViewController.h */,
-				FD5F3088155258EC0076879C /* ViewController.m */,
-				FD5F308F15525A750076879C /* BoardViewController.h */,
-				FD5F309015525A750076879C /* BoardViewController.m */,
+				FD24C468159B65CF00AE6262 /* PanelViewController.h */,
+				FD24C469159B65CF00AE6262 /* PanelViewController.m */,
 				FD579422156798E700FC8EDB /* SettingTableViewController.h */,
 				FD579423156798E800FC8EDB /* SettingTableViewController.m */,
 				FD7605D7157093010078D464 /* GradeTableViewController.h */,
@@ -274,8 +269,6 @@
 			files = (
 				FD5F307F155258EC0076879C /* main.m in Sources */,
 				FD5F3083155258EC0076879C /* AppDelegate.m in Sources */,
-				FD5F3089155258EC0076879C /* ViewController.m in Sources */,
-				FD5F309115525A750076879C /* BoardViewController.m in Sources */,
 				FD5F30AC15525BBF0076879C /* NSObject+SBJson.m in Sources */,
 				FD5F30AD15525BBF0076879C /* SBJsonParser.m in Sources */,
 				FD5F30AE15525BBF0076879C /* SBJsonStreamParser.m in Sources */,
@@ -292,6 +285,7 @@
 				FD7605D9157093010078D464 /* GradeTableViewController.m in Sources */,
 				FD7605E01570D54F0078D464 /* CategoryTableViewController.m in Sources */,
 				FD7605E31570D7C90078D464 /* LevelTableViewController.m in Sources */,
+				FD24C46A159B65CF00AE6262 /* PanelViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
