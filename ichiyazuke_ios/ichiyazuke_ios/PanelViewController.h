@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface PanelViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UILabel *tweetLabel;
-- (IBAction)tweetButton:(id)sender;
+
+- (void)goQuestion:(NSString *)questionId;
+
 @end

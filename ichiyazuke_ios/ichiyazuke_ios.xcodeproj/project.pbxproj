@@ -31,6 +31,8 @@
 		FD7605D9157093010078D464 /* GradeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7605D8157093010078D464 /* GradeTableViewController.m */; };
 		FD7605E01570D54F0078D464 /* CategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7605DF1570D54F0078D464 /* CategoryTableViewController.m */; };
 		FD7605E31570D7C90078D464 /* LevelTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7605E21570D7C80078D464 /* LevelTableViewController.m */; };
+		FD870540159CB905005E63E8 /* PanelImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD87053F159CB905005E63E8 /* PanelImageView.m */; };
+		FD870543159CBB8E005E63E8 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD870542159CBB8E005E63E8 /* QuestionViewController.m */; };
 		FDC5CD9E155516E000FC64BA /* icon_01.png in Resources */ = {isa = PBXBuildFile; fileRef = FDC5CD9D155516E000FC64BA /* icon_01.png */; };
 		FDC5CDA0155516EA00FC64BA /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FDC5CD9F155516EA00FC64BA /* Default.png */; };
 /* End PBXBuildFile section */
@@ -82,6 +84,10 @@
 		FD7605DF1570D54F0078D464 /* CategoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryTableViewController.m; sourceTree = "<group>"; };
 		FD7605E11570D7C80078D464 /* LevelTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelTableViewController.h; sourceTree = "<group>"; };
 		FD7605E21570D7C80078D464 /* LevelTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelTableViewController.m; sourceTree = "<group>"; };
+		FD87053E159CB905005E63E8 /* PanelImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelImageView.h; sourceTree = "<group>"; };
+		FD87053F159CB905005E63E8 /* PanelImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelImageView.m; sourceTree = "<group>"; };
+		FD870541159CBB8E005E63E8 /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
+		FD870542159CBB8E005E63E8 /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
 		FDC5CD9D155516E000FC64BA /* icon_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_01.png; sourceTree = "<group>"; };
 		FDC5CD9F155516EA00FC64BA /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,8 +142,12 @@
 				FD5F3081155258EC0076879C /* AppDelegate.h */,
 				FD5F3082155258EC0076879C /* AppDelegate.m */,
 				FD5F3084155258EC0076879C /* MainStoryboard.storyboard */,
+				FD87053E159CB905005E63E8 /* PanelImageView.h */,
+				FD87053F159CB905005E63E8 /* PanelImageView.m */,
 				FD24C468159B65CF00AE6262 /* PanelViewController.h */,
 				FD24C469159B65CF00AE6262 /* PanelViewController.m */,
+				FD870541159CBB8E005E63E8 /* QuestionViewController.h */,
+				FD870542159CBB8E005E63E8 /* QuestionViewController.m */,
 				FD579422156798E700FC8EDB /* SettingTableViewController.h */,
 				FD579423156798E800FC8EDB /* SettingTableViewController.m */,
 				FD7605D7157093010078D464 /* GradeTableViewController.h */,
@@ -286,6 +296,8 @@
 				FD7605E01570D54F0078D464 /* CategoryTableViewController.m in Sources */,
 				FD7605E31570D7C90078D464 /* LevelTableViewController.m in Sources */,
 				FD24C46A159B65CF00AE6262 /* PanelViewController.m in Sources */,
+				FD870540159CB905005E63E8 /* PanelImageView.m in Sources */,
+				FD870543159CBB8E005E63E8 /* QuestionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

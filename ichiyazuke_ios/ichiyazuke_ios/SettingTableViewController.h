@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface SettingTableViewController : UITableViewController
+
 @property (retain, readwrite) NSString *selectedGrade;
 @property (retain, readwrite) NSString *selectedCategory;
 @property (retain, readwrite) NSString *selectedLevel;
-- (void) reloadTable;
+
+- (void)reloadTable;
+
 @end

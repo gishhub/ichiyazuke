@@ -143,15 +143,15 @@
         }
     } else {
         if(indexPath.row == 0) {
-            GradeTableViewController *gradeTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"gradeTableView"];
+            GradeTableViewController *gradeTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"gradeTableViewController"];
             gradeTableViewController.title = @"学年";
             [self.navigationController pushViewController:gradeTableViewController animated:YES];
         } else if(indexPath.row == 1) {
-            CategoryTableViewController *categoryTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"categoryTableView"];
+            CategoryTableViewController *categoryTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"categoryTableViewController"];
             categoryTableViewController.title = @"カテゴリ";
             [self.navigationController pushViewController:categoryTableViewController animated:YES];
         } else {
-            LevelTableViewController *levelTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"levelTableView"];
+            LevelTableViewController *levelTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"levelTableViewController"];
             levelTableViewController.title = @"難易度";
             [self.navigationController pushViewController:levelTableViewController animated:YES];
         }
