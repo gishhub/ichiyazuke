@@ -35,10 +35,8 @@ public class QuestionMaker {
         PersonalsDAO personalsDao = new PersonalsDAO();
         Connection personalsCon = personalsDao.getConection(PERSONALS_DB_NAME);
         ArrayList<Integer> notList = personalsDao.selectQuestionIds(personalsCon , personalId);
-//    	ArrayList<Integer> notList = new ArrayList<Integer>();
-//    	notList.add(new Integer(2));
         personalsDao.closeConnection(personalsCon);
-//
+
         QuestionsDAO questionsDao = new QuestionsDAO();
         Connection questionsCon = questionsDao.getConection(QUESTIONS_DB_NAME);
         ArrayList<Integer> idList = questionsDao.selectQuestionIds(questionsCon, grade, level, notList, category);
@@ -58,9 +56,4 @@ public class QuestionMaker {
 
 		return qHashMap;
 	}
-    
-//    public ArrayList<String> getQestion() {
-//
-//
-//    }
 }

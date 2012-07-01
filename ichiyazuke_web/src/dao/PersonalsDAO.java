@@ -37,7 +37,7 @@ public class PersonalsDAO extends IchiyazukeDAO {
 		int questionId) {
 
         PreparedStatement ps = null;
-        boolean result = false;
+        int result = 0;
 
         try {
             ps = con.prepareStatement(UPDATE_RESULT_IDS);
@@ -46,13 +46,18 @@ public class PersonalsDAO extends IchiyazukeDAO {
             ps.setInt(3, questionId);
             ps.setInt(4, 1);
 
-            result = ps.execute();
+            result = ps.executeUpdate();
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-		return result;
+
+		if (result == 0) {
+			return false;
+		}else {
+			return true;
+		}
 	}
 
 }
