@@ -10,9 +10,9 @@
 
 @interface SettingTableViewController : UITableViewController
 
-@property (retain, readwrite) NSString *selectedGrade;
-@property (retain, readwrite) NSString *selectedCategory;
-@property (retain, readwrite) NSString *selectedLevel;
+@property (retain, readwrite) NSString *grade;
+@property (retain, readwrite) NSString *category;
+@property (retain, readwrite) NSString *level;
 
 - (void)reloadTable;
 

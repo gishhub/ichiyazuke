@@ -107,22 +107,22 @@
     // そのsectionのそのrowが選択されたら
     if(indexPath.section == 0) {
         if(indexPath.row == 0) {
-            settingTableViewController.selectedGrade = @"中学1年生";
+            settingTableViewController.grade = @"中学1年生";
         } else if(indexPath.row == 1) {
-            settingTableViewController.selectedGrade = @"中学2年生";
+            settingTableViewController.grade = @"中学2年生";
         } else if(indexPath.row == 2) {
-            settingTableViewController.selectedGrade = @"中学3年生";
+            settingTableViewController.grade = @"中学3年生";
         } else if(indexPath.row == 3) {
-            settingTableViewController.selectedGrade = @"高校1年生";
+            settingTableViewController.grade = @"高校1年生";
         } else if(indexPath.row == 4) {
-            settingTableViewController.selectedGrade = @"高校2年生";
+            settingTableViewController.grade = @"高校2年生";
         } else if(indexPath.row == 5) {
-            settingTableViewController.selectedGrade = @"高校3年生";
+            settingTableViewController.grade = @"高校3年生";
         } else {
-            logger = @"設定してない列です";
+            logger = @"GradeTableViewController:設定してない列です";
             NSLog(@"%@", logger);
         }
-        //settingTableViewControllerのreloadTableメソッドを呼ぶ
+        //settingTableViewControllerの再描画
         [settingTableViewController reloadTable];
 
         // 前画面に戻る

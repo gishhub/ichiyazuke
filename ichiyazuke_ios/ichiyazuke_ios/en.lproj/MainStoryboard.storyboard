@@ -332,7 +332,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="8XO-Cr-xef" kind="relationship" relationship="rootViewController" id="EV1-0W-olv"/>
+                        <segue destination="8XO-Cr-xef" kind="relationship" relationship="rootViewController" id="OEN-Fa-Bwy"/>
                     </connections>
                 </navigationController>
             </objects>
@@ -364,4 +364,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="OEN-Fa-Bwy"/>
+    </inferredMetricsTieBreakers>
 </document>

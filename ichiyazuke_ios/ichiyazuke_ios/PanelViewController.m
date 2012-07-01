@@ -61,6 +61,8 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [touches anyObject];
     UIView *touchView = touch.view;
+    
+    //タッチされたのがPanelImageViewならば、問題画面へGO
     if ([touchView isMemberOfClass:[PanelImageView class]]){
         PanelImageView *touchView = (PanelImageView *)touch.view;
         

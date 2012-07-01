@@ -11,16 +11,15 @@
 #import "CategoryTableViewController.h"
 #import "LevelTableViewController.h"
 
-
 @interface SettingTableViewController ()
 
 @end
 
 @implementation SettingTableViewController
 
-@synthesize selectedGrade;
-@synthesize selectedCategory;
-@synthesize selectedLevel;
+@synthesize grade;
+@synthesize category;
+@synthesize level;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -33,14 +32,13 @@
 
 - (void)viewDidLoad
 {
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-
-    // NSUserDefaultsに値を保存
-    selectedGrade    = [defaults stringForKey:@"selectedGrade"];
-    selectedCategory = [defaults stringForKey:@"selectedCategory"];
-    selectedLevel    = [defaults stringForKey:@"selectedLevel"];
-
     [super viewDidLoad];
+
+    // NSUserDefaultsに保存された値を読み込み
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    grade    = [defaults stringForKey:@"selectedGrade"];
+    category = [defaults stringForKey:@"selectedCategory"];
+    level    = [defaults stringForKey:@"selectedLevel"];
 }
 
 - (void)viewDidUnload
@@ -56,12 +54,11 @@
 #pragma mark - Table view data source
 - (void)reloadTable
 {
+    // NSUserDefaultsに値を保存
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-
-    // NSUserDefaultsに保存された値を読み込み
-    [defaults setObject:selectedGrade    forKey:@"selectedGrade"];
-    [defaults setObject:selectedCategory forKey:@"selectedCategory"];
-    [defaults setObject:selectedLevel    forKey:@"selectedLevel"];    
+    [defaults setObject:grade    forKey:@"selectedGrade"];
+    [defaults setObject:category forKey:@"selectedCategory"];
+    [defaults setObject:level    forKey:@"selectedLevel"];    
     [defaults synchronize];
 
     //TableViewを再表示
@@ -112,13 +109,13 @@
     } else {
         if(indexPath.row == 0) {
             cell.textLabel.text = @"学年";
-            cell.detailTextLabel.text = self.selectedGrade;
+            cell.detailTextLabel.text = self.grade;
         }else if(indexPath.row == 1){
             cell.textLabel.text = @"カテゴリ";
-            cell.detailTextLabel.text = self.selectedCategory;
+            cell.detailTextLabel.text = self.category;
         }else if(indexPath.row == 2){
             cell.textLabel.text = @"難易度";
-            cell.detailTextLabel.text = self.selectedLevel;
+            cell.detailTextLabel.text = self.level;
         }
     }
     return cell;
@@ -129,7 +126,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSInteger myValue = 0;
     if(indexPath.section == 0) {
         if(indexPath.row == 0) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ログイン"
@@ -156,7 +152,6 @@
             [self.navigationController pushViewController:levelTableViewController animated:YES];
         }
     }
-    NSLog(@"myValue:%d",myValue);
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -166,8 +161,8 @@
         UITextField *passField = [alertView textFieldAtIndex:1];
         NSString *login = loginNameField.text;
         NSString *pass = passField.text;
-        NSLog(@"id: %@",login);
-        NSLog(@"password: %@",pass);
+        NSLog(@"SettingTableViewController:ID:%@",login);
+        NSLog(@"SettingTableViewController:password:%@",pass);
     }
 }
 

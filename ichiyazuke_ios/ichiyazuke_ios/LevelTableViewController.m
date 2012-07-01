@@ -32,8 +32,6 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -101,13 +99,13 @@
     // そのsectionのそのrowが選択されたら
     if(indexPath.section == 0) {
         if(indexPath.row == 0) {
-            settingTableViewController.selectedLevel = @"レベル１";
+            settingTableViewController.level = @"レベル１";
         }else if(indexPath.row == 1) {
-            settingTableViewController.selectedLevel = @"レベル２";
+            settingTableViewController.level = @"レベル２";
         }else {
-            settingTableViewController.selectedLevel = @"レベル３";
+            settingTableViewController.level = @"レベル３";
         }
-        //settingTableViewControllerのreloadTableメソッドを呼ぶ
+        //settingTableViewControllerの再描画
         [settingTableViewController reloadTable];
 
         // 前画面に戻る

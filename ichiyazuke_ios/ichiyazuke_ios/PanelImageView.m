@@ -25,7 +25,7 @@
     return self;
 }
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    NSLog(@"タッチイベント終了");
+    NSLog(@"PanelImageView:タッチイベント終了");
 }
 
 @end

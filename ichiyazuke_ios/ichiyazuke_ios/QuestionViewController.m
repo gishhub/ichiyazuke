@@ -30,27 +30,35 @@
 {
     [super viewDidLoad];
     
-    NSLog(@"問題画面でーす。問題IDは、%@",questionId);
+    NSLog(@"QuestionViewController:問題IDは、%@",self.questionId);
     
-    NSString *url         = @"http://twitter.com/statuses/public_timeline.json";
+    NSString *url = @"http://49.212.136.103:8080/ichiyazuke_web/select_question_by_id";
     
     /* GET */
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-    
+    //NSString *url         = @"http://49.212.136.103:8080/ichiyazuke_web/select_question_by_id?questionId=3";
+    //NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+
     /* POST */
-    //NSString *keyValue = @"key1=val1&key2=val2";
-    //NSData *post = [keyValue dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-    //NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    //[request setURL:[NSURL URLWithString:url]];
-    //[request setHTTPMethod:@"POST"];
-    //[request setHTTPBody:post];
-    
+    NSString *keyValue = [@"questionId=" stringByAppendingString:self.questionId];
+    NSData *post = [keyValue dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:post];
+
     NSData *response      = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     SBJsonParser *parser  = [[SBJsonParser alloc] init];
-    NSArray *tweets       = [parser objectWithData: response];
+    NSArray *questions    = [parser objectWithData:response];
 
-    for (NSDictionary *tweet in tweets)
+    //デバッグ用
+    SBJsonWriter*	writer = [[SBJsonWriter alloc] init];
+    writer.humanReadable   = YES;
+    writer.sortKeys        = YES;
+    NSLog(@"%@", [writer stringWithObject:questions]);
+
+    for (NSDictionary *question in questions)
     {
+        //NSLog(@"%@",[question objectForKey:@"title"]);
         //NSLog(@"%@ \n %@", [[tweet objectForKey:@"user"] objectForKey:@"screen_name"],[tweet objectForKey:@"text"]);
     }
 }

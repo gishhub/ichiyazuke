@@ -103,17 +103,17 @@
     // そのsectionのそのrowが選択されたら
     if(indexPath.section == 0) {
         if(indexPath.row == 0) {
-            settingTableViewController.selectedCategory = @"足し算";
+            settingTableViewController.category = @"足し算";
         }else if(indexPath.row == 1) {
-            settingTableViewController.selectedCategory = @"引き算";
+            settingTableViewController.category = @"引き算";
         }else if(indexPath.row == 2){
-            settingTableViewController.selectedCategory = @"かけ算";
+            settingTableViewController.category = @"かけ算";
         }else if(indexPath.row == 3){
-            settingTableViewController.selectedCategory = @"割り算";
+            settingTableViewController.category = @"割り算";
         }else {
-            settingTableViewController.selectedCategory = @"その他";
+            settingTableViewController.category = @"その他";
         }
-        //settingTableViewControllerのreloadTableメソッドを呼ぶ
+        //settingTableViewControllerの再描画
         [settingTableViewController reloadTable];
         
         // 前画面に戻る
