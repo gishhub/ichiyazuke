@@ -250,7 +250,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="パネル画面" id="O9m-Qa-L2D">
-                        <barButtonItem key="backBarButtonItem" title="更新しないで戻る" id="MT1-ed-avv"/>
+                        <barButtonItem key="backBarButtonItem" title="戻る" id="MT1-ed-avv"/>
                         <barButtonItem key="leftBarButtonItem" title="設定" id="PDd-kx-NeA">
                             <connections>
                                 <segue destination="lw5-YI-ddu" kind="push" id="673-Iu-ic9"/>

@@ -27,17 +27,15 @@
     return self;
 }
 
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView
+- (void)viewDidLoad
 {
-    [super loadView];
+    [super viewDidLoad];
 
     // 戻るボタン隠す
     self.navigationItem.hidesBackButton = YES;
-
+    
     self.title = @"サインイン";
-    //self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
-
+    
     UIButton *loginBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     loginBtn.frame = CGRectMake(30, 120, 260, 35);
     [loginBtn setTitle:@"ログイン" forState:UIControlStateNormal];
@@ -53,11 +51,6 @@
                   action:@selector(selectedSignUpBtn:)
         forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:signUpBtn];
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
 }
 
 - (void)viewDidUnload

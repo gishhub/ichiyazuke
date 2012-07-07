@@ -87,7 +87,7 @@
     NSString *logger = @"";
 
     // デフォルトでは選択されたrowはずっとハイライトされるけど、スッとそのハイライトが消えるようにする
-    //[tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
     //選択されたcellを取得
 	UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];

@@ -124,11 +124,14 @@
     }
     if(indexPath.section == 0) {
         if(indexPath.row == 0) {
+
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            if ([defaults boolForKey:@"login"] == NO){
-                cell.textLabel.text = @"ログインはこちら";
-            } else {
+
+            // ログインしているかどうか
+            if ([defaults boolForKey:@"login"] == YES){
                 cell.textLabel.text = @"ログアウト";
+            } else {
+                cell.textLabel.text = @"ログインはこちら";
             }
         }
     } else {
@@ -155,8 +158,8 @@
         if(indexPath.row == 0) {
 
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            
-            // ログインしている場合
+
+            // ログインしているかどうか
             if ([defaults boolForKey:@"login"] == YES){
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ログアウトしますか？"
                                                                 message:nil
@@ -165,8 +168,6 @@
                                                       otherButtonTitles:@"OK",nil];
                 alert.delegate = self;
                 [alert show];
-
-            // ログインしてない場合
             } else {
                 [self goLogin];
             }
