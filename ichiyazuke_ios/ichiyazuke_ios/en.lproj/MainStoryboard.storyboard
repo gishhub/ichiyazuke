@@ -88,7 +88,7 @@
         <scene sceneID="qSU-2z-yZ7">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uQR-N9-4Ja" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="lw5-YI-ddu" customClass="SettingTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="settingTableViewController" id="lw5-YI-ddu" customClass="SettingTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="2ZZ-LT-Owx">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -144,13 +144,7 @@
                             <outlet property="delegate" destination="lw5-YI-ddu" id="agg-k4-Wo4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="設定" id="Fzt-jw-fzf">
-                        <barButtonItem key="rightBarButtonItem" title="更新" id="a4I-io-I5q">
-                            <connections>
-                                <segue destination="8XO-Cr-xef" kind="push" id="V3H-wP-2AL"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="設定" id="Fzt-jw-fzf"/>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="1184" y="106"/>
@@ -225,17 +219,38 @@
             </objects>
             <point key="canvasLocation" x="2044" y="106"/>
         </scene>
+        <!--Login Table View Controller-->
+        <scene sceneID="ZMe-m3-qxR">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X6x-OB-tiq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController storyboardIdentifier="loginTableViewController" id="wcW-ip-2eX" customClass="LoginTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="DBQ-pZ-J2A">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="wcW-ip-2eX" id="qp9-Fm-Vsk"/>
+                            <outlet property="delegate" destination="wcW-ip-2eX" id="vJt-pJ-C98"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="SSe-j0-VTJ"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="634" y="-558"/>
+        </scene>
         <!--Panel View Controller - パネル画面-->
         <scene sceneID="3Mo-yI-imY">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yyo-fk-kvG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="8XO-Cr-xef" customClass="PanelViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="panelViewController" id="8XO-Cr-xef" customClass="PanelViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bj-on-BFP">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="パネル画面" id="O9m-Qa-L2D">
+                        <barButtonItem key="backBarButtonItem" title="更新しないで戻る" id="MT1-ed-avv"/>
                         <barButtonItem key="leftBarButtonItem" title="設定" id="PDd-kx-NeA">
                             <connections>
                                 <segue destination="lw5-YI-ddu" kind="push" id="673-Iu-ic9"/>
@@ -349,6 +364,9 @@
         <class className="LevelTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LevelTableViewController.h"/>
         </class>
+        <class className="LoginTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginTableViewController.h"/>
+        </class>
         <class className="PanelViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PanelViewController.h"/>
         </class>
@@ -364,7 +382,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="OEN-Fa-Bwy"/>
-    </inferredMetricsTieBreakers>
 </document>

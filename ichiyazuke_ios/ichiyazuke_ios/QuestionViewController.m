@@ -29,7 +29,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
+    self.title = @"問題";
+
     NSLog(@"QuestionViewController:問題IDは、%@",self.questionId);
     
     NSString *url = @"http://49.212.136.103:8080/ichiyazuke_web/select_question_by_id";
@@ -51,9 +53,9 @@
     NSArray *questions    = [parser objectWithData:response];
 
     //デバッグ用
-    SBJsonWriter*	writer = [[SBJsonWriter alloc] init];
-    writer.humanReadable   = YES;
-    writer.sortKeys        = YES;
+    SBJsonWriter *writer = [[SBJsonWriter alloc] init];
+    writer.humanReadable = YES;
+    writer.sortKeys      = YES;
     NSLog(@"%@", [writer stringWithObject:questions]);
 
     for (NSDictionary *question in questions)

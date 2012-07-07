@@ -7,9 +7,11 @@
 //
 
 #import "SettingTableViewController.h"
+#import "LoginTableViewController.h"
 #import "GradeTableViewController.h"
 #import "CategoryTableViewController.h"
 #import "LevelTableViewController.h"
+#import "PanelViewController.h"
 
 @interface SettingTableViewController ()
 
@@ -39,6 +41,31 @@
     grade    = [defaults stringForKey:@"selectedGrade"];
     category = [defaults stringForKey:@"selectedCategory"];
     level    = [defaults stringForKey:@"selectedLevel"];
+
+    //ひとつ前のViewControllerを取得するために配列を使う
+    NSArray *naviArray = [self.navigationController viewControllers];
+    NSInteger nowIndex = [naviArray count];
+
+    //ひとつ前の画面がログイン画面の場合
+    if ([[naviArray objectAtIndex:nowIndex-2] isMemberOfClass:[LoginTableViewController class]]){
+
+        // 戻るボタンを隠す
+        self.navigationItem.hidesBackButton = YES;
+
+        //問題へボタン設置
+        UIBarButtonItem *updateBtn = [[UIBarButtonItem alloc] initWithTitle:@"問題へ"
+                                                                      style:UIBarButtonItemStylePlain
+                                                                     target:self
+                                                                     action:@selector(goPanel)];
+        self.navigationItem.rightBarButtonItem = updateBtn;
+    } else {
+        //更新ボタン設置
+        UIBarButtonItem *updateBtn = [[UIBarButtonItem alloc] initWithTitle:@"更新"
+                                                                      style:UIBarButtonItemStylePlain
+                                                                     target:self
+                                                                     action:@selector(goPanel)];
+        self.navigationItem.rightBarButtonItem = updateBtn;
+    }
 }
 
 - (void)viewDidUnload
@@ -54,13 +81,6 @@
 #pragma mark - Table view data source
 - (void)reloadTable
 {
-    // NSUserDefaultsに値を保存
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:grade    forKey:@"selectedGrade"];
-    [defaults setObject:category forKey:@"selectedCategory"];
-    [defaults setObject:level    forKey:@"selectedLevel"];    
-    [defaults synchronize];
-
     //TableViewを再表示
     [self.tableView reloadData];
 }
@@ -104,7 +124,12 @@
     }
     if(indexPath.section == 0) {
         if(indexPath.row == 0) {
-            cell.textLabel.text = @"ログインはこちら";
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            if ([defaults boolForKey:@"login"] == NO){
+                cell.textLabel.text = @"ログインはこちら";
+            } else {
+                cell.textLabel.text = @"ログアウト";
+            }
         }
     } else {
         if(indexPath.row == 0) {
@@ -128,14 +153,23 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if(indexPath.section == 0) {
         if(indexPath.row == 0) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ログイン"
-                                                            message:nil
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"Cancel"
-                                                  otherButtonTitles:@"OK",nil];
-            alert.delegate = self;
-            alert.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
-            [alert show];
+
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            
+            // ログインしている場合
+            if ([defaults boolForKey:@"login"] == YES){
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ログアウトしますか？"
+                                                                message:nil
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"Cancel"
+                                                      otherButtonTitles:@"OK",nil];
+                alert.delegate = self;
+                [alert show];
+
+            // ログインしてない場合
+            } else {
+                [self goLogin];
+            }
         }
     } else {
         if(indexPath.row == 0) {
@@ -154,15 +188,42 @@
     }
 }
 
+- (void)goLogin
+{
+    LoginTableViewController *loginTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"loginTableViewController"];
+    [self.navigationController pushViewController:loginTableViewController animated:YES];
+}
+
+- (void)goPanel
+{
+    // NSUserDefaultsに値を保存
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:grade    forKey:@"selectedGrade"];
+    [defaults setObject:category forKey:@"selectedCategory"];
+    [defaults setObject:level    forKey:@"selectedLevel"];
+    [defaults synchronize];
+    
+    //パネル画面へGO
+    PanelViewController *panelViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"panelViewController"];
+    [self.navigationController pushViewController:panelViewController animated:YES];
+}
+
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1) {
-        UITextField *loginNameField = [alertView textFieldAtIndex:0];
-        UITextField *passField = [alertView textFieldAtIndex:1];
-        NSString *login = loginNameField.text;
-        NSString *pass = passField.text;
-        NSLog(@"SettingTableViewController:ID:%@",login);
-        NSLog(@"SettingTableViewController:password:%@",pass);
+        // NSUserDefaultsに値を保存
+        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setBool:NO forKey:@"login"];  // ログアウト
+        [defaults synchronize];
+
+        //パネル画面へ行くボタンを押せなくする
+        //[self.navigationItem.rightBarButtonItem setEnabled:NO];
+
+        //画面再描画
+        //[self reloadTable];
+
+        //ログイン画面へGO
+        [self goLogin];
     }
 }
 

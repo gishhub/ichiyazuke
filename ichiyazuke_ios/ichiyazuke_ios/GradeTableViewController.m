@@ -98,7 +98,7 @@
 	}else {
 		cell.accessoryType = UITableViewCellAccessoryCheckmark;
 	}
-    
+
     //ひとつ前のViewControllerを取得するために配列を使う
     NSArray *naviArray = [self.navigationController viewControllers];
     NSInteger nowIndex = [naviArray count];

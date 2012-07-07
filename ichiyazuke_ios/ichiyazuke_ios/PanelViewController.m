@@ -8,6 +8,7 @@
 
 #import "PanelViewController.h"
 #import "PanelImageView.h"
+#import "LoginTableViewController.h"
 #import "QuestionViewController.h"
 
 @interface PanelViewController ()
@@ -29,13 +30,29 @@
 {
     [super viewDidLoad];
     
+    // NSUserDefaultsに初期値を登録する
+    NSUserDefaults *defaults     = [NSUserDefaults standardUserDefaults];
+    NSMutableDictionary *initial = [NSMutableDictionary dictionary];
+    [initial setObject:@"中学1年生" forKey:@"selectedGrade"];
+    [initial setObject:@"足し算"    forKey:@"selectedCategory"];
+    [initial setObject:@"レベル1"   forKey:@"selectedLevel"];
+    [initial setObject:[NSNumber numberWithBool:NO] forKey:@"login"];
+    [defaults registerDefaults:initial];
+
+    //ログインしてなかったら、設定画面へGO
+    BOOL login = [defaults boolForKey:@"login"];
+    if (login == NO){
+        [self goLogin];
+    }
+
+    //パネル9枚を設置
     for(int i = 1; i <= 9; i++){
         NSURL *imageUrl = [NSURL URLWithString:@"http://profile.ak.fbcdn.net/hprofile-ak-snc4/275863_100000532671032_2306307_n.jpg"];
         UIImage *image  = [UIImage imageWithData:[NSData dataWithContentsOfURL:imageUrl]];
         CGRect rect;
 
         if (i%3 == 1){
-            rect = CGRectMake(40,(i-1)/3*80+40,80,80);
+            rect = CGRectMake( 40,(i-1)/3*80+40,80,80);
         }else if (i%3 == 2){
             rect = CGRectMake(120,(i-1)/3*80+40,80,80);
         }else{
@@ -68,6 +85,12 @@
         
         [self goQuestion:touchView.questionId];
     }
+}
+
+- (void)goLogin
+{    
+    LoginTableViewController *loginTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"loginTableViewController"];
+    [self.navigationController pushViewController:loginTableViewController animated:YES];
 }
 
 - (void)goQuestion:(NSString *)questionId
