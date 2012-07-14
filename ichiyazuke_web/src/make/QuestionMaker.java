@@ -15,12 +15,12 @@ public class QuestionMaker {
     private int grade;
     private int level;
     private int personalId;
-    private String category;
+    private int category;
     
     private int questionId;
     
 
-    public QuestionMaker(int grade, int level, int personalId, String category) {
+    public QuestionMaker(int grade, int level, int personalId, int category) {
         this.grade = grade;
         this.level = level;
         this.personalId = personalId;
