@@ -1,6 +1,7 @@
 package make;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
 import dao.PersonalsDAO;
 
@@ -17,7 +18,7 @@ public class UpdateInfomation {
 		
 	}
 
-	public boolean resultUpdate() {
+	public boolean resultUpdate() throws SQLException {
 		boolean updateResult;
         PersonalsDAO personalsDao = new PersonalsDAO();
         Connection personalsCon = personalsDao.getConection(PERSONALS_DB_NAME);

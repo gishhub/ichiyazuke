@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -86,7 +87,7 @@ public class IchiyazukeServlet extends HttpServlet {
 				out.println("false");
 			}
 		} else if ("/update_infomation".equals(requestStr)) {
-			try {
+			try {				
 				int personalId = Integer.parseInt(request.getParameter("personalId"));
 				int questionId = Integer.parseInt(request.getParameter("questionId"));
 				
@@ -95,6 +96,8 @@ public class IchiyazukeServlet extends HttpServlet {
 			} catch (NumberFormatException e) {
 				e.printStackTrace();
 				out.println("false");
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		} else {
 			out.println("NotHelloWorld!");

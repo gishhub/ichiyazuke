@@ -18,7 +18,7 @@ public class PersonalsDAO extends IchiyazukeDAO {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        try {
+        try {       	
             ps = con.prepareStatement(SELECT_QUESTION_IDS);
             ps.setInt(1, personalId);
 
@@ -26,6 +26,7 @@ public class PersonalsDAO extends IchiyazukeDAO {
             while (rs.next()) {
                 idList.add(rs.getInt(QUESTION_ID));
             }
+            
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -34,12 +35,14 @@ public class PersonalsDAO extends IchiyazukeDAO {
     }
 
 	public boolean updteResultIds(Connection con, int personalId,
-		int questionId) {
+		int questionId) throws SQLException {
 
         PreparedStatement ps = null;
         int result = 0;
 
         try {
+        	con.setAutoCommit(false);
+        	
             ps = con.prepareStatement(UPDATE_RESULT_IDS);
             ps.setInt(1, personalId);
             ps.setInt(2, questionId);
@@ -47,8 +50,9 @@ public class PersonalsDAO extends IchiyazukeDAO {
             ps.setInt(4, 1);
 
             result = ps.executeUpdate();
-
+            con.commit();
         } catch (SQLException e) {
+        	con.rollback();
             e.printStackTrace();
         }
 
