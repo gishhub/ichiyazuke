@@ -33,9 +33,9 @@
     // NSUserDefaultsに初期値を登録する
     NSUserDefaults *defaults     = [NSUserDefaults standardUserDefaults];
     NSMutableDictionary *initial = [NSMutableDictionary dictionary];
-    [initial setObject:@"中学1年生" forKey:@"selectedGrade"];
-    [initial setObject:@"足し算"    forKey:@"selectedCategory"];
-    [initial setObject:@"レベル1"   forKey:@"selectedLevel"];
+    [initial setObject:@"高校１年生"    forKey:@"selectedGrade"];
+    [initial setObject:@"方程式と不等式" forKey:@"selectedCategory"];
+    [initial setObject:@"レベル1"      forKey:@"selectedLevel"];
     [initial setObject:[NSNumber numberWithBool:NO] forKey:@"login"];
     [defaults registerDefaults:initial];
 

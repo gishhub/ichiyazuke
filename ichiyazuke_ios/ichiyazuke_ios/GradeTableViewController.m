@@ -50,7 +50,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 6;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -63,18 +63,21 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     if(indexPath.section == 0) {
-        if(indexPath.row == 0) {
-            cell.textLabel.text = @"中学１年生";
-        }else if(indexPath.row == 1) {
-            cell.textLabel.text = @"中学２年生";
-        }else if(indexPath.row == 2){
-            cell.textLabel.text = @"中学３年生";
-        }else if(indexPath.row == 3){
-            cell.textLabel.text = @"高校１年生";
-        }else if(indexPath.row == 4){
-            cell.textLabel.text = @"高校２年生";
-        }else {
-            cell.textLabel.text = @"高校３年生";
+        switch (indexPath.row) {
+            case 0:
+                cell.textLabel.text = @"高校１年生";
+                break;
+
+            case 1:
+                cell.textLabel.text = @"高校２年生";
+                break;
+
+            case 2:
+                cell.textLabel.text = @"高校３年生";
+                break;
+
+            default:
+                break;
         }
     }
     return cell;
@@ -106,22 +109,24 @@
 
     // そのsectionのそのrowが選択されたら
     if(indexPath.section == 0) {
-        if(indexPath.row == 0) {
-            settingTableViewController.grade = @"中学1年生";
-        } else if(indexPath.row == 1) {
-            settingTableViewController.grade = @"中学2年生";
-        } else if(indexPath.row == 2) {
-            settingTableViewController.grade = @"中学3年生";
-        } else if(indexPath.row == 3) {
-            settingTableViewController.grade = @"高校1年生";
-        } else if(indexPath.row == 4) {
-            settingTableViewController.grade = @"高校2年生";
-        } else if(indexPath.row == 5) {
-            settingTableViewController.grade = @"高校3年生";
-        } else {
-            logger = @"GradeTableViewController:設定してない列です";
-            NSLog(@"%@", logger);
+        switch (indexPath.row) {
+            case 0:
+                settingTableViewController.grade = @"高校１年生";
+                break;
+
+            case 1:
+                settingTableViewController.grade = @"高校２年生";
+                break;
+
+            case 2:
+                settingTableViewController.grade = @"高校３年生";
+                break;
+
+            default:
+                logger = @"GradeTableViewController:設定してない列です";
+                NSLog(@"%@", logger);
         }
+
         //settingTableViewControllerの再描画
         [settingTableViewController reloadTable];
 

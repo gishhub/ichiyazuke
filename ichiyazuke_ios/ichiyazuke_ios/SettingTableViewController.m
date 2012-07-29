@@ -81,6 +81,12 @@
 #pragma mark - Table view data source
 - (void)reloadTable
 {
+
+    //学年とカテゴリの不整合があれば修正
+    
+
+
+
     //TableViewを再表示
     [self.tableView reloadData];
 }

@@ -98,6 +98,9 @@
             if ([self.username resignFirstResponder]) {
                 [self.username becomeFirstResponder];
             }
+            [self.username addTarget:self
+                              action:@selector(hoge:)
+                    forControlEvents:UIControlEventEditingDidEndOnExit];
         } else if (indexPath.row == 1) {
             self.password = [[UITextField alloc] initWithFrame:CGRectMake(100.0, 14.0, 200.0, 50.0)];
             self.password.returnKeyType = UIReturnKeyDone;
@@ -116,31 +119,137 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    // デフォルトでは選択されたrowはずっとハイライトされるけど、スッとそのハイライトが消えるようにする
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+	self.username = textField;
+	self.password = textField;
+    NSLog(@"%@",self.username);
+    NSLog(@"%@",self.password);
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+	[textField resignFirstResponder];
+	return YES;
 }
 
 - (void)selectedLoginBtn:(id)sender
 {
-    // NSUserDefaultsに値を保存
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setBool:YES forKey:@"login"];  // ログイン
-    [defaults synchronize];
-
-    //設定画面へGO
-    SettingTableViewController *settingTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"settingTableViewController"];
-    [self.navigationController pushViewController:settingTableViewController animated:YES];
+    if ([self.username.text length] == 0 || [self.password.text  length] == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ログイン失敗"
+                                                        message:@"ユーザ名またはパスワードが空です"
+                                                       delegate:nil
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"OK",nil];
+        alert.delegate = self;
+        [alert show];
+    } else {
+        //ログイン情報をPOSTで送信
+        //trueならログイン成功、falseならログイン失敗
+        NSString *url = @"http://49.212.136.103:8080/ichiyazuke_web/login";
+        
+        /* GET */
+        //NSString *url         = @"http://49.212.136.103:8080/ichiyazuke_web/select_question_by_id?questionId=3";
+        //NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+        
+        /* POST */
+        NSString *keyValue = [NSString stringWithFormat:@"username=%@&passward=%@", self.username.text, self.password.text];
+        NSData *post = [keyValue dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        [request setURL:[NSURL URLWithString:url]];
+        [request setHTTPMethod:@"POST"];
+        [request setHTTPBody:post];
+        
+        NSData   *response    = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+        NSString *loginResult = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
+        
+        if ([loginResult boolValue]){
+            NSLog(@"%@",@"ログイン成功です");
+            // NSUserDefaultsに値を保存
+            NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setBool:YES forKey:@"login"];  // ログイン
+            [defaults synchronize];
+            
+            //設定画面へGO
+            SettingTableViewController *settingTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"settingTableViewController"];
+            [self.navigationController pushViewController:settingTableViewController animated:YES];        
+        } else {
+            NSLog(@"%@",@"ログイン失敗です");
+            //ポップアップする
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ログイン失敗"
+                                                            message:@"ユーザ名またはパスワードが間違っています"
+                                                           delegate:nil
+                                                  cancelButtonTitle:nil
+                                                  otherButtonTitles:@"OK",nil];
+            alert.delegate = self;
+            [alert show];
+        }
+    }
 }
 
 - (void)selectedSignUpBtn:(id)sender
 {
-    // NSUserDefaultsに値を保存
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setBool:YES forKey:@"login"];  // ログイン
-    [defaults synchronize];
-    
-    //設定画面へGO
-    SettingTableViewController *settingTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"settingTableViewController"];
-    [self.navigationController pushViewController:settingTableViewController animated:YES];
+    if ([self.username.text length] == 0 || [self.password.text length] == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"新規登録失敗"
+                                                        message:@"ユーザ名またはパスワードが空です"
+                                                       delegate:nil
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"OK",nil];
+        alert.delegate = self;
+        [alert show];
+    } else {
+        //新規登録情報をPOSTで送信
+        //trueなら新規登録成功、falseなら新規登録失敗
+        NSString *url = @"http://49.212.136.103:8080/ichiyazuke_web/signup";
+        
+        /* POST */
+        NSString *keyValue = [NSString stringWithFormat:@"username=%@&passward=%@", self.username.text, self.password.text];
+        NSData *post = [keyValue dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        [request setURL:[NSURL URLWithString:url]];
+        [request setHTTPMethod:@"POST"];
+        [request setHTTPBody:post];
+        
+        NSData   *response     = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+        NSString *signupResult = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
+        
+        if ([signupResult boolValue]) {
+            NSLog(@"%@",@"ユーザ登録成功です");
+            // NSUserDefaultsに値を保存
+            NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setBool:YES forKey:@"login"];  // ログイン
+            [defaults synchronize];
+            
+            //設定画面へGO
+            SettingTableViewController *settingTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"settingTableViewController"];
+            [self.navigationController pushViewController:settingTableViewController animated:YES];        
+        } else {
+            NSLog(@"%@",@"ユーザ登録失敗です");
+            //ポップアップする
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ユーザ登録失敗"
+                                                            message:@"もう既に使われているユーザ名です"
+                                                           delegate:nil
+                                                  cancelButtonTitle:nil
+                                                  otherButtonTitles:@"OK",nil];
+            alert.delegate = self;
+            [alert show];
+        }
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        UITextField *loginNameField = [alertView textFieldAtIndex:0];
+        UITextField *passField = [alertView textFieldAtIndex:1];
+        NSString *login = loginNameField.text;
+        NSString *pass = passField.text;
+        NSLog(@"id: %@",login);
+        NSLog(@"password: %@",pass);
+    }
 }
 
 @end

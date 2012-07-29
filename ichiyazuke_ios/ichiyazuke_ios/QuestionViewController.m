@@ -50,19 +50,33 @@
 
     NSData *response      = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     SBJsonParser *parser  = [[SBJsonParser alloc] init];
-    NSArray *questions    = [parser objectWithData:response];
+    NSArray *question     = [parser objectWithData:response];
+
+    NSLog(@"title:%@"      ,[(NSDictionary *)question objectForKey:@"title"]);
+    NSLog(@"contents:%@"   ,[(NSDictionary *)question objectForKey:@"contents"]);
+    NSLog(@"choice1:%@"    ,[(NSDictionary *)question objectForKey:@"choice1"]);
+    NSLog(@"choice2:%@"    ,[(NSDictionary *)question objectForKey:@"choice2"]);
+    NSLog(@"choice3:%@"    ,[(NSDictionary *)question objectForKey:@"choice3"]);
+    NSLog(@"choice4:%@"    ,[(NSDictionary *)question objectForKey:@"choice4"]);
+    NSLog(@"answer:%@"     ,[(NSDictionary *)question objectForKey:@"answer"]);
+    NSLog(@"explanation:%@",[(NSDictionary *)question objectForKey:@"explanation"]);
 
     //デバッグ用
+    /*
     SBJsonWriter *writer = [[SBJsonWriter alloc] init];
     writer.humanReadable = YES;
     writer.sortKeys      = YES;
-    NSLog(@"%@", [writer stringWithObject:questions]);
+    NSLog(@"%@", [writer stringWithObject:question]);
+     */
 
+    /*
+     NSArray *questions = [parser objectWithData:response];
     for (NSDictionary *question in questions)
     {
         //NSLog(@"%@",[question objectForKey:@"title"]);
         //NSLog(@"%@ \n %@", [[tweet objectForKey:@"user"] objectForKey:@"screen_name"],[tweet objectForKey:@"text"]);
     }
+     */
 }
 
 - (void)viewDidUnload

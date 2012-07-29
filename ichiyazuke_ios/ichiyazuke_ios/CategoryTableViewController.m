@@ -15,6 +15,8 @@
 
 @implementation CategoryTableViewController
 
+@synthesize grade;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -27,6 +29,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //ひとつ前のViewControllerを取得するために配列を使う
+    NSArray *naviArray = [self.navigationController viewControllers];
+    NSInteger nowIndex = [naviArray count];
+    SettingTableViewController *settingTableViewController = (SettingTableViewController *)[naviArray objectAtIndex:nowIndex-2];
+    
+    self.grade = settingTableViewController.grade;
+    
+    NSLog(@"%@", self.grade);
 }
 
 - (void)viewDidUnload
@@ -49,8 +59,18 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return 5;
+    NSLog(@"%@", self.grade);
+    if ([self.grade isEqualToString:@"高校１年生"]) {
+        NSLog(@"%@", @"CategoryTableViewController:高校１年生です");
+        return 5;
+    } else if ([self.grade isEqualToString:@"高校２年生"]) {
+        NSLog(@"%@", @"CategoryTableViewController:高校２年生です");
+        return 6;
+    } else if ([self.grade isEqualToString:@"高校３年生"]) {
+        return 3;
+    } else {
+        return 6;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -62,17 +82,82 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
+
     if(indexPath.section == 0) {
-        if(indexPath.row == 0) {
-            cell.textLabel.text = @"足し算";
-        }else if(indexPath.row == 1) {
-            cell.textLabel.text = @"引き算";
-        }else if(indexPath.row == 2){
-            cell.textLabel.text = @"かけ算";
-        }else if(indexPath.row == 3){
-            cell.textLabel.text = @"割り算";
-        }else {
-            cell.textLabel.text = @"その他";
+        if ([self.grade isEqualToString:@"高校１年生"]) {
+            switch (indexPath.row) {
+                case 0:
+                    cell.textLabel.text = @"方程式と不等式";
+                    break;
+                    
+                case 1:
+                    cell.textLabel.text = @"二次関数";
+                    break;
+                    
+                case 2:
+                    cell.textLabel.text = @"三角比";
+                    break;
+                    
+                case 3:
+                    cell.textLabel.text = @"集合・命題・証明";
+                    break;
+                    
+                case 4:
+                    cell.textLabel.text = @"場合の数・確率";
+                    break;
+                    
+                default:
+                    NSLog(@"%@", @"CategoryTableViewController:設定してない列です");
+
+            }
+        } else if ([self.grade isEqualToString:@"高校２年生"]) {
+            switch (indexPath.row) {
+                case 0:
+                    cell.textLabel.text = @"式と証明";
+                    break;
+                    
+                case 1:
+                    cell.textLabel.text = @"三角関数";
+                    break;
+                    
+                case 2:
+                    cell.textLabel.text = @"指数・対数関数";
+                    break;
+                    
+                case 3:
+                    cell.textLabel.text = @"微分と積分";
+                    break;
+                    
+                case 4:
+                    cell.textLabel.text = @"数列";
+                    break;
+                    
+                case 5:
+                    cell.textLabel.text = @"ベクトル";
+                    break;
+
+                default:
+                    NSLog(@"%@", @"CategoryTableViewController:設定してない列です");
+            }
+        } else if ([self.grade isEqualToString:@"高校３年生"]) {
+            switch (indexPath.row) {
+                case 0:
+                    cell.textLabel.text = @"極限";
+                    break;
+                    
+                case 1:
+                    cell.textLabel.text = @"微分法と積分法";
+                    break;
+                    
+                case 2:
+                    cell.textLabel.text = @"行列";
+                    break;
+                    
+                default:
+                    NSLog(@"%@", @"CategoryTableViewController:設定してない列です");
+            }
+        } else {
+            NSLog(@"%@", @"CategoryTableViewController:設定してない列です");
         }
     }
     return cell;
@@ -99,20 +184,83 @@
     NSArray *naviArray = [self.navigationController viewControllers];
     NSInteger nowIndex = [naviArray count];
     SettingTableViewController *settingTableViewController = (SettingTableViewController *)[naviArray objectAtIndex:nowIndex-2];
-    
+
     // そのsectionのそのrowが選択されたら
     if(indexPath.section == 0) {
-        if(indexPath.row == 0) {
-            settingTableViewController.category = @"足し算";
-        }else if(indexPath.row == 1) {
-            settingTableViewController.category = @"引き算";
-        }else if(indexPath.row == 2){
-            settingTableViewController.category = @"かけ算";
-        }else if(indexPath.row == 3){
-            settingTableViewController.category = @"割り算";
-        }else {
-            settingTableViewController.category = @"その他";
+        
+        if ([self.grade isEqualToString:@"高校１年生"]) {
+            switch (indexPath.row) {
+                case 0:
+                    settingTableViewController.category = @"方程式と不等式";
+                    break;
+                    
+                case 1:
+                    settingTableViewController.category = @"二次関数";
+                    break;
+                    
+                case 2:
+                    settingTableViewController.category = @"三角比";
+                    break;
+                    
+                case 3:
+                    settingTableViewController.category = @"集合・命題・証明";
+                    break;
+                    
+                case 4:
+                    settingTableViewController.category = @"場合の数・確率";
+                    break;
+                    
+                default:
+                    NSLog(@"%@", @"CategoryTableViewController:設定してない列です");
+            }
+        } else if ([self.grade isEqualToString:@"高校２年生"]) {
+            switch (indexPath.row) {
+                case 0:
+                    settingTableViewController.category = @"式と証明";
+                    break;
+                    
+                case 1:
+                    settingTableViewController.category = @"三角関数";
+                    break;
+                    
+                case 2:
+                    settingTableViewController.category = @"指数・対数関数";
+                    break;
+                    
+                case 3:
+                    settingTableViewController.category = @"微分と積分";
+                    break;
+                    
+                case 4:
+                    settingTableViewController.category = @"数列";
+                    break;
+                    
+                case 5:
+                    settingTableViewController.category = @"ベクトル";
+                    break;
+
+                default:
+                    NSLog(@"%@", @"CategoryTableViewController:設定してない列です");
+            }
+        } else if ([self.grade isEqualToString:@"高校３年生"]) {
+            switch (indexPath.row) {
+                case 0:
+                    settingTableViewController.category = @"極限";
+                    break;
+                    
+                case 1:
+                    settingTableViewController.category = @"微分法と積分法";
+                    break;
+                    
+                case 2:
+                    settingTableViewController.category = @"行列";
+                    break;
+
+                default:
+                    NSLog(@"%@", @"CategoryTableViewController:設定してない列です");
+            }
         }
+
         //settingTableViewControllerの再描画
         [settingTableViewController reloadTable];
         
