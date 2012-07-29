@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -11,8 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.arnx.jsonic.JSON;
-
-//import net.sf.json.JSONArray;
 
 import make.QuestionMaker;
 import make.UpdateInfomation;
@@ -48,7 +47,7 @@ public class IchiyazukeServlet extends HttpServlet {
 
 		String requestStr = request.getPathInfo();
 
-		response.setContentType("text/html; charset=Windows-31J");
+		response.setContentType("text/plain; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 
 		if ("/select_question_id".equals(requestStr)) {
@@ -59,7 +58,7 @@ public class IchiyazukeServlet extends HttpServlet {
 				int personalId = Integer.parseInt(request
 						.getParameter("personalId"));
 
-				String category = request.getParameter("category");
+				int category = Integer.parseInt(request.getParameter("category"));
 				
 				QuestionMaker questionMaker = new QuestionMaker(grade, level,
 						personalId, category);
@@ -88,7 +87,7 @@ public class IchiyazukeServlet extends HttpServlet {
 				out.println("false");
 			}
 		} else if ("/update_infomation".equals(requestStr)) {
-			try {
+			try {				
 				int personalId = Integer.parseInt(request.getParameter("personalId"));
 				int questionId = Integer.parseInt(request.getParameter("questionId"));
 				
@@ -97,6 +96,8 @@ public class IchiyazukeServlet extends HttpServlet {
 			} catch (NumberFormatException e) {
 				e.printStackTrace();
 				out.println("false");
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		} else {
 			out.println("NotHelloWorld!");

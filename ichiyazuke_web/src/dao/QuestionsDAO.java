@@ -24,7 +24,7 @@ public class QuestionsDAO extends IchiyazukeDAO {
 
     private final String SELECT_QUESTIONS_BY_ID = "SELECT title, contents, choice1, choice2, choice3, choice4, answer, explanation, reg_date FROM questions WHERE id = ?";
 
-    public ArrayList<Integer> selectQuestionIds(Connection con, int grade, int level, ArrayList<Integer> notList, String category) {
+    public ArrayList<Integer> selectQuestionIds(Connection con, int grade, int level, ArrayList<Integer> notList, int category) {
         StringBuffer sb = new StringBuffer();
         ArrayList<Integer> idList = new ArrayList<Integer>();
         Iterator<Integer> iterator = notList.iterator();
@@ -57,7 +57,7 @@ public class QuestionsDAO extends IchiyazukeDAO {
             }
             ps.setInt(counter++, grade);
             ps.setInt(counter++, level);
-            ps.setString(counter, category);
+            ps.setInt(counter++, category);
 
             rs = ps.executeQuery();
 
