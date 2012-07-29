@@ -24,21 +24,21 @@ public class Questions {
             String title, String contents, String choise1, String choise2,
             String choise3, String choise4, String answer, String explanation,
             int count, Date regDate, Date timeStamp) {
-        this.id = id;
-        this.grade = grade;
-        this.category = category;
-        this.level = level;
-        this.title = title;
-        this.contents = contents;
-        this.choise1 = choise1;
-        this.choise2 = choise2;
-        this.choise3 = choise3;
-        this.choise4 = choise4;
-        this.answer = answer;
+        this.id          = id;
+        this.grade       = grade;
+        this.category    = category;
+        this.level       = level;
+        this.title       = title;
+        this.contents    = contents;
+        this.choise1     = choise1;
+        this.choise2     = choise2;
+        this.choise3     = choise3;
+        this.choise4     = choise4;
+        this.answer      = answer;
         this.explanation = explanation;
-        this.count = count;
-        this.regDate = regDate;
-        this.timeStamp = timeStamp;
+        this.count       = count;
+        this.regDate     = regDate;
+        this.timeStamp   = timeStamp;
     }
 
     public int getGrade() {

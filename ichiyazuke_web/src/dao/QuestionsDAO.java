@@ -6,28 +6,34 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
-
 
 public class QuestionsDAO extends IchiyazukeDAO {
 
-    private final String QUESTION_ID = "id";
+    private final String QUESTION_ID       = "id";
 
-    private final String SELECT_QUESTIONS = "SELECT id FROM questions WHERE NOT id IN";
-    private final String PARENTHESIS_OPEN = " (";
+    /*
+     * ここは現在まだ使ってない
+    private final String SELECT_QUESTIONS  = "SELECT id FROM questions WHERE NOT id IN";
+    private final String PARENTHESIS_OPEN  = " (";
     private final String PARENTHESIS_CLOSE = ")";
-    private final String QUESTION_MARK = "?";
-    private final String COMMA = ", ";
-    private final String AND_GRADE = " AND grade = ?";
-    private final String AND_LEVEL = " AND level = ?";
-    private final String AND_CATEGORY = " AND category = ?";
+    private final String QUESTION_MARK     = "?";
+    private final String COMMA             = ", ";
+    private final String AND_GRADE         = " AND grade = ?";
+    private final String AND_LEVEL         = " AND level = ?";
+    private final String AND_CATEGORY      = " AND category = ?";
+    */
+
+    private final String SELECT_QUESTION_IDS    = "SELECT id FROM questions WHERE grade = ? AND level = ? AND category = ?";
 
     private final String SELECT_QUESTIONS_BY_ID = "SELECT title, contents, choice1, choice2, choice3, choice4, answer, explanation, reg_date FROM questions WHERE id = ?";
 
+    /*
+     * 解いたことある問題IDを除いて問題IDリスト返すんだけど
+     * ここはまだ使わない
     public ArrayList<Integer> selectQuestionIds(Connection con, int grade, int level, ArrayList<Integer> notList, int category) {
         StringBuffer sb = new StringBuffer();
         ArrayList<Integer> idList = new ArrayList<Integer>();
-        Iterator<Integer> iterator = notList.iterator();
+        Iterator<Integer> quiestionIds = notList.iterator();
         String sql = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -49,15 +55,50 @@ public class QuestionsDAO extends IchiyazukeDAO {
         try {
             ps = con.prepareStatement(sql);
             int counter = 1;
-            while (iterator.hasNext()) {
-                int param = iterator.next();
+            while (quiestionIds.hasNext()) {
+                int quiestionId = quiestionIds.next();
 
-                ps.setInt(counter, param);
+                ps.setInt(counter, quiestionId);
                 counter++;
             }
             ps.setInt(counter++, grade);
             ps.setInt(counter++, level);
-            ps.setInt(counter++, category);
+            ps.setInt(counter, category);
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                idList.add(rs.getInt(QUESTION_ID));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return idList;
+    }
+    */
+
+    public ArrayList<Integer> selectQuestionIds(Connection con, int grade, int level, ArrayList<Integer> notList, int category) {
+        ArrayList<Integer> idList = new ArrayList<Integer>();
+        String sql = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        sql = SELECT_QUESTION_IDS;
+
+        //デバッグ
+        System.out.println("SQL : " + sql);
+        try {
+            ps = con.prepareStatement(sql);
+
+            ps.setInt(1, grade);
+            ps.setInt(2, level);
+            ps.setInt(3, category);
+
+            //デバッグ
+            System.out.println("grade : " + grade);
+            System.out.println("level : " + level);
+            System.out.println("category : " + category);
 
             rs = ps.executeQuery();
 
@@ -71,7 +112,7 @@ public class QuestionsDAO extends IchiyazukeDAO {
         return idList;
     }
 
-	public HashMap<String,String> selectQuestionById(Connection con, int questionId) {
+    public HashMap<String,String> selectQuestionById(Connection con, int questionId) {
 		
         StringBuffer sb = new StringBuffer();
 		HashMap<String,String> qHashMap = new HashMap<String,String>();
