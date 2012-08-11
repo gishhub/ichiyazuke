@@ -1,6 +1,5 @@
 package init;
 
-
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServlet;
 import  util.ConfReader;
@@ -11,6 +10,6 @@ public class Initialize extends HttpServlet {
 
 	public void init(){
 		ServletContext application = getServletContext();
-		ConfReader.getInstance().readConf(application.getRealPath("/WEB-INF/ichiyazuke.properties"));
+		ConfReader.getInstance().readConf(application.getRealPath("/WEB-INF/conf/ichiyazuke.properties"));
 	}
 }

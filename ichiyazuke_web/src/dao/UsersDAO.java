@@ -4,13 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class UsersDAO extends IchiyazukeDAO {
 
-    private final String SELECT_NICKNAME  = "SELECT * FROM users WHERE nickname = ?";
-    private final String SELECT_USER      = "SELECT * FROM users WHERE nickname = ? AND password = ?";
-    private final String INSERT_USER      = "INSERT INTO users(nickname, password) VALUES (?, ?)";
+    private final String SELECT_USER_BY_NICKNAME          = "SELECT * FROM users WHERE nickname = ?";
+    private final String SELECT_USER_BY_NICKNAME_PASSWORD = "SELECT * FROM users WHERE nickname = ? AND password = ?";
+    private final String INSERT_USER                      = "INSERT INTO users(nickname, password) VALUES (?, ?)";
 
     public boolean selectUser(Connection con, String nickname, String passward) {
         PreparedStatement ps = null;
@@ -18,7 +17,7 @@ public class UsersDAO extends IchiyazukeDAO {
         int count = 0;
 
         try {
-            ps = con.prepareStatement(SELECT_USER);
+            ps = con.prepareStatement(SELECT_USER_BY_NICKNAME_PASSWORD);
         	ps.setString(1, nickname);
         	ps.setString(2, passward);
 
@@ -46,7 +45,7 @@ public class UsersDAO extends IchiyazukeDAO {
         int result = 0;
 
         try {
-            ps = con.prepareStatement(SELECT_NICKNAME);
+            ps = con.prepareStatement(SELECT_USER_BY_NICKNAME);
             ps.setString(1, nickname);
 
             rs = ps.executeQuery();

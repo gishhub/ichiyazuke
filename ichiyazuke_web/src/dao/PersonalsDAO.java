@@ -32,8 +32,7 @@ public class PersonalsDAO extends IchiyazukeDAO {
         return idList;
     }
 
-	public boolean updteResultIds(Connection con, int personalId,
-		int questionId) {
+	public boolean updateResultIds(Connection con, int personalId, int questionId) {
 
         PreparedStatement ps = null;
         int result = 0;

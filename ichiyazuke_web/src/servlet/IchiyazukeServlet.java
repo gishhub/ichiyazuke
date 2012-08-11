@@ -10,15 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import action.QuestionAction;
+import action.PersonalAction;
+import action.UserAction;
+
 import net.arnx.jsonic.JSON;
-
-//import net.sf.json.JSONArray;
-
-import make.QuestionMaker;
-import make.UpdateInfomation;
-import make.UserInfomation;
-
-import dao.UsersDAO;
 
 /**
  * Servlet implementation class IchiyazukeServlet
@@ -33,44 +29,34 @@ public class IchiyazukeServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
 
+		response.setContentType("text/html; charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("application/json; charset=UTF-8");
 
 		String requestStr = request.getPathInfo();
-
-		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 
 		if ("/select_question_id".equals(requestStr)) {
-			
 			try {
 				int grade      = Integer.parseInt(request.getParameter("grade"));
+				int category   = Integer.parseInt(request.getParameter("category"));
 				int level      = Integer.parseInt(request.getParameter("level"));
 				int personalId = Integer.parseInt(request.getParameter("personalId"));
-				int category   = Integer.parseInt(request.getParameter("category"));
 
-				//デバッグ用
-				//out.println(grade);
-				//out.println(level);
-				//out.println(personalId);
-				//out.println(category);
+				QuestionAction questionAction = new QuestionAction(grade, level, category, personalId);
 
-				QuestionMaker questionMaker = new QuestionMaker(grade, level, personalId, category);
-
-				ArrayList<Integer> idList = questionMaker.getQuestionNumbers();
+				ArrayList<Integer> idList = questionAction.getQuestionNumbers();
 
 		        if (idList.size() < 9){
-		        	out.println("問題IDが9より少ないです。");
+		        	throw new Exception();
 		        }
 
 		        String tmp = JSON.encode(idList);
 				out.println(tmp);
-
 		        idList.remove(0);
 
 			} catch (IndexOutOfBoundsException e){
 				e.printStackTrace();
-				out.println("返す問題IDが一つも無いです。");
 			} catch (Exception e) {
 				e.printStackTrace();
 				out.println("false");
@@ -78,12 +64,12 @@ public class IchiyazukeServlet extends HttpServlet {
 		} else if ("/select_question_by_id".equals(requestStr)) {
 			try {
 				int questionId = Integer.parseInt(request.getParameter("questionId"));
-				QuestionMaker questionMaker = new QuestionMaker(questionId);
-				HashMap<String,String> questionHashMap = questionMaker.getQuestionById();
+				QuestionAction questionAction = new QuestionAction(questionId);
+				HashMap<String,String> questionHashMap = questionAction.getQuestionById();
 
 				String tmp = JSON.encode(questionHashMap);
 				out.println(tmp);
-				
+
 				questionHashMap.remove(0);
 			} catch (Exception e){
 				e.printStackTrace();
@@ -93,9 +79,9 @@ public class IchiyazukeServlet extends HttpServlet {
 			try {
 				int personalId = Integer.parseInt(request.getParameter("personalId"));
 				int questionId = Integer.parseInt(request.getParameter("questionId"));
-				
-				UpdateInfomation resultUpdater = new UpdateInfomation(personalId, questionId);
-				out.println(resultUpdater.resultUpdate());
+
+				PersonalAction personalAction = new PersonalAction(personalId, questionId);
+				out.println(personalAction.updatePersonalData());
 			} catch (NumberFormatException e) {
 				e.printStackTrace();
 				out.println("false");
@@ -104,9 +90,9 @@ public class IchiyazukeServlet extends HttpServlet {
 			try {
 				String username = request.getParameter("username");
 				String passward = request.getParameter("passward");
-				
-				UserInfomation resultLogin = new UserInfomation(username, passward);
-				out.println(resultLogin.judgeLogin());
+
+				UserAction userAction = new UserAction(username, passward);
+				out.println(userAction.login());
 			} catch (NumberFormatException e) {
 				e.printStackTrace();
 				out.println("false");
@@ -116,14 +102,13 @@ public class IchiyazukeServlet extends HttpServlet {
 				String username = request.getParameter("username");
 				String passward = request.getParameter("passward");
 
-				UserInfomation resultLogin = new UserInfomation(username, passward);
-				out.println(resultLogin.signUp());
+				UserAction userAction = new UserAction(username, passward);
+				out.println(userAction.signUp());
 			} catch (NumberFormatException e) {
 				e.printStackTrace();
 				out.println("false");
 			}
 		} else {
-			out.println("HelloWorld!");
 			out.println("false");
 		}
 		out.close();

@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 public class QuestionsDAO extends IchiyazukeDAO {
 
-    private final String QUESTION_ID       = "id";
+    private final String QUESTION_ID = "id";
 
     /*
      * ここは現在まだ使ってない
@@ -24,7 +24,6 @@ public class QuestionsDAO extends IchiyazukeDAO {
     */
 
     private final String SELECT_QUESTION_IDS    = "SELECT id FROM questions WHERE grade = ? AND level = ? AND category = ?";
-
     private final String SELECT_QUESTIONS_BY_ID = "SELECT title, contents, choice1, choice2, choice3, choice4, answer, explanation, reg_date FROM questions WHERE id = ?";
 
     /*
@@ -78,7 +77,7 @@ public class QuestionsDAO extends IchiyazukeDAO {
     }
     */
 
-    public ArrayList<Integer> selectQuestionIds(Connection con, int grade, int level, ArrayList<Integer> notList, int category) {
+    public ArrayList<Integer> selectQuestionIds(Connection con, int grade, int level, int category, ArrayList<Integer> notList) {
         ArrayList<Integer> idList = new ArrayList<Integer>();
         String sql = null;
         PreparedStatement ps = null;
