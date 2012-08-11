@@ -19,9 +19,9 @@ public class ConfReader {
 
         try {
             properties.load(new FileInputStream(configFilePath));
-            this.dbHost = properties.getProperty("db.host");
-            this.dbPort = properties.getProperty("db.port");
-            this.dbUser = properties.getProperty("db.user");
+            this.dbHost     = properties.getProperty("db.host");
+            this.dbPort     = properties.getProperty("db.port");
+            this.dbUser     = properties.getProperty("db.user");
             this.dbPassword = properties.getProperty("db.password");
         } catch (FileNotFoundException e) {
             e.printStackTrace();

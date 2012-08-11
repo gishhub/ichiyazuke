@@ -11,11 +11,11 @@ public class Personals {
     private Date timeStamp;
 
     public Personals(int id, int personalId, String category, int categoryId, Date timeStamp) {
-        this.id = id;
+        this.id         = id;
         this.personalId = personalId;
-        this.category = category;
+        this.category   = category;
         this.categoryId = categoryId;
-        this.timeStamp = timeStamp;
+        this.timeStamp  = timeStamp;
     }
 
     public int getPersonalId() {

@@ -41,7 +41,7 @@ public class QuestionMaker {
         Connection questionsCon = questionsDao.getConection(QUESTIONS_DB_NAME);
         ArrayList<Integer> idList = questionsDao.selectQuestionIds(questionsCon, grade, level, notList, category);
         questionsDao.closeConnection(questionsCon);
-    	
+
         return idList;
     }
 

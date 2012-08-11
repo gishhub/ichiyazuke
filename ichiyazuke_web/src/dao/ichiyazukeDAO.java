@@ -15,12 +15,12 @@ abstract class IchiyazukeDAO {
         try {
             Class.forName("com.mysql.jdbc.Driver");
 
-            String dbHost = confReader.getDbHost();
-            String dbPort = confReader.getDbPort();
-            String dbUser = confReader.getDbUser();
+            String dbHost     = confReader.getDbHost();
+            String dbPort     = confReader.getDbPort();
+            String dbUser     = confReader.getDbUser();
             String dbPassword = confReader.getDbPassword();
 
-            String url = "jdbc:mysql://" + dbHost + ":" + dbPort + "/" + dbName;
+            String url        = "jdbc:mysql://" + dbHost + ":" + dbPort + "/" + dbName;
 
             con = DriverManager.getConnection(url, dbUser, dbPassword);
         } catch (ClassNotFoundException e) {
