@@ -2,5 +2,5 @@
 .DS_Store
 
 # ichiyazuke.properties
-ichiyazuke_web/WebContent/WEB-INF/ichiyazuke.properties
+ichiyazuke_web/WebContent/WEB-INF/conf/ichiyazuke.properties
 
