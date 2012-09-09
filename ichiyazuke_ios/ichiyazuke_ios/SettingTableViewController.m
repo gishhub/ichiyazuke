@@ -36,7 +36,7 @@
 {
     [super viewDidLoad];
 
-    // NSUserDefaultsに保存された値を読み込み
+    //NSUserDefaultsに保存された値を読み込み
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     grade    = [defaults stringForKey:@"selectedGrade"];
     category = [defaults stringForKey:@"selectedCategory"];
@@ -49,7 +49,7 @@
     //ひとつ前の画面がログイン画面の場合
     if ([[naviArray objectAtIndex:nowIndex-2] isMemberOfClass:[LoginTableViewController class]]){
 
-        // 戻るボタンを隠す
+        //戻るボタンを隠す
         self.navigationItem.hidesBackButton = YES;
 
         //問題へボタン設置
@@ -203,7 +203,7 @@
 
 - (void)goPanel
 {
-    // NSUserDefaultsに値を保存
+    //NSUserDefaultsに値を保存
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:grade    forKey:@"selectedGrade"];
     [defaults setObject:category forKey:@"selectedCategory"];
@@ -218,16 +218,10 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1) {
-        // NSUserDefaultsに値を保存
+        //NSUserDefaultsに値を保存
         NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
         [defaults setBool:NO forKey:@"login"];  // ログアウト
         [defaults synchronize];
-
-        //パネル画面へ行くボタンを押せなくする
-        //[self.navigationItem.rightBarButtonItem setEnabled:NO];
-
-        //画面再描画
-        //[self reloadTable];
 
         //ログイン画面へGO
         [self goLogin];

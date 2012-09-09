@@ -99,7 +99,7 @@
                 [self.username becomeFirstResponder];
             }
             [self.username addTarget:self
-                              action:@selector(hoge:)
+                              action:nil
                     forControlEvents:UIControlEventEditingDidEndOnExit];
         } else if (indexPath.row == 1) {
             self.password = [[UITextField alloc] initWithFrame:CGRectMake(100.0, 14.0, 200.0, 50.0)];
@@ -150,11 +150,7 @@
         //ログイン情報をPOSTで送信
         //trueならログイン成功、falseならログイン失敗
         NSString *url = @"http://49.212.136.103:8080/ichiyazuke_web/login";
-        
-        /* GET */
-        //NSString *url         = @"http://49.212.136.103:8080/ichiyazuke_web/select_question_by_id?questionId=3";
-        //NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-        
+
         /* POST */
         NSString *keyValue = [NSString stringWithFormat:@"username=%@&passward=%@", self.username.text, self.password.text];
         NSData *post = [keyValue dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
@@ -212,17 +208,17 @@
         [request setURL:[NSURL URLWithString:url]];
         [request setHTTPMethod:@"POST"];
         [request setHTTPBody:post];
-        
+
         NSData   *response     = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
         NSString *signupResult = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
-        
+
         if ([signupResult boolValue]) {
             NSLog(@"%@",@"ユーザ登録成功です");
             // NSUserDefaultsに値を保存
             NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
             [defaults setBool:YES forKey:@"login"];  // ログイン
             [defaults synchronize];
-            
+
             //設定画面へGO
             SettingTableViewController *settingTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"settingTableViewController"];
             [self.navigationController pushViewController:settingTableViewController animated:YES];        
@@ -237,18 +233,6 @@
             alert.delegate = self;
             [alert show];
         }
-    }
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 1) {
-        UITextField *loginNameField = [alertView textFieldAtIndex:0];
-        UITextField *passField = [alertView textFieldAtIndex:1];
-        NSString *login = loginNameField.text;
-        NSString *pass = passField.text;
-        NSLog(@"id: %@",login);
-        NSLog(@"password: %@",pass);
     }
 }
 

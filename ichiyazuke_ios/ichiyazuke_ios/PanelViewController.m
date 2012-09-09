@@ -10,12 +10,18 @@
 #import "PanelImageView.h"
 #import "LoginTableViewController.h"
 #import "QuestionViewController.h"
+#import "SBJson.h"
 
 @interface PanelViewController ()
 
 @end
 
 @implementation PanelViewController
+
+@synthesize grade;
+@synthesize category;
+@synthesize level;
+@synthesize personalId;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,13 +35,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     // NSUserDefaultsに初期値を登録する
     NSUserDefaults *defaults     = [NSUserDefaults standardUserDefaults];
     NSMutableDictionary *initial = [NSMutableDictionary dictionary];
     [initial setObject:@"高校１年生"    forKey:@"selectedGrade"];
     [initial setObject:@"方程式と不等式" forKey:@"selectedCategory"];
-    [initial setObject:@"レベル1"      forKey:@"selectedLevel"];
+    [initial setObject:@"レベル１"      forKey:@"selectedLevel"];
     [initial setObject:[NSNumber numberWithBool:NO] forKey:@"login"];
     [defaults registerDefaults:initial];
 
@@ -43,6 +49,80 @@
     BOOL login = [defaults boolForKey:@"login"];
     if (login == NO){
         [self goLogin];
+    }
+
+    //NSUserDefaultsに保存された値を読み込み
+    grade      = [defaults stringForKey:@"selectedGrade"];
+    category   = [defaults stringForKey:@"selectedCategory"];
+    level      = [defaults stringForKey:@"selectedLevel"];
+    personalId = @"1";
+
+    //API仕様に合わせ、設定情報を数値に変換
+    // grade
+    if ([self.grade isEqualToString:@"高校１年生"]){
+        self.grade = @"4";
+    }else if ([self.grade isEqualToString:@"高校２年生"]){
+        self.grade = @"5";
+    }else if ([self.grade isEqualToString:@"高校３年生"]){
+        self.grade = @"6";
+    }
+
+    // category
+    if ([self.category isEqualToString:@"方程式と不等式"]){
+        self.category = @"4";
+    }else if ([self.category isEqualToString:@"二次関数"]){
+        self.category = @"5";
+    }else if ([self.category isEqualToString:@"三角比"]){
+        self.category = @"6";
+    }else if ([self.category isEqualToString:@"式と証明"]){
+        self.category = @"7";
+    }else if ([self.category isEqualToString:@"三角関数"]){
+        self.category = @"8";
+    }else if ([self.category isEqualToString:@"指数・対数関数"]){
+        self.category = @"9";
+    }else if ([self.category isEqualToString:@"微分と積分"]){
+        self.category = @"10";
+    }else if ([self.category isEqualToString:@"極限"]){
+        self.category = @"11";
+    }else if ([self.category isEqualToString:@"微分法と積分法"]){
+        self.category = @"12";
+    }else if ([self.category isEqualToString:@"集合・命題・証明"]){
+        self.category = @"13";
+    }else if ([self.category isEqualToString:@"場合の数・確率"]){
+        self.category = @"14";
+    }else if ([self.category isEqualToString:@"数列"]){
+        self.category = @"15";
+    }else if ([self.category isEqualToString:@"ベクトル"]){
+        self.category = @"16";
+    }else if ([self.category isEqualToString:@"行列"]){
+        self.category = @"17";
+    }
+
+    // level
+    if ([self.level isEqualToString:@"レベル１"]){
+        self.level = @"1";
+    }else if ([self.level isEqualToString:@"レベル２"]){
+        self.level = @"2";
+    }else if ([self.level isEqualToString:@"レベル３"]){
+        self.level = @"3";
+    }
+
+    NSString *url = @"http://49.212.136.103:8080/ichiyazuke_web/select_question_id";
+
+    /* POST */
+    NSString *keyValue           = [NSString stringWithFormat:@"grade=%@&category=%@&level=%@&personalId=%@", self.grade, self.category, self.level, self.personalId];
+    NSData *post                 = [keyValue dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:post];
+
+    NSData *response     = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    SBJsonParser *parser = [[SBJsonParser alloc] init];
+    NSArray *questionIds = [parser objectWithData:response];
+
+    if (questionIds == nil || [questionIds count] < 9){
+        NSLog(@"%@",@"falseです");
     }
 
     //パネル9枚を設置
@@ -60,7 +140,8 @@
         }
         PanelImageView *imageview = [[PanelImageView alloc] initWithFrame:rect];
         imageview.image           = image;
-        imageview.questionId      = [NSString stringWithFormat:@"%d",i];
+        //問題ID設定
+        imageview.questionId = [NSString stringWithFormat:@"%@",[questionIds objectAtIndex:i-1]];
         [self.view addSubview:imageview];
     }
 }

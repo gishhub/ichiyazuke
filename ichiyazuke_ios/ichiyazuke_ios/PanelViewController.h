@@ -10,6 +10,9 @@
 
 @interface PanelViewController : UIViewController
 
-- (void)goQuestion:(NSString *)questionId;
+@property (retain, readwrite) NSString *grade;
+@property (retain, readwrite) NSString *category;
+@property (retain, readwrite) NSString *level;
+@property (retain, readwrite) NSString *personalId;
 
 @end

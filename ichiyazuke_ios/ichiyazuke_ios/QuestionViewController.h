@@ -11,5 +11,14 @@
 @interface QuestionViewController : UIViewController
 
 @property (retain, readwrite) NSString *questionId;
+@property (retain, readwrite) NSString *questionTitle;
+@property (retain, readwrite) NSString *contents;
+@property (retain, readwrite) NSString *choice1;
+@property (retain, readwrite) NSString *choice2;
+@property (retain, readwrite) NSString *choice3;
+@property (retain, readwrite) NSString *choice4;
+@property (retain, readwrite) NSString *answer;
+@property (retain, readwrite) NSString *explanation;
+@property (retain, readwrite) NSString *correct;
 
 @end

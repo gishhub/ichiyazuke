@@ -34,8 +34,10 @@
 		FD870540159CB905005E63E8 /* PanelImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD87053F159CB905005E63E8 /* PanelImageView.m */; };
 		FD870543159CBB8E005E63E8 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD870542159CBB8E005E63E8 /* QuestionViewController.m */; };
 		FD9877BA15A85D6F00CB32A4 /* LoginTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9877B915A85D6F00CB32A4 /* LoginTableViewController.m */; };
-		FDC5CD9E155516E000FC64BA /* icon_01.png in Resources */ = {isa = PBXBuildFile; fileRef = FDC5CD9D155516E000FC64BA /* icon_01.png */; };
-		FDC5CDA0155516EA00FC64BA /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FDC5CD9F155516EA00FC64BA /* Default.png */; };
+		FDC5CD9E155516E000FC64BA /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FDC5CD9D155516E000FC64BA /* Icon.png */; };
+		FDC5CDA0155516EA00FC64BA /* Default2.png in Resources */ = {isa = PBXBuildFile; fileRef = FDC5CD9F155516EA00FC64BA /* Default2.png */; };
+		FDDA08EE15F202A400878189 /* AnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDA08ED15F202A400878189 /* AnswerViewController.m */; };
+		FDDA08F115F2079900878189 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FDDA08F015F2079900878189 /* Default.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,8 +93,11 @@
 		FD870542159CBB8E005E63E8 /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
 		FD9877B815A85D6F00CB32A4 /* LoginTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginTableViewController.h; sourceTree = "<group>"; };
 		FD9877B915A85D6F00CB32A4 /* LoginTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTableViewController.m; sourceTree = "<group>"; };
-		FDC5CD9D155516E000FC64BA /* icon_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_01.png; sourceTree = "<group>"; };
-		FDC5CD9F155516EA00FC64BA /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		FDC5CD9D155516E000FC64BA /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		FDC5CD9F155516EA00FC64BA /* Default2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default2.png; sourceTree = "<group>"; };
+		FDDA08EC15F202A400878189 /* AnswerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerViewController.h; sourceTree = "<group>"; };
+		FDDA08ED15F202A400878189 /* AnswerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerViewController.m; sourceTree = "<group>"; };
+		FDDA08F015F2079900878189 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +156,8 @@
 				FD24C469159B65CF00AE6262 /* PanelViewController.m */,
 				FD870541159CBB8E005E63E8 /* QuestionViewController.h */,
 				FD870542159CBB8E005E63E8 /* QuestionViewController.m */,
+				FDDA08EC15F202A400878189 /* AnswerViewController.h */,
+				FDDA08ED15F202A400878189 /* AnswerViewController.m */,
 				FD9877B815A85D6F00CB32A4 /* LoginTableViewController.h */,
 				FD9877B915A85D6F00CB32A4 /* LoginTableViewController.m */,
 				FD579422156798E700FC8EDB /* SettingTableViewController.h */,
@@ -212,8 +219,9 @@
 		FDC5CD9C1555169200FC64BA /* images */ = {
 			isa = PBXGroup;
 			children = (
-				FDC5CD9F155516EA00FC64BA /* Default.png */,
-				FDC5CD9D155516E000FC64BA /* icon_01.png */,
+				FDDA08F015F2079900878189 /* Default.png */,
+				FDC5CD9F155516EA00FC64BA /* Default2.png */,
+				FDC5CD9D155516E000FC64BA /* Icon.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -270,8 +278,9 @@
 			files = (
 				FD5F307D155258EC0076879C /* InfoPlist.strings in Resources */,
 				FD5F3086155258EC0076879C /* MainStoryboard.storyboard in Resources */,
-				FDC5CD9E155516E000FC64BA /* icon_01.png in Resources */,
-				FDC5CDA0155516EA00FC64BA /* Default.png in Resources */,
+				FDC5CD9E155516E000FC64BA /* Icon.png in Resources */,
+				FDC5CDA0155516EA00FC64BA /* Default2.png in Resources */,
+				FDDA08F115F2079900878189 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +313,7 @@
 				FD870540159CB905005E63E8 /* PanelImageView.m in Sources */,
 				FD870543159CBB8E005E63E8 /* QuestionViewController.m in Sources */,
 				FD9877BA15A85D6F00CB32A4 /* LoginTableViewController.m in Sources */,
+				FDDA08EE15F202A400878189 /* AnswerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
