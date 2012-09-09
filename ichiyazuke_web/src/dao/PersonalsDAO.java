@@ -32,26 +32,26 @@ public class PersonalsDAO extends IchiyazukeDAO {
         return idList;
     }
 
-	public boolean updateResultIds(Connection con, int personalId, int questionId) {
+	public boolean updateResultIds(Connection con, int personalId, int questionId, int result) {
 
         PreparedStatement ps = null;
-        int result = 0;
+        int sqlResult = 0;
 
         try {
             ps = con.prepareStatement(UPDATE_RESULT_IDS);
             ps.setInt(1, personalId);
             ps.setInt(2, questionId);
             ps.setInt(3, questionId);
-            ps.setInt(4, 1);
+            ps.setInt(4, result);
 
-            result = ps.executeUpdate();
+            sqlResult = ps.executeUpdate();
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
 
-		if (result == 0) {
+		if (sqlResult == 0) {
 			return false;
 		}else {
 			return true;

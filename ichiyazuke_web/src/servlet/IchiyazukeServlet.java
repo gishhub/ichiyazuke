@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -29,11 +30,12 @@ public class IchiyazukeServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
 
-		response.setContentType("text/html; charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("application/json; charset=UTF-8");
 
 		String requestStr = request.getPathInfo();
+
+		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 
 		if ("/select_question_id".equals(requestStr)) {
@@ -79,8 +81,9 @@ public class IchiyazukeServlet extends HttpServlet {
 			try {
 				int personalId = Integer.parseInt(request.getParameter("personalId"));
 				int questionId = Integer.parseInt(request.getParameter("questionId"));
+				int result     = Integer.parseInt(request.getParameter("result"));
 
-				PersonalAction personalAction = new PersonalAction(personalId, questionId);
+				PersonalAction personalAction = new PersonalAction(personalId, questionId,result);
 				out.println(personalAction.updatePersonalData());
 			} catch (NumberFormatException e) {
 				e.printStackTrace();
