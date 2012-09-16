@@ -1,0 +1,17 @@
+.selecter { 
+    border-left:solid 5px #ff9900;
+    padding: 10px;
+    border-spacing: 5px;
+    font-size:100px;
+}
+body{
+    background-color:red;
+}
+
+*{
+    font-style:italic;
+}
+
+.font { 
+    color: #80ff80;
+}

@@ -80,8 +80,8 @@
     webView.scalesPageToFit = YES;
     [self.view addSubview:webView];
 
-	NSString *htmlHead = @"<html><body>";
-	NSString *htmlFoot = @"</body></html>";
+	NSString *htmlHead = @"<html><head><link href='question.css' rel='stylesheet' type='text/css'/></head><body><div class='selecter'>";
+	NSString *htmlFoot = @"</div></body></html>";
 	NSString *html     = [[htmlHead stringByAppendingString:contents] stringByAppendingString:htmlFoot];
     NSData *bodyData   = [html dataUsingEncoding:NSUTF8StringEncoding];
 
