@@ -28,18 +28,18 @@
 		FD5F30B515525BBF0076879C /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5F30A715525BBF0076879C /* SBJsonTokeniser.m */; };
 		FD5F30B615525BBF0076879C /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5F30A915525BBF0076879C /* SBJsonUTF8Stream.m */; };
 		FD5F30B715525BBF0076879C /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5F30AB15525BBF0076879C /* SBJsonWriter.m */; };
+		FD60275B1610A141005A485B /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FD60275A1610A141005A485B /* Icon.png */; };
+		FD60276A1610AC5D005A485B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FD6027691610AC5D005A485B /* Default.png */; };
 		FD7605D9157093010078D464 /* GradeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7605D8157093010078D464 /* GradeTableViewController.m */; };
 		FD7605E01570D54F0078D464 /* CategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7605DF1570D54F0078D464 /* CategoryTableViewController.m */; };
 		FD7605E31570D7C90078D464 /* LevelTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7605E21570D7C80078D464 /* LevelTableViewController.m */; };
 		FD870540159CB905005E63E8 /* PanelImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD87053F159CB905005E63E8 /* PanelImageView.m */; };
 		FD870543159CBB8E005E63E8 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD870542159CBB8E005E63E8 /* QuestionViewController.m */; };
 		FD9877BA15A85D6F00CB32A4 /* LoginTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9877B915A85D6F00CB32A4 /* LoginTableViewController.m */; };
-		FDB9C66A16057EF400E9062E /* head.html in Resources */ = {isa = PBXBuildFile; fileRef = FDB9C66916057EF400E9062E /* head.html */; };
+		FDB9E31716133B180008B136 /* question.js in Sources */ = {isa = PBXBuildFile; fileRef = FDB9E31616133B180008B136 /* question.js */; };
+		FDB9E31A16134D910008B136 /* math.html in Resources */ = {isa = PBXBuildFile; fileRef = FDB9E31916134D910008B136 /* math.html */; };
 		FDBD8AF115FC437C006BBB10 /* question.css in Resources */ = {isa = PBXBuildFile; fileRef = FDBD8AF015FC437C006BBB10 /* question.css */; };
-		FDC5CD9E155516E000FC64BA /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FDC5CD9D155516E000FC64BA /* Icon.png */; };
-		FDC5CDA0155516EA00FC64BA /* Default2.png in Resources */ = {isa = PBXBuildFile; fileRef = FDC5CD9F155516EA00FC64BA /* Default2.png */; };
 		FDDA08EE15F202A400878189 /* AnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDA08ED15F202A400878189 /* AnswerViewController.m */; };
-		FDDA08F115F2079900878189 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FDDA08F015F2079900878189 /* Default.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +83,8 @@
 		FD5F30A915525BBF0076879C /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
 		FD5F30AA15525BBF0076879C /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		FD5F30AB15525BBF0076879C /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		FD60275A1610A141005A485B /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		FD6027691610AC5D005A485B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		FD7605D7157093010078D464 /* GradeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradeTableViewController.h; sourceTree = "<group>"; };
 		FD7605D8157093010078D464 /* GradeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradeTableViewController.m; sourceTree = "<group>"; };
 		FD7605DE1570D54E0078D464 /* CategoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryTableViewController.h; sourceTree = "<group>"; };
@@ -95,13 +97,11 @@
 		FD870542159CBB8E005E63E8 /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
 		FD9877B815A85D6F00CB32A4 /* LoginTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginTableViewController.h; sourceTree = "<group>"; };
 		FD9877B915A85D6F00CB32A4 /* LoginTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTableViewController.m; sourceTree = "<group>"; };
-		FDB9C66916057EF400E9062E /* head.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = head.html; sourceTree = "<group>"; };
+		FDB9E31616133B180008B136 /* question.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = question.js; sourceTree = "<group>"; };
+		FDB9E31916134D910008B136 /* math.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = math.html; sourceTree = "<group>"; };
 		FDBD8AF015FC437C006BBB10 /* question.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = question.css; sourceTree = "<group>"; };
-		FDC5CD9D155516E000FC64BA /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		FDC5CD9F155516EA00FC64BA /* Default2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default2.png; sourceTree = "<group>"; };
 		FDDA08EC15F202A400878189 /* AnswerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerViewController.h; sourceTree = "<group>"; };
 		FDDA08ED15F202A400878189 /* AnswerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerViewController.m; sourceTree = "<group>"; };
-		FDDA08F015F2079900878189 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,8 +224,9 @@
 		FDBD8AF315FC43BF006BBB10 /* html */ = {
 			isa = PBXGroup;
 			children = (
+				FDB9E31916134D910008B136 /* math.html */,
 				FDBD8AF015FC437C006BBB10 /* question.css */,
-				FDB9C66916057EF400E9062E /* head.html */,
+				FDB9E31616133B180008B136 /* question.js */,
 			);
 			name = html;
 			sourceTree = "<group>";
@@ -233,9 +234,8 @@
 		FDC5CD9C1555169200FC64BA /* images */ = {
 			isa = PBXGroup;
 			children = (
-				FDDA08F015F2079900878189 /* Default.png */,
-				FDC5CD9F155516EA00FC64BA /* Default2.png */,
-				FDC5CD9D155516E000FC64BA /* Icon.png */,
+				FD6027691610AC5D005A485B /* Default.png */,
+				FD60275A1610A141005A485B /* Icon.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -292,11 +292,10 @@
 			files = (
 				FD5F307D155258EC0076879C /* InfoPlist.strings in Resources */,
 				FD5F3086155258EC0076879C /* MainStoryboard.storyboard in Resources */,
-				FDC5CD9E155516E000FC64BA /* Icon.png in Resources */,
-				FDC5CDA0155516EA00FC64BA /* Default2.png in Resources */,
-				FDDA08F115F2079900878189 /* Default.png in Resources */,
 				FDBD8AF115FC437C006BBB10 /* question.css in Resources */,
-				FDB9C66A16057EF400E9062E /* head.html in Resources */,
+				FD60275B1610A141005A485B /* Icon.png in Resources */,
+				FD60276A1610AC5D005A485B /* Default.png in Resources */,
+				FDB9E31A16134D910008B136 /* math.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +329,7 @@
 				FD870543159CBB8E005E63E8 /* QuestionViewController.m in Sources */,
 				FD9877BA15A85D6F00CB32A4 /* LoginTableViewController.m in Sources */,
 				FDDA08EE15F202A400878189 /* AnswerViewController.m in Sources */,
+				FDB9E31716133B180008B136 /* question.js in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

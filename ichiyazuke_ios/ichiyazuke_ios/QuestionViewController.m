@@ -57,7 +57,7 @@
     NSArray *question    = [parser objectWithData:response];
 
     questionTitle = [(NSDictionary *)question objectForKey:@"title"];
-    contents      = [(NSDictionary *)question objectForKey:@"contents"];
+    //contents      = [(NSDictionary *)question objectForKey:@"contents"];
     choice1       = [(NSDictionary *)question objectForKey:@"choice1"];
     choice2       = [(NSDictionary *)question objectForKey:@"choice2"];
     choice3       = [(NSDictionary *)question objectForKey:@"choice3"];
@@ -80,12 +80,17 @@
     webView.scalesPageToFit = YES;
     [self.view addSubview:webView];
 
-	NSString *htmlHead = @"<html><head><link href='question.css' rel='stylesheet' type='text/css'/></head><body><div class='selecter'>";
-	NSString *htmlFoot = @"</div></body></html>";
-	NSString *html     = [[htmlHead stringByAppendingString:contents] stringByAppendingString:htmlFoot];
-    NSData *bodyData   = [html dataUsingEncoding:NSUTF8StringEncoding];
+	NSString     *path       = [[NSBundle mainBundle] pathForResource:@"math" ofType:@"html"];
+    NSFileHandle *readHandle = [NSFileHandle fileHandleForReadingAtPath:path];
+    NSString     *htmlString = [[NSString alloc] initWithData:[readHandle readDataToEndOfFile] encoding:NSUTF8StringEncoding];
 
-    [webView loadData:bodyData MIMEType:@"text/html"textEncodingName:@"utf-8"baseURL:nil];
+    [webView loadHTMLString:htmlString baseURL:[NSURL fileURLWithPath:path]];
+
+
+    //NSString *html     = [[htmlHead stringByAppendingString:contents] stringByAppendingString:htmlFoot];
+    //NSData *bodyData   = [html dataUsingEncoding:NSUTF8StringEncoding];
+    //[webView loadData:bodyData MIMEType:@"text/html"textEncodingName:@"utf-8"baseURL:nil];
+    //[webView stringByEvaluatingJavaScriptFromString:@"$('p').css('color','red')"];
 
     /*
     NSURLRequest* req = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.apple.com/"]];
@@ -94,7 +99,7 @@
 
     // 回答ボタン配置
     UIButton *choiceBtn1 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    choiceBtn1.frame = CGRectMake(10, 100, 100, 30);
+    choiceBtn1.frame = CGRectMake(10, 200, 100, 30);
     choiceBtn1.tag = 1;
     [choiceBtn1 setTitle:choice1 forState:UIControlStateNormal];
     [choiceBtn1 addTarget:self
@@ -103,7 +108,7 @@
     [self.view addSubview:choiceBtn1];
 
     UIButton *choiceBtn2 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    choiceBtn2.frame = CGRectMake(120, 100, 100, 30);
+    choiceBtn2.frame = CGRectMake(120, 200, 100, 30);
     choiceBtn2.tag = 2;
     [choiceBtn2 setTitle:choice2 forState:UIControlStateNormal];
     [choiceBtn2 addTarget:self
@@ -112,7 +117,7 @@
     [self.view addSubview:choiceBtn2];
 
     UIButton *choiceBtn3 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    choiceBtn3.frame = CGRectMake(10, 140, 100, 30);
+    choiceBtn3.frame = CGRectMake(10, 240, 100, 30);
     choiceBtn3.tag = 3;
     [choiceBtn3 setTitle:choice3 forState:UIControlStateNormal];
     [choiceBtn3 addTarget:self
@@ -121,7 +126,7 @@
     [self.view addSubview:choiceBtn3];
 
     UIButton *choiceBtn4 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    choiceBtn4.frame = CGRectMake(120, 140, 100, 30);
+    choiceBtn4.frame = CGRectMake(120, 240, 100, 30);
     choiceBtn4.tag = 4;
     [choiceBtn4 setTitle:choice4 forState:UIControlStateNormal];
     [choiceBtn4 addTarget:self
@@ -129,7 +134,7 @@
          forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:choiceBtn4];
 
-    //[self webViewDidFinishLoad:webView];
+    [self webViewDidFinishLoad:webView];
 }
 
 - (void)viewDidUnload
@@ -149,11 +154,14 @@
 
     // 追加適用するCSSを適用する為のJavaScriptを作成します。
     NSMutableString *javascript = [NSMutableString string];
-    [javascript appendString:@"var style = document.createElement('style');"];
-    [javascript appendString:@"style.type = 'text/css';"];
-    [javascript appendFormat:@"var cssContent = document.createTextNode('%@');", css];
-    [javascript appendString:@"style.appendChild(cssContent);"];
-    [javascript appendString:@"document.body.appendChild(style);"];
+    //[javascript appendString:@"var style = document.createElement('style');"];
+    //[javascript appendString:@"style.type = 'text/css';"];
+    //[javascript appendFormat:@"var cssContent = document.createTextNode('%@');", css];
+    //[javascript appendString:@"style.appendChild(cssContent);"];
+    //[javascript appendString:@"document.body.appendChild(style);"];
+
+    NSLog(@"%@",@"webViewDidFinishLoad");
+    [webView stringByEvaluatingJavaScriptFromString:@"$('p').css('color','red')"];
 
     // JavaScriptを実行します。
     [webView stringByEvaluatingJavaScriptFromString:javascript];

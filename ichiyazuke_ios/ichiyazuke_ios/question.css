@@ -1,17 +1,14 @@
-.selecter { 
+.selecter {
     border-left:solid 5px #ff9900;
     padding: 10px;
     border-spacing: 5px;
-    font-size:100px;
-}
-body{
-    background-color:red;
 }
 
-*{
-    font-style:italic;
-}
-
-.font { 
+.font {
+    font-size : 70px;
     color: #80ff80;
+}
+
+img {
+    width: 30%;
 }
