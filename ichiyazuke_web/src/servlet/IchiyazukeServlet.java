@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import action.QuestionAction;
 import action.PersonalAction;
 import action.UserAction;
@@ -21,7 +23,11 @@ import net.arnx.jsonic.JSON;
  * Servlet implementation class IchiyazukeServlet
  */
 public class IchiyazukeServlet extends HttpServlet {
+	
+	//Loggerを作成する。
+	static protected Logger logger = Logger.getLogger(IchiyazukeServlet.class);
 
+	
 	private static final long serialVersionUID = 2319188394791324751L;
 
 	protected void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
@@ -37,6 +43,13 @@ public class IchiyazukeServlet extends HttpServlet {
 
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
+		
+		logger.debug("It's debug log");
+		logger.info("It's info log");
+		logger.warn("It's warn log");
+		logger.error("It's error log");
+		logger.fatal("It's fatal log");
+		
 
 		if ("/select_question_id".equals(requestStr)) {
 			try {
@@ -67,7 +80,7 @@ public class IchiyazukeServlet extends HttpServlet {
 			try {
 				int questionId = Integer.parseInt(request.getParameter("questionId"));
 				QuestionAction questionAction = new QuestionAction(questionId);
-				HashMap<String,String> questionHashMap = questionAction.getQuestionById();
+				HashMap<String,HashMap<String, HashMap<String, String>>> questionHashMap = questionAction.getQuestionById();
 
 				String tmp = JSON.encode(questionHashMap);
 				out.println(tmp);
