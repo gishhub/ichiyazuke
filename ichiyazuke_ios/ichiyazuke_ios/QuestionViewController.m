@@ -9,7 +9,6 @@
 #import "QuestionViewController.h"
 #import "AnswerViewController.h"
 #import "GTMHTTPFetcher.h"
-#import "SBJson.h"
 
 @interface QuestionViewController ()
 
@@ -53,12 +52,20 @@
     [request setHTTPMethod:@"POST"];
     [request setHTTPBody:post];
 
-    NSData *response     = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    SBJsonParser *parser = [[SBJsonParser alloc] init];
-    NSArray *question    = [parser objectWithData:response];
+    NSData  *response  = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSError *jsonError = nil;
+    NSArray *question  = [NSJSONSerialization JSONObjectWithData:response
+                                                        options:0
+                                                          error:&jsonError];
+
+    // JSONデータのパースエラー
+    if (question == nil) {
+        NSLog(@"JSON Parser error: %d", jsonError.code);
+        return;
+    }
 
     questionTitle = [(NSDictionary *)question objectForKey:@"title"];
-    //contents      = [(NSDictionary *)question objectForKey:@"contents"];
+    contents      = [(NSDictionary *)question objectForKey:@"contents"];
     choice1       = [(NSDictionary *)question objectForKey:@"choice1"];
     choice2       = [(NSDictionary *)question objectForKey:@"choice2"];
     choice3       = [(NSDictionary *)question objectForKey:@"choice3"];
@@ -66,6 +73,7 @@
     answer        = [(NSDictionary *)question objectForKey:@"answer"];
     explanation   = [(NSDictionary *)question objectForKey:@"explanation"];
 
+    // デバッグ
     NSLog(@"questionTitle:%@", questionTitle);
     NSLog(@"contents:%@", contents);
     NSLog(@"choice1:%@", choice1);
@@ -86,17 +94,6 @@
     NSString     *htmlString = [[NSString alloc] initWithData:[readHandle readDataToEndOfFile] encoding:NSUTF8StringEncoding];
 
     [webView loadHTMLString:htmlString baseURL:[NSURL fileURLWithPath:path]];
-
-
-    //NSString *html     = [[htmlHead stringByAppendingString:contents] stringByAppendingString:htmlFoot];
-    //NSData *bodyData   = [html dataUsingEncoding:NSUTF8StringEncoding];
-    //[webView loadData:bodyData MIMEType:@"text/html"textEncodingName:@"utf-8"baseURL:nil];
-    //[webView stringByEvaluatingJavaScriptFromString:@"$('p').css('color','red')"];
-
-    /*
-    NSURLRequest* req = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.apple.com/"]];
-    [webView loadRequest:req];
-    */
 
     // 回答ボタン配置
     UIButton *choiceBtn1 = [UIButton buttonWithType:UIButtonTypeRoundedRect];

@@ -10,7 +10,6 @@
 #import "PanelImageView.h"
 #import "LoginTableViewController.h"
 #import "QuestionViewController.h"
-#import "SBJson.h"
 
 @interface PanelViewController ()
 
@@ -117,10 +116,18 @@
     [request setHTTPMethod:@"POST"];
     [request setHTTPBody:post];
 
-    NSData *response     = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    SBJsonParser *parser = [[SBJsonParser alloc] init];
-    NSArray *questionIds = [parser objectWithData:response];
+    NSData  *response    = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSError *jsonError   = nil;
+    NSArray *questionIds = [NSJSONSerialization JSONObjectWithData:response
+                                                         options:0
+                                                           error:&jsonError];
 
+    // JSONデータのパースエラー
+    if (questionIds == nil) {
+        NSLog(@"JSON Parser error: %d", jsonError.code);
+        return;
+    }
+    
     if (questionIds == nil || [questionIds count] < 9){
         NSLog(@"%@",@"falseです");
     }
