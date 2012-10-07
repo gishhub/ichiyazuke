@@ -1,12 +1,12 @@
 .selecter {
-    border-left:solid 5px #ff9900;
+    border-left:solid 10px #000080;
     padding: 10px;
     border-spacing: 5px;
 }
 
 .font {
     font-size : 70px;
-    color: #80ff80;
+    color: #000080;
 }
 
 img {

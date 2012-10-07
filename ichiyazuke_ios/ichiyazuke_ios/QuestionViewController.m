@@ -8,6 +8,7 @@
 
 #import "QuestionViewController.h"
 #import "AnswerViewController.h"
+#import "GTMHTTPFetcher.h"
 #import "SBJson.h"
 
 @interface QuestionViewController ()
@@ -149,22 +150,15 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    // 追加適用するCSSを取得します。
-    NSString *css = @"body{background-color:red;} *{font-style:italic;}";
-
-    // 追加適用するCSSを適用する為のJavaScriptを作成します。
-    NSMutableString *javascript = [NSMutableString string];
-    //[javascript appendString:@"var style = document.createElement('style');"];
-    //[javascript appendString:@"style.type = 'text/css';"];
-    //[javascript appendFormat:@"var cssContent = document.createTextNode('%@');", css];
-    //[javascript appendString:@"style.appendChild(cssContent);"];
-    //[javascript appendString:@"document.body.appendChild(style);"];
-
     NSLog(@"%@",@"webViewDidFinishLoad");
-    [webView stringByEvaluatingJavaScriptFromString:@"$('p').css('color','red')"];
 
-    // JavaScriptを実行します。
-    [webView stringByEvaluatingJavaScriptFromString:javascript];
+    NSMutableString *javascript = [NSMutableString string];
+    //[javascript appendString:@"var tex4 = encodeURIComponent('$ \\sin(90^\\circ + \\theta) = \\cos \\theta$');"];
+    [javascript appendString:@"document.write('<img src=hoge>');"];
+
+    NSString *output = [webView  stringByEvaluatingJavaScriptFromString: @"document.documentElement.clientHeight;"];
+    int contentHeight = [output intValue];
+    NSLog(@"contentHeight is %d", contentHeight);
 }
 
 - (void)goAnswer:(UIButton *)sender

@@ -127,19 +127,23 @@
 
     //パネル9枚を設置
     for(int i = 1; i <= 9; i++){
-        NSURL *imageUrl = [NSURL URLWithString:@"http://profile.ak.fbcdn.net/hprofile-ak-snc4/275863_100000532671032_2306307_n.jpg"];
+        NSString *file  = [NSString stringWithFormat:@"q%d",i];
+        NSString *path  = [[NSBundle mainBundle] pathForResource:file ofType:@"png"];
+        NSURL *imageUrl = [NSURL fileURLWithPath:path];
         UIImage *image  = [UIImage imageWithData:[NSData dataWithContentsOfURL:imageUrl]];
+
         CGRect rect;
 
         if (i%3 == 1){
-            rect = CGRectMake( 40,(i-1)/3*80+40,80,80);
+            rect = CGRectMake( 20,(i-1)/3*55+130,90,50);
         }else if (i%3 == 2){
-            rect = CGRectMake(120,(i-1)/3*80+40,80,80);
+            rect = CGRectMake(115,(i-1)/3*55+130,90,50);
         }else{
-            rect = CGRectMake(200,(i-1)/3*80+40,80,80);
+            rect = CGRectMake(210,(i-1)/3*55+130,90,50);
         }
         PanelImageView *imageview = [[PanelImageView alloc] initWithFrame:rect];
         imageview.image           = image;
+
         //問題ID設定
         imageview.questionId = [NSString stringWithFormat:@"%@",[questionIds objectAtIndex:i-1]];
         [self.view addSubview:imageview];
