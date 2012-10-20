@@ -8,7 +8,7 @@
 
 #import "QuestionViewController.h"
 #import "AnswerViewController.h"
-#import "SBJson.h"
+#import "GTMHTTPFetcher.h"
 
 @interface QuestionViewController ()
 
@@ -52,9 +52,17 @@
     [request setHTTPMethod:@"POST"];
     [request setHTTPBody:post];
 
-    NSData *response     = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    SBJsonParser *parser = [[SBJsonParser alloc] init];
-    NSArray *question    = [parser objectWithData:response];
+    NSData  *response  = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSError *jsonError = nil;
+    NSArray *question  = [NSJSONSerialization JSONObjectWithData:response
+                                                        options:0
+                                                          error:&jsonError];
+
+    // JSONデータのパースエラー
+    if (question == nil) {
+        NSLog(@"JSON Parser error: %d", jsonError.code);
+        return;
+    }
 
     questionTitle = [(NSDictionary *)question objectForKey:@"title"];
     contents      = [(NSDictionary *)question objectForKey:@"contents"];
@@ -65,6 +73,7 @@
     answer        = [(NSDictionary *)question objectForKey:@"answer"];
     explanation   = [(NSDictionary *)question objectForKey:@"explanation"];
 
+    // デバッグ
     NSLog(@"questionTitle:%@", questionTitle);
     NSLog(@"contents:%@", contents);
     NSLog(@"choice1:%@", choice1);
@@ -80,21 +89,15 @@
     webView.scalesPageToFit = YES;
     [self.view addSubview:webView];
 
-	NSString *htmlHead = @"<html><body>";
-	NSString *htmlFoot = @"</body></html>";
-	NSString *html     = [[htmlHead stringByAppendingString:contents] stringByAppendingString:htmlFoot];
-    NSData *bodyData   = [html dataUsingEncoding:NSUTF8StringEncoding];
+	NSString     *path       = [[NSBundle mainBundle] pathForResource:@"math" ofType:@"html"];
+    NSFileHandle *readHandle = [NSFileHandle fileHandleForReadingAtPath:path];
+    NSString     *htmlString = [[NSString alloc] initWithData:[readHandle readDataToEndOfFile] encoding:NSUTF8StringEncoding];
 
-    [webView loadData:bodyData MIMEType:@"text/html"textEncodingName:@"utf-8"baseURL:nil];
-
-    /*
-    NSURLRequest* req = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.apple.com/"]];
-    [webView loadRequest:req];
-    */
+    [webView loadHTMLString:htmlString baseURL:[NSURL fileURLWithPath:path]];
 
     // 回答ボタン配置
     UIButton *choiceBtn1 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    choiceBtn1.frame = CGRectMake(10, 100, 100, 30);
+    choiceBtn1.frame = CGRectMake(10, 200, 100, 30);
     choiceBtn1.tag = 1;
     [choiceBtn1 setTitle:choice1 forState:UIControlStateNormal];
     [choiceBtn1 addTarget:self
@@ -103,7 +106,7 @@
     [self.view addSubview:choiceBtn1];
 
     UIButton *choiceBtn2 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    choiceBtn2.frame = CGRectMake(120, 100, 100, 30);
+    choiceBtn2.frame = CGRectMake(120, 200, 100, 30);
     choiceBtn2.tag = 2;
     [choiceBtn2 setTitle:choice2 forState:UIControlStateNormal];
     [choiceBtn2 addTarget:self
@@ -112,7 +115,7 @@
     [self.view addSubview:choiceBtn2];
 
     UIButton *choiceBtn3 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    choiceBtn3.frame = CGRectMake(10, 140, 100, 30);
+    choiceBtn3.frame = CGRectMake(10, 240, 100, 30);
     choiceBtn3.tag = 3;
     [choiceBtn3 setTitle:choice3 forState:UIControlStateNormal];
     [choiceBtn3 addTarget:self
@@ -121,7 +124,7 @@
     [self.view addSubview:choiceBtn3];
 
     UIButton *choiceBtn4 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    choiceBtn4.frame = CGRectMake(120, 140, 100, 30);
+    choiceBtn4.frame = CGRectMake(120, 240, 100, 30);
     choiceBtn4.tag = 4;
     [choiceBtn4 setTitle:choice4 forState:UIControlStateNormal];
     [choiceBtn4 addTarget:self
@@ -129,7 +132,7 @@
          forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:choiceBtn4];
 
-    //[self webViewDidFinishLoad:webView];
+    [self webViewDidFinishLoad:webView];
 }
 
 - (void)viewDidUnload
@@ -144,19 +147,15 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    // 追加適用するCSSを取得します。
-    NSString *css = @"body{background-color:red;} *{font-style:italic;}";
+    NSLog(@"%@",@"webViewDidFinishLoad");
 
-    // 追加適用するCSSを適用する為のJavaScriptを作成します。
     NSMutableString *javascript = [NSMutableString string];
-    [javascript appendString:@"var style = document.createElement('style');"];
-    [javascript appendString:@"style.type = 'text/css';"];
-    [javascript appendFormat:@"var cssContent = document.createTextNode('%@');", css];
-    [javascript appendString:@"style.appendChild(cssContent);"];
-    [javascript appendString:@"document.body.appendChild(style);"];
+    //[javascript appendString:@"var tex4 = encodeURIComponent('$ \\sin(90^\\circ + \\theta) = \\cos \\theta$');"];
+    [javascript appendString:@"document.write('<img src=hoge>');"];
 
-    // JavaScriptを実行します。
-    [webView stringByEvaluatingJavaScriptFromString:javascript];
+    NSString *output = [webView  stringByEvaluatingJavaScriptFromString: @"document.documentElement.clientHeight;"];
+    int contentHeight = [output intValue];
+    NSLog(@"contentHeight is %d", contentHeight);
 }
 
 - (void)goAnswer:(UIButton *)sender

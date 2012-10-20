@@ -19,4 +19,20 @@
     <servlet-name>IchiyazukeServlet</servlet-name>
     <url-pattern>/*</url-pattern>
   </servlet-mapping>
+  <error-page>
+    <error-code>401</error-code>
+    <location>/WEB-INF/view/error/401.html</location>
+  </error-page>
+  <error-page>
+    <error-code>403</error-code>
+    <location>/WEB-INF/view/error/403.html</location>
+  </error-page>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/WEB-INF/view/error/404.html</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/WEB-INF/view/error/500.html</location>
+  </error-page>
 </web-app>

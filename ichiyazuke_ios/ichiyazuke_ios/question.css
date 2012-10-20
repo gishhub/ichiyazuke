@@ -1,0 +1,14 @@
+.selecter {
+    border-left:solid 10px #000080;
+    padding: 10px;
+    border-spacing: 5px;
+}
+
+.font {
+    font-size : 70px;
+    color: #000080;
+}
+
+img {
+    width: 30%;
+}
