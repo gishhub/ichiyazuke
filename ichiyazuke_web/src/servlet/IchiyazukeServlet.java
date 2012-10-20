@@ -25,7 +25,7 @@ import net.arnx.jsonic.JSON;
 public class IchiyazukeServlet extends HttpServlet {
 	
 	//Loggerを作成する。
-	static protected Logger logger = Logger.getLogger(IchiyazukeServlet.class);
+	// static protected Logger logger = Logger.getLogger(IchiyazukeServlet.class);
 
 	
 	private static final long serialVersionUID = 2319188394791324751L;
@@ -43,13 +43,13 @@ public class IchiyazukeServlet extends HttpServlet {
 
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		
+		/*
 		logger.debug("It's debug log");
 		logger.info("It's info log");
 		logger.warn("It's warn log");
 		logger.error("It's error log");
 		logger.fatal("It's fatal log");
-		
+		*/
 
 		if ("/select_question_id".equals(requestStr)) {
 			try {
