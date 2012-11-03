@@ -82,7 +82,6 @@ public class IchiyazukeServlet extends HttpServlet {
 				int questionId = Integer.parseInt(request.getParameter("questionId"));
 				QuestionAction questionAction = new QuestionAction(questionId);
 				HashMap<String,HashMap<Integer, HashMap<String, String>>> questionHashMap = questionAction.getQuestionById();
-				System.out.println(questionHashMap);
 				
 				String test_choice1 = "";
 				String test_choice2 = "";
