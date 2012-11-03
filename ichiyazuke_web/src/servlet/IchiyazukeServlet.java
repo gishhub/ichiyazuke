@@ -109,7 +109,7 @@ public class IchiyazukeServlet extends HttpServlet {
 									.toArray();
 							for (int k = 0; k < objKey_subsub.length; k++) {
 								if (objKey_subsub[k].equals("math")) {
-									test_choice1 += "<img src=\"https://chart.googleapis.com/chart?cht=tx&chl=\""
+									test_choice1 += "<img src=\"https://chart.googleapis.com/chart?cht=tx&chl="
 											+ URLEncoder
 													.encode(subsubHashMap
 															.get(objKey_subsub[k]),
