@@ -257,9 +257,6 @@ public class IchiyazukeServlet extends HttpServlet {
 
 				}
 
-				
-				
-				
 				request.setAttribute("test_choice1", test_choice1);
 				request.setAttribute("test_choice2", test_choice2);
 				request.setAttribute("test_choice3", test_choice3);
@@ -268,17 +265,8 @@ public class IchiyazukeServlet extends HttpServlet {
 				request.setAttribute("test_title", test_title);
 				request.setAttribute("test_contents", test_contents);
 				
-				request.setAttribute("questionHashMap", questionHashMap);
-				
 				RequestDispatcher rd = request.getRequestDispatcher("/question");
-
 				rd.forward(request, response);
-				
-				
-				
-				String tmp = JSON.encode(questionHashMap);
-
-				out.println(tmp);
 				questionHashMap.remove(0);
 			} catch (Exception e){
 				e.printStackTrace();
