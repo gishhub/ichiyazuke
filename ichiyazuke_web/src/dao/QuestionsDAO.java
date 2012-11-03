@@ -115,10 +115,10 @@ public class QuestionsDAO extends IchiyazukeDAO {
         return idList;
     }
 
-    public HashMap<String,HashMap<String, HashMap<String, String>>> selectQuestionById(Connection con, int questionId) {
+    public HashMap<String,HashMap<Integer, HashMap<String, String>>> selectQuestionById(Connection con, int questionId) {
 		
         StringBuffer sb = new StringBuffer();
-		HashMap<String,HashMap<String, HashMap<String, String>>> qHashMap = new HashMap<String,HashMap<String, HashMap<String, String>>>();
+		HashMap<String,HashMap<Integer, HashMap<String, String>>> qHashMap = new HashMap<String,HashMap<Integer, HashMap<String, String>>>();
         String sql = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -152,8 +152,8 @@ public class QuestionsDAO extends IchiyazukeDAO {
     // 答えは、"a^2'です。
     //   ↓
     // { "answer" : { "0" : { "hirabun" , "答えは、"}, {"1" : { "sushiki" , "a^2"} , { "2" : { "hirabun" , "です。" } } }
-    public HashMap<String, HashMap<String, String>> check(String str) {
-    	HashMap<String, HashMap<String, String>> sbHashMap = new HashMap<String, HashMap<String, String>>();
+    public HashMap<Integer, HashMap<String, String>> check(String str) {
+    	HashMap<Integer, HashMap<String, String>> sbHashMap = new HashMap<Integer, HashMap<String, String>>();
     	
     	List<String> list_str = new ArrayList<String>();
     	List<String> list_math = new ArrayList<String>();
@@ -165,38 +165,61 @@ public class QuestionsDAO extends IchiyazukeDAO {
         Matcher matcher_math = pattern_math.matcher(str);
         
         while (matcher_str.find()) {
-        	list_str.add(matcher_str.group());
+			String tmp = matcher_str.group();
+        	if (!tmp.isEmpty()) {
+				if (tmp.substring(0,1).equals("'")) {
+					tmp = tmp.substring(1);
+				}
+				
+				if (tmp.substring(tmp.length()-1).equals("\"")) {
+					tmp = tmp.substring(0, tmp.length() - 1);
+				}
+				list_str.add(tmp);
+			}
         }
         while (matcher_math.find()) {
-        	list_math.add(matcher_math.group());
+        	String tmp = matcher_math.group();
+        	if (!tmp.isEmpty()){
+        		list_math.add(tmp.substring(1, tmp.length()-1));
+        	}
         }
         
         String regex_decision = "^\".*";
         Pattern pattern_decision = Pattern.compile(regex_decision);
         Matcher matcher = pattern_decision.matcher(str);
         
-        HashMap<String, String> strHashMap = new HashMap<String,String>();
-        HashMap<String, String> mathHashMap = new HashMap<String,String>();
 
-        for (int i=0; i < Math.max( list_str.size(), list_math.size()); ++i) {
+        int total_size = list_str.size() + list_math.size();
+        for (int i=0; i < total_size; ++i) {
         	boolean m = matcher.matches();
-        	int j = 0;
+   	        int tmp_i;
+   	        
        		if ( m ) {
-       			strHashMap.put("math", list_math.get(i));
-       			sbHashMap.put(Integer.toString(j), strHashMap);
-       			if ( i < list_str.size() ) {
-       				++j;
+       	        HashMap<String, String> strHashMap = new HashMap<String,String>();
+       	        HashMap<String, String> mathHashMap = new HashMap<String,String>();
+       	        
+       	        if ( i%2 == 0 ) {
+       	        	tmp_i = i / 2;
+       	        	strHashMap.put("math", list_math.get(i));
+       	        	sbHashMap.put(i, strHashMap);
+       	        }else {
+       	        	tmp_i = i / 2;
        				mathHashMap.put("str", list_str.get(i));
-       				sbHashMap.put(Integer.toString(j), mathHashMap);
-       			}
+       				sbHashMap.put(i, mathHashMap);
+       	        }
        		} else {
-       			mathHashMap.put("str", list_str.get(i));
-       			sbHashMap.put(Integer.toString(i), mathHashMap);
-       			if ( i < list_math.size() ) {
-       				++j;
-       				strHashMap.put("math", list_math.get(i));
-       				sbHashMap.put(Integer.toString(j), strHashMap);      
-       			}
+       	        HashMap<String, String> strHashMap = new HashMap<String,String>();
+       	        HashMap<String, String> mathHashMap = new HashMap<String,String>();
+       	        
+       	        if ( i%2 == 0 ){
+       	        	tmp_i = i / 2;
+       	        	mathHashMap.put("str", list_str.get(tmp_i));
+       	        	sbHashMap.put(i, mathHashMap);
+       	        } else {
+       	        	tmp_i = i / 2;
+       				strHashMap.put("math", list_math.get(tmp_i));
+       				sbHashMap.put(i, strHashMap);
+       	        }
        		}
         }
     	return sbHashMap;

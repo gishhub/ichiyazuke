@@ -15,10 +15,24 @@
     <servlet-name>IchiyazukeServlet</servlet-name>
     <servlet-class>servlet.IchiyazukeServlet</servlet-class>
   </servlet>
+<servlet>
+  <servlet-name>Question</servlet-name>
+  <jsp-file>/WEB-INF/view/question.jsp</jsp-file>
+  <init-param>
+    <param-name>encoding</param-name>
+    <param-value>UTF-8</param-value>
+  </init-param>
+</servlet>
   <servlet-mapping>
     <servlet-name>IchiyazukeServlet</servlet-name>
     <url-pattern>/*</url-pattern>
   </servlet-mapping>
+  
+  <servlet-mapping>
+  <servlet-name>Question</servlet-name>
+  <url-pattern>/question</url-pattern>
+</servlet-mapping>
+
   <error-page>
     <error-code>401</error-code>
     <location>/WEB-INF/view/error/401.html</location>
