@@ -51,7 +51,11 @@
     [request setURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:@"POST"];
     [request setHTTPBody:post];
+    
+    // デバッグ
+    NSLog(@"questionID:%@", self.questionId);
 
+    /*
     NSData  *response  = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSError *jsonError = nil;
     NSArray *question  = [NSJSONSerialization JSONObjectWithData:response
@@ -82,21 +86,23 @@
     NSLog(@"choice4:%@", choice4);
     NSLog(@"answer:%@", answer);
     NSLog(@"explanation:%@", explanation);
-
+ 
+    NSString     *path       = [[NSBundle mainBundle] pathForResource:@"math" ofType:@"html"];
+    NSFileHandle *readHandle = [NSFileHandle fileHandleForReadingAtPath:path];
+    NSString     *htmlString = [[NSString alloc] initWithData:[readHandle readDataToEndOfFile] encoding:NSUTF8StringEncoding];
+ 
+    [webView loadHTMLString:htmlString baseURL:[NSURL fileURLWithPath:path]];
+ */
     CGRect frame            = [[UIScreen mainScreen] applicationFrame];
     CGRect rect             = CGRectMake(0,0,frame.size.width, frame.size.height);
     UIWebView *webView      = [[UIWebView alloc] initWithFrame:rect];
     webView.scalesPageToFit = YES;
     [self.view addSubview:webView];
 
-	NSString     *path       = [[NSBundle mainBundle] pathForResource:@"math" ofType:@"html"];
-    NSFileHandle *readHandle = [NSFileHandle fileHandleForReadingAtPath:path];
-    NSString     *htmlString = [[NSString alloc] initWithData:[readHandle readDataToEndOfFile] encoding:NSUTF8StringEncoding];
-
-    [webView loadHTMLString:htmlString baseURL:[NSURL fileURLWithPath:path]];
+    [webView loadRequest:request];
 
     // 回答ボタン配置
-    UIButton *choiceBtn1 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+/*    UIButton *choiceBtn1 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     choiceBtn1.frame = CGRectMake(10, 200, 100, 30);
     choiceBtn1.tag = 1;
     [choiceBtn1 setTitle:choice1 forState:UIControlStateNormal];
@@ -131,8 +137,7 @@
                    action:@selector(goAnswer:)
          forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:choiceBtn4];
-
-    [self webViewDidFinishLoad:webView];
+*/
 }
 
 - (void)viewDidUnload
@@ -143,19 +148,6 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-- (void)webViewDidFinishLoad:(UIWebView *)webView
-{
-    NSLog(@"%@",@"webViewDidFinishLoad");
-
-    NSMutableString *javascript = [NSMutableString string];
-    //[javascript appendString:@"var tex4 = encodeURIComponent('$ \\sin(90^\\circ + \\theta) = \\cos \\theta$');"];
-    [javascript appendString:@"document.write('<img src=hoge>');"];
-
-    NSString *output = [webView  stringByEvaluatingJavaScriptFromString: @"document.documentElement.clientHeight;"];
-    int contentHeight = [output intValue];
-    NSLog(@"contentHeight is %d", contentHeight);
 }
 
 - (void)goAnswer:(UIButton *)sender

@@ -33,7 +33,6 @@
 		FD9302ED16213CEB00101032 /* q8.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9302E316213CEB00101032 /* q8.png */; };
 		FD9302EE16213CEB00101032 /* q9.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9302E416213CEB00101032 /* q9.png */; };
 		FD9877BA15A85D6F00CB32A4 /* LoginTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9877B915A85D6F00CB32A4 /* LoginTableViewController.m */; };
-		FDB9E31716133B180008B136 /* question.js in Sources */ = {isa = PBXBuildFile; fileRef = FDB9E31616133B180008B136 /* question.js */; };
 		FDB9E31A16134D910008B136 /* math.html in Resources */ = {isa = PBXBuildFile; fileRef = FDB9E31916134D910008B136 /* math.html */; };
 		FDBD8AF115FC437C006BBB10 /* question.css in Resources */ = {isa = PBXBuildFile; fileRef = FDBD8AF015FC437C006BBB10 /* question.css */; };
 		FDDA08EE15F202A400878189 /* AnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDA08ED15F202A400878189 /* AnswerViewController.m */; };
@@ -80,7 +79,6 @@
 		FD9302E416213CEB00101032 /* q9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = q9.png; sourceTree = "<group>"; };
 		FD9877B815A85D6F00CB32A4 /* LoginTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginTableViewController.h; sourceTree = "<group>"; };
 		FD9877B915A85D6F00CB32A4 /* LoginTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTableViewController.m; sourceTree = "<group>"; };
-		FDB9E31616133B180008B136 /* question.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = question.js; sourceTree = "<group>"; };
 		FDB9E31916134D910008B136 /* math.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = math.html; sourceTree = "<group>"; };
 		FDBD8AF015FC437C006BBB10 /* question.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = question.css; sourceTree = "<group>"; };
 		FDDA08EC15F202A400878189 /* AnswerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerViewController.h; sourceTree = "<group>"; };
@@ -177,7 +175,6 @@
 			children = (
 				FDB9E31916134D910008B136 /* math.html */,
 				FDBD8AF015FC437C006BBB10 /* question.css */,
-				FDB9E31616133B180008B136 /* question.js */,
 			);
 			name = html;
 			sourceTree = "<group>";
@@ -286,7 +283,6 @@
 				FD870543159CBB8E005E63E8 /* QuestionViewController.m in Sources */,
 				FD9877BA15A85D6F00CB32A4 /* LoginTableViewController.m in Sources */,
 				FDDA08EE15F202A400878189 /* AnswerViewController.m in Sources */,
-				FDB9E31716133B180008B136 /* question.js in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
