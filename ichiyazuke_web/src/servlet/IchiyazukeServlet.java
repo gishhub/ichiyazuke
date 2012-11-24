@@ -20,15 +20,7 @@ import action.UserAction;
 
 import net.arnx.jsonic.JSON;
 
-/**
- * Servlet implementation class IchiyazukeServlet
- */
 public class IchiyazukeServlet extends HttpServlet {
-	
-	//Loggerを作成する。
-	// static protected Logger logger = Logger.getLogger(IchiyazukeServlet.class);
-
-	
 	private static final long serialVersionUID = 2319188394791324751L;
 
 	protected void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
@@ -36,21 +28,11 @@ public class IchiyazukeServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
-
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("application/json; charset=UTF-8");
-
-		String requestStr = request.getPathInfo();
-
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		/*
-		logger.debug("It's debug log");
-		logger.info("It's info log");
-		logger.warn("It's warn log");
-		logger.error("It's error log");
-		logger.fatal("It's fatal log");
-		*/
+		String requestStr = request.getPathInfo();
 
 		if ("/select_question_id".equals(requestStr)) {
 			try {
@@ -60,16 +42,15 @@ public class IchiyazukeServlet extends HttpServlet {
 				int personalId = Integer.parseInt(request.getParameter("personalId"));
 
 				QuestionAction questionAction = new QuestionAction(grade, level, category, personalId);
+				ArrayList<Integer> idList = questionAction.getQuestionIds();
 
-				ArrayList<Integer> idList = questionAction.getQuestionNumbers();
+				if (idList.size() < 9){
+					throw new Exception("問題IDを9個以上取得できませんでした.");
+				}
 
-		        if (idList.size() < 9){
-		        	throw new Exception();
-		        }
-
-		        String tmp = JSON.encode(idList);
+				String tmp = JSON.encode(idList);
 				out.println(tmp);
-		        idList.remove(0);
+				idList.remove(0);
 
 			} catch (IndexOutOfBoundsException e){
 				e.printStackTrace();
@@ -77,46 +58,40 @@ public class IchiyazukeServlet extends HttpServlet {
 				e.printStackTrace();
 				out.println("false");
 			}
+
+/*
+		//ガチ@奈良
 		} else if ("/select_question_by_id".equals(requestStr)) {
 			try {
 				int questionId = Integer.parseInt(request.getParameter("questionId"));
 				QuestionAction questionAction = new QuestionAction(questionId);
 				HashMap<String,HashMap<Integer, HashMap<String, String>>> questionHashMap = questionAction.getQuestionById();
-				
-				String test_choice1 = "";
-				String test_choice2 = "";
-				String test_choice3 = "";
-				String test_choice4 = "";
-				String test_answer = "";
+
+				String test_choice1  = "";
+				String test_choice2  = "";
+				String test_choice3  = "";
+				String test_choice4  = "";
 				String test_contents = "";
-				String test_title = "";
+				String test_title    = "";
 
 				Object[] objKey = questionHashMap.keySet().toArray();
 
 				for (int i = 0; i < objKey.length; i++) {
-					HashMap<Integer, HashMap<String, String>> subHashMap = questionHashMap
-							.get(objKey[i]);
+					HashMap<Integer, HashMap<String, String>> subHashMap = questionHashMap.get(objKey[i]);
 
 					if (objKey[i].toString().equals("choice1")) {
 
 						Object[] objKey_sub = subHashMap.keySet().toArray();
 
 						for (int j = 0; j < objKey_sub.length; j++) {
-							HashMap<String, String> subsubHashMap = subHashMap
-									.get(objKey_sub[j]);
+							HashMap<String, String> subsubHashMap = subHashMap.get(objKey_sub[j]);
 
-							Object[] objKey_subsub = subsubHashMap.keySet()
-									.toArray();
+							Object[] objKey_subsub = subsubHashMap.keySet().toArray();
 							for (int k = 0; k < objKey_subsub.length; k++) {
-								if (objKey_subsub[k].equals("math")) {
-									test_choice1 += "<img src=\"https://chart.googleapis.com/chart?cht=tx&chl="
-											+ URLEncoder
-													.encode(subsubHashMap
-															.get(objKey_subsub[k]),
-															"UTF-8") + "\"/>";
+								if (objKey_subsub[k].equals("tex")) {
+									test_choice1 += "<img src=\"https://chart.googleapis.com/chart?cht=tx&chl=" + URLEncoder.encode(subsubHashMap.get(objKey_subsub[k]),"UTF-8") + "\"/>";
 								} else {
-									test_choice1 += subsubHashMap
-											.get(objKey_subsub[k]);
+									test_choice1 += subsubHashMap.get(objKey_subsub[k]);
 								}
 							}
 						}
@@ -124,21 +99,14 @@ public class IchiyazukeServlet extends HttpServlet {
 						Object[] objKey_sub = subHashMap.keySet().toArray();
 
 						for (int j = 0; j < objKey_sub.length; j++) {
-							HashMap<String, String> subsubHashMap = subHashMap
-									.get(objKey_sub[j]);
+							HashMap<String, String> subsubHashMap = subHashMap.get(objKey_sub[j]);
 
-							Object[] objKey_subsub = subsubHashMap.keySet()
-									.toArray();
+							Object[] objKey_subsub = subsubHashMap.keySet().toArray();
 							for (int k = 0; k < objKey_subsub.length; k++) {
-								if (objKey_subsub[k].equals("math")) {
-									test_choice2 += "<img src=\"https://chart.googleapis.com/chart?cht=tx&chl="
-											+ URLEncoder
-													.encode(subsubHashMap
-															.get(objKey_subsub[k]),
-															"UTF-8") + "\"/>";
+								if (objKey_subsub[k].equals("tex")) {
+									test_choice2 += "<img src=\"https://chart.googleapis.com/chart?cht=tx&chl=" + URLEncoder.encode(subsubHashMap.get(objKey_subsub[k]),"UTF-8") + "\"/>";
 								} else {
-									test_choice2 += subsubHashMap
-											.get(objKey_subsub[k]);
+									test_choice2 += subsubHashMap.get(objKey_subsub[k]);
 								}
 							}
 						}
@@ -146,21 +114,14 @@ public class IchiyazukeServlet extends HttpServlet {
 						Object[] objKey_sub = subHashMap.keySet().toArray();
 
 						for (int j = 0; j < objKey_sub.length; j++) {
-							HashMap<String, String> subsubHashMap = subHashMap
-									.get(objKey_sub[j]);
+							HashMap<String, String> subsubHashMap = subHashMap.get(objKey_sub[j]);
 
-							Object[] objKey_subsub = subsubHashMap.keySet()
-									.toArray();
+							Object[] objKey_subsub = subsubHashMap.keySet().toArray();
 							for (int k = 0; k < objKey_subsub.length; k++) {
-								if (objKey_subsub[k].equals("math")) {
-									test_choice3 += "<img src=\"https://chart.googleapis.com/chart?cht=tx&chl="
-											+ URLEncoder
-													.encode(subsubHashMap
-															.get(objKey_subsub[k]),
-															"UTF-8") + "\"/>";
+								if (objKey_subsub[k].equals("tex")) {
+									test_choice3 += "<img src=\"https://chart.googleapis.com/chart?cht=tx&chl=" + URLEncoder.encode(subsubHashMap.get(objKey_subsub[k]),"UTF-8") + "\"/>";
 								} else {
-									test_choice3 += subsubHashMap
-											.get(objKey_subsub[k]);
+									test_choice3 += subsubHashMap.get(objKey_subsub[k]);
 								}
 							}
 						}
@@ -168,43 +129,14 @@ public class IchiyazukeServlet extends HttpServlet {
 						Object[] objKey_sub = subHashMap.keySet().toArray();
 
 						for (int j = 0; j < objKey_sub.length; j++) {
-							HashMap<String, String> subsubHashMap = subHashMap
-									.get(objKey_sub[j]);
+							HashMap<String, String> subsubHashMap = subHashMap.get(objKey_sub[j]);
 
-							Object[] objKey_subsub = subsubHashMap.keySet()
-									.toArray();
+							Object[] objKey_subsub = subsubHashMap.keySet().toArray();
 							for (int k = 0; k < objKey_subsub.length; k++) {
-								if (objKey_subsub[k].equals("math")) {
-									test_choice4 += "<img src=\"https://chart.googleapis.com/chart?cht=tx&chl="
-											+ URLEncoder
-													.encode(subsubHashMap
-															.get(objKey_subsub[k]),
-															"UTF-8") + "\"/>";
+								if (objKey_subsub[k].equals("tex")) {
+									test_choice4 += "<img src=\"https://chart.googleapis.com/chart?cht=tx&chl=" + URLEncoder.encode(subsubHashMap.get(objKey_subsub[k]),"UTF-8") + "\"/>";
 								} else {
-									test_choice4 += subsubHashMap
-											.get(objKey_subsub[k]);
-								}
-							}
-						}
-					} else if (objKey[i].toString().equals("answer")) {
-						Object[] objKey_sub = subHashMap.keySet().toArray();
-
-						for (int j = 0; j < objKey_sub.length; j++) {
-							HashMap<String, String> subsubHashMap = subHashMap
-									.get(objKey_sub[j]);
-
-							Object[] objKey_subsub = subsubHashMap.keySet()
-									.toArray();
-							for (int k = 0; k < objKey_subsub.length; k++) {
-								if (objKey_subsub[k].equals("math")) {
-									test_answer += "<img src=\"https://chart.googleapis.com/chart?cht=tx&chl="
-											+ URLEncoder
-													.encode(subsubHashMap
-															.get(objKey_subsub[k]),
-															"UTF-8") + "\"/>";
-								} else {
-									test_answer += subsubHashMap
-											.get(objKey_subsub[k]);
+									test_choice4 += subsubHashMap.get(objKey_subsub[k]);
 								}
 							}
 						}
@@ -212,21 +144,13 @@ public class IchiyazukeServlet extends HttpServlet {
 						Object[] objKey_sub = subHashMap.keySet().toArray();
 
 						for (int j = 0; j < objKey_sub.length; j++) {
-							HashMap<String, String> subsubHashMap = subHashMap
-									.get(objKey_sub[j]);
-
-							Object[] objKey_subsub = subsubHashMap.keySet()
-									.toArray();
+							HashMap<String, String> subsubHashMap = subHashMap.get(objKey_sub[j]);
+							Object[] objKey_subsub = subsubHashMap.keySet().toArray();
 							for (int k = 0; k < objKey_subsub.length; k++) {
-								if (objKey_subsub[k].equals("math")) {
-									test_title += "<img src=\"https://chart.googleapis.com/chart?cht=tx&chl="
-											+ URLEncoder
-													.encode(subsubHashMap
-															.get(objKey_subsub[k]),
-															"UTF-8") + "\"/>";
+								if (objKey_subsub[k].equals("tex")) {
+									test_title += "<img src=\"https://chart.googleapis.com/chart?cht=tx&chl=" + URLEncoder.encode(subsubHashMap.get(objKey_subsub[k]),"UTF-8") + "\"/>";
 								} else {
-									test_title += subsubHashMap
-											.get(objKey_subsub[k]);
+									test_title += subsubHashMap.get(objKey_subsub[k]);
 								}
 							}
 						}
@@ -234,40 +158,86 @@ public class IchiyazukeServlet extends HttpServlet {
 						Object[] objKey_sub = subHashMap.keySet().toArray();
 
 						for (int j = 0; j < objKey_sub.length; j++) {
-							HashMap<String, String> subsubHashMap = subHashMap
-									.get(objKey_sub[j]);
-
-							Object[] objKey_subsub = subsubHashMap.keySet()
-									.toArray();
+							HashMap<String, String> subsubHashMap = subHashMap.get(objKey_sub[j]);
+							Object[] objKey_subsub = subsubHashMap.keySet().toArray();
 							for (int k = 0; k < objKey_subsub.length; k++) {
-								if (objKey_subsub[k].equals("math")) {
-									test_contents += "<img src=\"https://chart.googleapis.com/chart?cht=tx&chl="
-											+ URLEncoder
-													.encode(subsubHashMap
-															.get(objKey_subsub[k]),
-															"UTF-8") + "\"/>";
+								if (objKey_subsub[k].equals("tex")) {
+									test_contents += "<img src=\"https://chart.googleapis.com/chart?cht=tx&chl=" + URLEncoder.encode(subsubHashMap.get(objKey_subsub[k]),"UTF-8") + "\"/>";
 								} else {
-									test_contents += subsubHashMap
-											.get(objKey_subsub[k]);
+									test_contents += subsubHashMap.get(objKey_subsub[k]);
 								}
 							}
 						}
 					}
-
 				}
-
+				request.setAttribute("questionId", questionId);
 				request.setAttribute("test_choice1", test_choice1);
 				request.setAttribute("test_choice2", test_choice2);
 				request.setAttribute("test_choice3", test_choice3);
 				request.setAttribute("test_choice4", test_choice4);
-				request.setAttribute("test_answer", test_answer);
 				request.setAttribute("test_title", test_title);
 				request.setAttribute("test_contents", test_contents);
-				
+
+				System.out.println("変換後の文字列 : " + test_choice1);	//デバッグ
+				System.out.println("変換後の文字列 : " + test_choice2);	//デバッグ
+				System.out.println("変換後の文字列 : " + test_choice3);	//デバッグ
+				System.out.println("変換後の文字列 : " + test_choice4);	//デバッグ
+				System.out.println("変換後の文字列 : " + test_contents);	//デバッグ
+				System.out.println("");	//デバッグ
+
 				RequestDispatcher rd = request.getRequestDispatcher("/question");
 				rd.forward(request, response);
 				questionHashMap.remove(0);
 			} catch (Exception e){
+				e.printStackTrace();
+				out.println("false");
+			}
+*/
+		// テスト@高田
+		} else if ("/select_question_by_id".equals(requestStr)) {
+			try {
+				int questionId = Integer.parseInt(request.getParameter("questionId"));
+				QuestionAction questionAction = new QuestionAction(questionId);
+				HashMap<String, String> qHashMap = questionAction.getQuestionById2();
+
+				request.setAttribute("questionId", questionId);
+				request.setAttribute("test_title", qHashMap.get("title"));
+				request.setAttribute("test_choice1", qHashMap.get("choice1"));
+				request.setAttribute("test_choice2", qHashMap.get("choice2"));
+				request.setAttribute("test_choice3", qHashMap.get("choice3"));
+				request.setAttribute("test_choice4", qHashMap.get("choice4"));
+				request.setAttribute("test_contents", qHashMap.get("contents"));
+
+				RequestDispatcher rd = request.getRequestDispatcher("/question");
+				rd.forward(request, response);
+				qHashMap.remove(0);
+			} catch (Exception e){
+				e.printStackTrace();
+				out.println("false");
+			}
+
+
+		}else if ("/answer_question".equals(requestStr)) {
+			try {
+				int questionId = Integer.parseInt(request.getParameter("questionId"));
+				int answer     = Integer.parseInt(request.getParameter("answer"));
+				QuestionAction questionAction = new QuestionAction(questionId);
+				HashMap<String, String> qHashMap = questionAction.getAnswerById(answer);
+
+				request.setAttribute("questionId",    questionId);
+				request.setAttribute("title",         qHashMap.get("title"));
+				request.setAttribute("choice",        qHashMap.get("choice"));
+				request.setAttribute("correctAnswer", qHashMap.get("correctAnswer"));
+				request.setAttribute("judgment",      qHashMap.get("judgment"));
+				request.setAttribute("explanation",   qHashMap.get("explanation"));
+
+				RequestDispatcher rd = request.getRequestDispatcher("/answer");
+				rd.forward(request, response);
+				qHashMap.remove(0);
+
+			} catch (IndexOutOfBoundsException e){
+				e.printStackTrace();
+			} catch (Exception e) {
 				e.printStackTrace();
 				out.println("false");
 			}
@@ -306,7 +276,7 @@ public class IchiyazukeServlet extends HttpServlet {
 				out.println("false");
 			}
 		} else {
-			out.println("falsea");
+			out.println("false");
 		}
 		out.close();
 	}

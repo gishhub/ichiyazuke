@@ -1,52 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
-  <display-name>Ichiyazuke</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-  </welcome-file-list>
-  <servlet>
-    <servlet-name>Initialize</servlet-name>
-    <servlet-class>init.Initialize</servlet-class>
-    <load-on-startup>0</load-on-startup>
-  </servlet>
-  <servlet>
-    <description></description>
-    <display-name>IchiyazukeServlet</display-name>
-    <servlet-name>IchiyazukeServlet</servlet-name>
-    <servlet-class>servlet.IchiyazukeServlet</servlet-class>
-  </servlet>
-<servlet>
-  <servlet-name>Question</servlet-name>
-  <jsp-file>/WEB-INF/view/question.jsp</jsp-file>
-  <init-param>
-    <param-name>encoding</param-name>
-    <param-value>UTF-8</param-value>
-  </init-param>
-</servlet>
-  <servlet-mapping>
-    <servlet-name>IchiyazukeServlet</servlet-name>
-    <url-pattern>/*</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-  <servlet-name>Question</servlet-name>
-  <url-pattern>/question</url-pattern>
-</servlet-mapping>
+	<display-name>Ichiyazuke</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
 
-  <error-page>
-    <error-code>401</error-code>
-    <location>/WEB-INF/view/error/401.html</location>
-  </error-page>
-  <error-page>
-    <error-code>403</error-code>
-    <location>/WEB-INF/view/error/403.html</location>
-  </error-page>
-  <error-page>
-    <error-code>404</error-code>
-    <location>/WEB-INF/view/error/404.html</location>
-  </error-page>
-  <error-page>
-    <error-code>500</error-code>
-    <location>/WEB-INF/view/error/500.html</location>
-  </error-page>
+	<servlet>
+		<servlet-name>Initialize</servlet-name>
+		<servlet-class>init.Initialize</servlet-class>
+		<load-on-startup>0</load-on-startup>
+	</servlet>
+
+	<servlet>
+		<description></description>
+		<display-name>IchiyazukeServlet</display-name>
+		<servlet-name>IchiyazukeServlet</servlet-name>
+		<servlet-class>servlet.IchiyazukeServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>Question</servlet-name>
+		<jsp-file>/WEB-INF/view/question.jsp</jsp-file>
+		<init-param>
+		<param-name>encoding</param-name>
+		<param-value>UTF-8</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet>
+		<servlet-name>Answer</servlet-name>
+		<jsp-file>/WEB-INF/view/answer.jsp</jsp-file>
+		<init-param>
+		<param-name>encoding</param-name>
+		<param-value>UTF-8</param-value>
+		</init-param>
+	</servlet>
+
+		<servlet-mapping>
+		<servlet-name>IchiyazukeServlet</servlet-name>
+		<url-pattern>/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>Question</servlet-name>
+		<url-pattern>/question</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>Answer</servlet-name>
+		<url-pattern>/answer</url-pattern>
+	</servlet-mapping>
+
+		<error-page>
+		<error-code>401</error-code>
+		<location>/WEB-INF/view/error/401.html</location>
+	</error-page>
+
+	<error-page>
+		<error-code>403</error-code>
+		<location>/WEB-INF/view/error/403.html</location>
+	</error-page>
+
+	<error-page>
+		<error-code>404</error-code>
+		<location>/WEB-INF/view/error/404.html</location>
+	</error-page>
+
+	<error-page>
+		<error-code>500</error-code>
+		<location>/WEB-INF/view/error/500.html</location>
+	</error-page>
 </web-app>
