@@ -33,6 +33,7 @@ public class IchiyazukeServlet extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		String requestStr = request.getPathInfo();
+		System.out.println(requestStr);
 
 		if ("/select_question_id".equals(requestStr)) {
 			try {

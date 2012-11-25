@@ -10,6 +10,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+	body {
+		font-size:80%;
+		margin-left : 3.0em;
+		margin-right: 3.0em;
+		padding: 0.1em;
+		font-family: HiraKakuProN-W3;
+	}
+	h1 { font-size: 2.0em; }
+	h2 { font-size: 1.5em; }
+	h3 { font-size: 1.2em; }
+	h3 { font-size: 1.0em; }
+	p  { font-size: 1.0em; }
+-->
+</style>
 <title>解答ページ</title>
 </head>
 <body>
