@@ -33,16 +33,11 @@
 		FD9302ED16213CEB00101032 /* q8.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9302E316213CEB00101032 /* q8.png */; };
 		FD9302EE16213CEB00101032 /* q9.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9302E416213CEB00101032 /* q9.png */; };
 		FD9877BA15A85D6F00CB32A4 /* LoginTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9877B915A85D6F00CB32A4 /* LoginTableViewController.m */; };
-		FDB9E31A16134D910008B136 /* math.html in Resources */ = {isa = PBXBuildFile; fileRef = FDB9E31916134D910008B136 /* math.html */; };
-		FDBD8AF115FC437C006BBB10 /* question.css in Resources */ = {isa = PBXBuildFile; fileRef = FDBD8AF015FC437C006BBB10 /* question.css */; };
-		FDDA08EE15F202A400878189 /* AnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDDA08ED15F202A400878189 /* AnswerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FD24C468159B65CF00AE6262 /* PanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelViewController.h; sourceTree = "<group>"; };
 		FD24C469159B65CF00AE6262 /* PanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelViewController.m; sourceTree = "<group>"; };
-		FD3F3E7E16215DEE006FCE1B /* GTMHTTPFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GTMHTTPFetcher.h; path = ../GTMHTTPFetcher.h; sourceTree = "<group>"; };
-		FD3F3E7F16215DEE006FCE1B /* GTMHTTPFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GTMHTTPFetcher.m; path = ../GTMHTTPFetcher.m; sourceTree = "<group>"; };
 		FD579422156798E700FC8EDB /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
 		FD579423156798E800FC8EDB /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
 		FD5F306E155258EC0076879C /* ichiyazuke_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ichiyazuke_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,10 +74,6 @@
 		FD9302E416213CEB00101032 /* q9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = q9.png; sourceTree = "<group>"; };
 		FD9877B815A85D6F00CB32A4 /* LoginTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginTableViewController.h; sourceTree = "<group>"; };
 		FD9877B915A85D6F00CB32A4 /* LoginTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTableViewController.m; sourceTree = "<group>"; };
-		FDB9E31916134D910008B136 /* math.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = math.html; sourceTree = "<group>"; };
-		FDBD8AF015FC437C006BBB10 /* question.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = question.css; sourceTree = "<group>"; };
-		FDDA08EC15F202A400878189 /* AnswerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerViewController.h; sourceTree = "<group>"; };
-		FDDA08ED15F202A400878189 /* AnswerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,22 +120,17 @@
 		FD5F3078155258EC0076879C /* ichiyazuke_ios */ = {
 			isa = PBXGroup;
 			children = (
-				FDBD8AF315FC43BF006BBB10 /* html */,
 				FDC5CD9C1555169200FC64BA /* images */,
 				FD5F3079155258EC0076879C /* Supporting Files */,
 				FD5F3081155258EC0076879C /* AppDelegate.h */,
 				FD5F3082155258EC0076879C /* AppDelegate.m */,
 				FD5F3084155258EC0076879C /* MainStoryboard.storyboard */,
-				FD3F3E7E16215DEE006FCE1B /* GTMHTTPFetcher.h */,
-				FD3F3E7F16215DEE006FCE1B /* GTMHTTPFetcher.m */,
 				FD87053E159CB905005E63E8 /* PanelImageView.h */,
 				FD87053F159CB905005E63E8 /* PanelImageView.m */,
 				FD24C468159B65CF00AE6262 /* PanelViewController.h */,
 				FD24C469159B65CF00AE6262 /* PanelViewController.m */,
 				FD870541159CBB8E005E63E8 /* QuestionViewController.h */,
 				FD870542159CBB8E005E63E8 /* QuestionViewController.m */,
-				FDDA08EC15F202A400878189 /* AnswerViewController.h */,
-				FDDA08ED15F202A400878189 /* AnswerViewController.m */,
 				FD9877B815A85D6F00CB32A4 /* LoginTableViewController.h */,
 				FD9877B915A85D6F00CB32A4 /* LoginTableViewController.m */,
 				FD579422156798E700FC8EDB /* SettingTableViewController.h */,
@@ -168,15 +154,6 @@
 				FD5F3080155258EC0076879C /* ichiyazuke_ios-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		FDBD8AF315FC43BF006BBB10 /* html */ = {
-			isa = PBXGroup;
-			children = (
-				FDB9E31916134D910008B136 /* math.html */,
-				FDBD8AF015FC437C006BBB10 /* question.css */,
-			);
-			name = html;
 			sourceTree = "<group>";
 		};
 		FDC5CD9C1555169200FC64BA /* images */ = {
@@ -249,9 +226,7 @@
 			files = (
 				FD5F307D155258EC0076879C /* InfoPlist.strings in Resources */,
 				FD5F3086155258EC0076879C /* MainStoryboard.storyboard in Resources */,
-				FDBD8AF115FC437C006BBB10 /* question.css in Resources */,
 				FD60275B1610A141005A485B /* Icon.png in Resources */,
-				FDB9E31A16134D910008B136 /* math.html in Resources */,
 				FD9302E516213CEB00101032 /* Default.png in Resources */,
 				FD9302E616213CEB00101032 /* q1.png in Resources */,
 				FD9302E716213CEB00101032 /* q2.png in Resources */,
@@ -282,7 +257,6 @@
 				FD870540159CB905005E63E8 /* PanelImageView.m in Sources */,
 				FD870543159CBB8E005E63E8 /* QuestionViewController.m in Sources */,
 				FD9877BA15A85D6F00CB32A4 /* LoginTableViewController.m in Sources */,
-				FDDA08EE15F202A400878189 /* AnswerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
