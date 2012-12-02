@@ -31,8 +31,8 @@
 
     self.title = @"問題";
 
-    //NSString *url = @"http://49.212.136.103:8080/ichiyazuke_web/select_question_by_id";
-    NSString *url = @"http://localhost:8080/ichiyazuke_web/select_question_by_id";
+    NSString *url = @"http://49.212.136.103:8080/ichiyazuke_web/select_question_by_id";
+    //NSString *url = @"http://localhost:8080/ichiyazuke_web/select_question_by_id";
 
     /* POST */
     NSString *keyValue           = [@"questionId=" stringByAppendingString:self.questionId];
