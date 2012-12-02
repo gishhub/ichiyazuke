@@ -37,10 +37,9 @@ public class QuestionsDAO extends IchiyazukeDAO {
 		return idList;
 	}
 
-	//ガチ@奈良
-	public HashMap<String,HashMap<Integer, HashMap<String, String>>> selectQuestionById(Connection con, int questionId) {
+	public HashMap<String, String> selectQuestionById(Connection con, int questionId) {
 		StringBuffer sb = new StringBuffer();
-		HashMap<String,HashMap<Integer, HashMap<String, String>>> qHashMap = new HashMap<String,HashMap<Integer, HashMap<String, String>>>();
+		HashMap<String, String> qHashMap = new HashMap<String, String>();
 		String sql = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -63,39 +62,6 @@ public class QuestionsDAO extends IchiyazukeDAO {
 				qHashMap.put("choice3",     ichiyazukeUtil.splitCharAndTex(rs.getString("choice3")));
 				qHashMap.put("choice4",     ichiyazukeUtil.splitCharAndTex(rs.getString("choice4")));
 				qHashMap.put("explanation", ichiyazukeUtil.splitCharAndTex(rs.getString("explanation")));
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return qHashMap;
-	}
-
-	//テスト@高田
-	public HashMap<String, String> selectQuestionById2(Connection con, int questionId) {
-		StringBuffer sb = new StringBuffer();
-		HashMap<String, String> qHashMap = new HashMap<String, String>();
-		String sql = null;
-		PreparedStatement ps = null;
-		ResultSet rs = null;
-
-		sb.append(SELECT_QUESTION_BY_ID);
-		sql = sb.toString();
-		System.out.println("SQL : " + sql);	//デバッグ
-
-		IchiyazukeUtil ichiyazukeUtil = new IchiyazukeUtil();
-		try {
-			ps = con.prepareStatement(sql);
-			ps.setInt(1, questionId);
-			rs = ps.executeQuery();
-			while (rs.next()) {
-				qHashMap.put("answer",      ichiyazukeUtil.splitCharAndTex2(rs.getString("answer")));
-				qHashMap.put("title",       ichiyazukeUtil.splitCharAndTex2(rs.getString("title")));
-				qHashMap.put("contents",    ichiyazukeUtil.splitCharAndTex2(rs.getString("contents")));
-				qHashMap.put("choice1",     ichiyazukeUtil.splitCharAndTex2(rs.getString("choice1")));
-				qHashMap.put("choice2",     ichiyazukeUtil.splitCharAndTex2(rs.getString("choice2")));
-				qHashMap.put("choice3",     ichiyazukeUtil.splitCharAndTex2(rs.getString("choice3")));
-				qHashMap.put("choice4",     ichiyazukeUtil.splitCharAndTex2(rs.getString("choice4")));
-				qHashMap.put("explanation", ichiyazukeUtil.splitCharAndTex2(rs.getString("explanation")));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

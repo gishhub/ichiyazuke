@@ -2,7 +2,6 @@ package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -11,8 +10,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.apache.log4j.Logger;
 
 import action.QuestionAction;
 import action.PersonalAction;
@@ -59,147 +56,11 @@ public class IchiyazukeServlet extends HttpServlet {
 				e.printStackTrace();
 				out.println("false");
 			}
-
-/*
-		//ガチ@奈良
 		} else if ("/select_question_by_id".equals(requestStr)) {
 			try {
 				int questionId = Integer.parseInt(request.getParameter("questionId"));
 				QuestionAction questionAction = new QuestionAction(questionId);
-				HashMap<String,HashMap<Integer, HashMap<String, String>>> questionHashMap = questionAction.getQuestionById();
-
-				String test_choice1  = "";
-				String test_choice2  = "";
-				String test_choice3  = "";
-				String test_choice4  = "";
-				String test_contents = "";
-				String test_title    = "";
-
-				Object[] objKey = questionHashMap.keySet().toArray();
-
-				for (int i = 0; i < objKey.length; i++) {
-					HashMap<Integer, HashMap<String, String>> subHashMap = questionHashMap.get(objKey[i]);
-
-					if (objKey[i].toString().equals("choice1")) {
-
-						Object[] objKey_sub = subHashMap.keySet().toArray();
-
-						for (int j = 0; j < objKey_sub.length; j++) {
-							HashMap<String, String> subsubHashMap = subHashMap.get(objKey_sub[j]);
-
-							Object[] objKey_subsub = subsubHashMap.keySet().toArray();
-							for (int k = 0; k < objKey_subsub.length; k++) {
-								if (objKey_subsub[k].equals("tex")) {
-									test_choice1 += "<img src=\"https://chart.googleapis.com/chart?cht=tx&chl=" + URLEncoder.encode(subsubHashMap.get(objKey_subsub[k]),"UTF-8") + "\"/>";
-								} else {
-									test_choice1 += subsubHashMap.get(objKey_subsub[k]);
-								}
-							}
-						}
-					} else if (objKey[i].toString().equals("choice2")) {
-						Object[] objKey_sub = subHashMap.keySet().toArray();
-
-						for (int j = 0; j < objKey_sub.length; j++) {
-							HashMap<String, String> subsubHashMap = subHashMap.get(objKey_sub[j]);
-
-							Object[] objKey_subsub = subsubHashMap.keySet().toArray();
-							for (int k = 0; k < objKey_subsub.length; k++) {
-								if (objKey_subsub[k].equals("tex")) {
-									test_choice2 += "<img src=\"https://chart.googleapis.com/chart?cht=tx&chl=" + URLEncoder.encode(subsubHashMap.get(objKey_subsub[k]),"UTF-8") + "\"/>";
-								} else {
-									test_choice2 += subsubHashMap.get(objKey_subsub[k]);
-								}
-							}
-						}
-					} else if (objKey[i].toString().equals("choice3")) {
-						Object[] objKey_sub = subHashMap.keySet().toArray();
-
-						for (int j = 0; j < objKey_sub.length; j++) {
-							HashMap<String, String> subsubHashMap = subHashMap.get(objKey_sub[j]);
-
-							Object[] objKey_subsub = subsubHashMap.keySet().toArray();
-							for (int k = 0; k < objKey_subsub.length; k++) {
-								if (objKey_subsub[k].equals("tex")) {
-									test_choice3 += "<img src=\"https://chart.googleapis.com/chart?cht=tx&chl=" + URLEncoder.encode(subsubHashMap.get(objKey_subsub[k]),"UTF-8") + "\"/>";
-								} else {
-									test_choice3 += subsubHashMap.get(objKey_subsub[k]);
-								}
-							}
-						}
-					} else if (objKey[i].toString().equals("choice4")) {
-						Object[] objKey_sub = subHashMap.keySet().toArray();
-
-						for (int j = 0; j < objKey_sub.length; j++) {
-							HashMap<String, String> subsubHashMap = subHashMap.get(objKey_sub[j]);
-
-							Object[] objKey_subsub = subsubHashMap.keySet().toArray();
-							for (int k = 0; k < objKey_subsub.length; k++) {
-								if (objKey_subsub[k].equals("tex")) {
-									test_choice4 += "<img src=\"https://chart.googleapis.com/chart?cht=tx&chl=" + URLEncoder.encode(subsubHashMap.get(objKey_subsub[k]),"UTF-8") + "\"/>";
-								} else {
-									test_choice4 += subsubHashMap.get(objKey_subsub[k]);
-								}
-							}
-						}
-					} else if (objKey[i].toString().equals("title")) {
-						Object[] objKey_sub = subHashMap.keySet().toArray();
-
-						for (int j = 0; j < objKey_sub.length; j++) {
-							HashMap<String, String> subsubHashMap = subHashMap.get(objKey_sub[j]);
-							Object[] objKey_subsub = subsubHashMap.keySet().toArray();
-							for (int k = 0; k < objKey_subsub.length; k++) {
-								if (objKey_subsub[k].equals("tex")) {
-									test_title += "<img src=\"https://chart.googleapis.com/chart?cht=tx&chl=" + URLEncoder.encode(subsubHashMap.get(objKey_subsub[k]),"UTF-8") + "\"/>";
-								} else {
-									test_title += subsubHashMap.get(objKey_subsub[k]);
-								}
-							}
-						}
-					} else if (objKey[i].toString().equals("contents")) {
-						Object[] objKey_sub = subHashMap.keySet().toArray();
-
-						for (int j = 0; j < objKey_sub.length; j++) {
-							HashMap<String, String> subsubHashMap = subHashMap.get(objKey_sub[j]);
-							Object[] objKey_subsub = subsubHashMap.keySet().toArray();
-							for (int k = 0; k < objKey_subsub.length; k++) {
-								if (objKey_subsub[k].equals("tex")) {
-									test_contents += "<img src=\"https://chart.googleapis.com/chart?cht=tx&chl=" + URLEncoder.encode(subsubHashMap.get(objKey_subsub[k]),"UTF-8") + "\"/>";
-								} else {
-									test_contents += subsubHashMap.get(objKey_subsub[k]);
-								}
-							}
-						}
-					}
-				}
-				request.setAttribute("questionId", questionId);
-				request.setAttribute("test_choice1", test_choice1);
-				request.setAttribute("test_choice2", test_choice2);
-				request.setAttribute("test_choice3", test_choice3);
-				request.setAttribute("test_choice4", test_choice4);
-				request.setAttribute("test_title", test_title);
-				request.setAttribute("test_contents", test_contents);
-
-				System.out.println("変換後の文字列 : " + test_choice1);	//デバッグ
-				System.out.println("変換後の文字列 : " + test_choice2);	//デバッグ
-				System.out.println("変換後の文字列 : " + test_choice3);	//デバッグ
-				System.out.println("変換後の文字列 : " + test_choice4);	//デバッグ
-				System.out.println("変換後の文字列 : " + test_contents);	//デバッグ
-				System.out.println("");	//デバッグ
-
-				RequestDispatcher rd = request.getRequestDispatcher("/question");
-				rd.forward(request, response);
-				questionHashMap.remove(0);
-			} catch (Exception e){
-				e.printStackTrace();
-				out.println("false");
-			}
-*/
-		// テスト@高田
-		} else if ("/select_question_by_id".equals(requestStr)) {
-			try {
-				int questionId = Integer.parseInt(request.getParameter("questionId"));
-				QuestionAction questionAction = new QuestionAction(questionId);
-				HashMap<String, String> qHashMap = questionAction.getQuestionById2();
+				HashMap<String, String> qHashMap = questionAction.getQuestionById();
 
 				request.setAttribute("questionId", questionId);
 				request.setAttribute("test_title", qHashMap.get("title"));
@@ -216,8 +77,6 @@ public class IchiyazukeServlet extends HttpServlet {
 				e.printStackTrace();
 				out.println("false");
 			}
-
-
 		}else if ("/answer_question".equals(requestStr)) {
 			try {
 				int questionId = Integer.parseInt(request.getParameter("questionId"));

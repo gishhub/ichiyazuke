@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.launching.macosx.MacOSXType/Java SE 6 (MacOS X Default)">
 		<attributes>
 			<attribute name="owner.project.facets" value="java"/>
@@ -13,27 +14,25 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="/usr/local/Cellar/tomcat/7.0.28/libexec/lib/tomcat-util.jar"/>
-	<classpathentry kind="lib" path="/usr/local/Cellar/tomcat/7.0.28/libexec/lib/tomcat-jdbc.jar"/>
-	<classpathentry kind="lib" path="/usr/local/Cellar/tomcat/7.0.28/libexec/lib/tomcat-i18n-ja.jar"/>
-	<classpathentry kind="lib" path="/usr/local/Cellar/tomcat/7.0.28/libexec/lib/tomcat-i18n-fr.jar"/>
-	<classpathentry kind="lib" path="/usr/local/Cellar/tomcat/7.0.28/libexec/lib/tomcat-i18n-es.jar"/>
-	<classpathentry kind="lib" path="/usr/local/Cellar/tomcat/7.0.28/libexec/lib/tomcat-dbcp.jar"/>
-	<classpathentry kind="lib" path="/usr/local/Cellar/tomcat/7.0.28/libexec/lib/tomcat-coyote.jar"/>
-	<classpathentry kind="lib" path="/usr/local/Cellar/tomcat/7.0.28/libexec/lib/tomcat-api.jar"/>
-	<classpathentry kind="lib" path="/usr/local/Cellar/tomcat/7.0.28/libexec/lib/servlet-api.jar"/>
-	<classpathentry kind="lib" path="/usr/local/Cellar/tomcat/7.0.28/libexec/lib/mysql-connector-java-5.1.19-bin.jar"/>
-	<classpathentry kind="lib" path="/usr/local/Cellar/tomcat/7.0.28/libexec/lib/jsp-api.jar"/>
-	<classpathentry kind="lib" path="/usr/local/Cellar/tomcat/7.0.28/libexec/lib/jsonic-1.2.11.jar"/>
-	<classpathentry kind="lib" path="/usr/local/Cellar/tomcat/7.0.28/libexec/lib/jasper.jar"/>
-	<classpathentry kind="lib" path="/usr/local/Cellar/tomcat/7.0.28/libexec/lib/jasper-el.jar"/>
-	<classpathentry kind="lib" path="/usr/local/Cellar/tomcat/7.0.28/libexec/lib/el-api.jar"/>
-	<classpathentry kind="lib" path="/usr/local/Cellar/tomcat/7.0.28/libexec/lib/ecj-3.7.2.jar"/>
-	<classpathentry kind="lib" path="/usr/local/Cellar/tomcat/7.0.28/libexec/lib/catalina.jar"/>
-	<classpathentry kind="lib" path="/usr/local/Cellar/tomcat/7.0.28/libexec/lib/catalina-tribes.jar"/>
-	<classpathentry kind="lib" path="/usr/local/Cellar/tomcat/7.0.28/libexec/lib/catalina-ha.jar"/>
-	<classpathentry kind="lib" path="/usr/local/Cellar/tomcat/7.0.28/libexec/lib/catalina-ant.jar"/>
-	<classpathentry kind="lib" path="/usr/local/Cellar/tomcat/7.0.28/libexec/lib/annotations-api.jar"/>
-	<classpathentry kind="lib" path="/usr/local/Cellar/tomcat/7.0.28/libexec/lib/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="/usr/local/apache-tomcat-6.0.29/lib/annotations-api.jar"/>
+	<classpathentry kind="lib" path="/usr/local/apache-tomcat-6.0.29/lib/catalina-ant.jar"/>
+	<classpathentry kind="lib" path="/usr/local/apache-tomcat-6.0.29/lib/catalina-ha.jar"/>
+	<classpathentry kind="lib" path="/usr/local/apache-tomcat-6.0.29/lib/catalina-tribes.jar"/>
+	<classpathentry kind="lib" path="/usr/local/apache-tomcat-6.0.29/lib/catalina.jar"/>
+	<classpathentry kind="lib" path="/usr/local/apache-tomcat-6.0.29/lib/el-api.jar"/>
+	<classpathentry kind="lib" path="/usr/local/apache-tomcat-6.0.29/lib/jasper-el.jar"/>
+	<classpathentry kind="lib" path="/usr/local/apache-tomcat-6.0.29/lib/jasper-jdt.jar"/>
+	<classpathentry kind="lib" path="/usr/local/apache-tomcat-6.0.29/lib/jasper.jar"/>
+	<classpathentry kind="lib" path="/usr/local/apache-tomcat-6.0.29/lib/jsonic-1.2.11.jar"/>
+	<classpathentry kind="lib" path="/usr/local/apache-tomcat-6.0.29/lib/jsp-api.jar"/>
+	<classpathentry kind="lib" path="/usr/local/apache-tomcat-6.0.29/lib/log4j-1.2.8.jar"/>
+	<classpathentry kind="lib" path="/usr/local/apache-tomcat-6.0.29/lib/mysql-connector-java-5.1.18-bin.jar"/>
+	<classpathentry kind="lib" path="/usr/local/apache-tomcat-6.0.29/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="/usr/local/apache-tomcat-6.0.29/lib/tomcat-coyote.jar"/>
+	<classpathentry kind="lib" path="/usr/local/apache-tomcat-6.0.29/lib/tomcat-dbcp.jar"/>
+	<classpathentry kind="lib" path="/usr/local/apache-tomcat-6.0.29/lib/tomcat-i18n-es.jar"/>
+	<classpathentry kind="lib" path="/usr/local/apache-tomcat-6.0.29/lib/tomcat-i18n-fr.jar"/>
+	<classpathentry kind="lib" path="/usr/local/apache-tomcat-6.0.29/lib/tomcat-i18n-ja.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
