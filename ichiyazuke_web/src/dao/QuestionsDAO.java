@@ -21,7 +21,7 @@ public class QuestionsDAO extends IchiyazukeDAO {
 		ResultSet rs = null;
 
 		sql = SELECT_QUESTION_IDS;
-		System.out.println("SQL : " + sql);	//デバッグ
+//		System.out.println("SQL : " + sql);	//デバッグ
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, grade);
@@ -37,7 +37,8 @@ public class QuestionsDAO extends IchiyazukeDAO {
 		return idList;
 	}
 
-	public HashMap<String, String> selectQuestionById(Connection con, int questionId) {
+	//テスト@高田
+	public HashMap<String, String> selectQuestionById2(Connection con, int questionId) {
 		StringBuffer sb = new StringBuffer();
 		HashMap<String, String> qHashMap = new HashMap<String, String>();
 		String sql = null;
@@ -46,22 +47,45 @@ public class QuestionsDAO extends IchiyazukeDAO {
 
 		sb.append(SELECT_QUESTION_BY_ID);
 		sql = sb.toString();
-		System.out.println("SQL : " + sql);	//デバッグ
+//		System.out.println("SQL : " + sql);	//デバッグ
 
 		IchiyazukeUtil ichiyazukeUtil = new IchiyazukeUtil();
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, questionId);
 			rs = ps.executeQuery();
+			
+			
+			
 			while (rs.next()) {
-				qHashMap.put("answer",      ichiyazukeUtil.splitCharAndTex(rs.getString("answer")));
-				qHashMap.put("title",       ichiyazukeUtil.splitCharAndTex(rs.getString("title")));
-				qHashMap.put("contents",    ichiyazukeUtil.splitCharAndTex(rs.getString("contents")));
-				qHashMap.put("choice1",     ichiyazukeUtil.splitCharAndTex(rs.getString("choice1")));
-				qHashMap.put("choice2",     ichiyazukeUtil.splitCharAndTex(rs.getString("choice2")));
-				qHashMap.put("choice3",     ichiyazukeUtil.splitCharAndTex(rs.getString("choice3")));
-				qHashMap.put("choice4",     ichiyazukeUtil.splitCharAndTex(rs.getString("choice4")));
-				qHashMap.put("explanation", ichiyazukeUtil.splitCharAndTex(rs.getString("explanation")));
+				String split_answer      = ichiyazukeUtil.splitCharAndTex2(rs.getString("answer"));
+				String split_title       = ichiyazukeUtil.splitCharAndTex2(rs.getString("title"));
+				String split_contents    = ichiyazukeUtil.splitCharAndTex2(rs.getString("contents"));
+				String split_choice1     = ichiyazukeUtil.splitCharAndTex2(rs.getString("choice1"));
+				String split_choice2     = ichiyazukeUtil.splitCharAndTex2(rs.getString("choice2"));
+				String split_choice3     = ichiyazukeUtil.splitCharAndTex2(rs.getString("choice3"));
+				String split_choice4     = ichiyazukeUtil.splitCharAndTex2(rs.getString("choice4"));
+				String split_explanation = ichiyazukeUtil.splitCharAndTex2(rs.getString("explanation"));
+
+	
+				String modified_answer      = ichiyazukeUtil.convertHashTagBRToTagBR(split_answer);
+				String modified_title       = ichiyazukeUtil.convertHashTagBRToTagBR(split_title);
+				String modified_contents    = ichiyazukeUtil.convertHashTagBRToTagBR(split_contents);
+				String modified_choice1     = ichiyazukeUtil.convertHashTagBRToTagBR(split_choice1);
+				String modified_choice2     = ichiyazukeUtil.convertHashTagBRToTagBR(split_choice2);
+				String modified_choice3     = ichiyazukeUtil.convertHashTagBRToTagBR(split_choice3);
+				String modified_choice4     = ichiyazukeUtil.convertHashTagBRToTagBR(split_choice4);
+				String modified_explanation = ichiyazukeUtil.convertHashTagBRToTagBR(split_explanation);
+			
+
+                qHashMap.put("answer",      modified_answer);
+                qHashMap.put("title",       modified_title);
+                qHashMap.put("contents",    modified_contents);
+                qHashMap.put("choice1",     modified_choice1);
+                qHashMap.put("choice2",     modified_choice2);
+                qHashMap.put("choice3",     modified_choice3);
+                qHashMap.put("choice4",     modified_choice4);
+                qHashMap.put("explanation", modified_explanation);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -78,7 +102,7 @@ public class QuestionsDAO extends IchiyazukeDAO {
 
 		sb.append(SELECT_QUESTION_BY_ID_LIGHT);
 		sql = sb.toString();
-		System.out.println("SQL : " + sql);	//デバッグ
+//		System.out.println("SQL : " + sql);	//デバッグ
 
 		try {
 			ps = con.prepareStatement(sql);

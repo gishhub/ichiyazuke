@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -10,6 +11,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
 
 import action.QuestionAction;
 import action.PersonalAction;
@@ -56,11 +59,13 @@ public class IchiyazukeServlet extends HttpServlet {
 				e.printStackTrace();
 				out.println("false");
 			}
+
+		// テスト@高田
 		} else if ("/select_question_by_id".equals(requestStr)) {
 			try {
 				int questionId = Integer.parseInt(request.getParameter("questionId"));
 				QuestionAction questionAction = new QuestionAction(questionId);
-				HashMap<String, String> qHashMap = questionAction.getQuestionById();
+				HashMap<String, String> qHashMap = questionAction.getQuestionById2();
 
 				request.setAttribute("questionId", questionId);
 				request.setAttribute("test_title", qHashMap.get("title"));
@@ -77,6 +82,8 @@ public class IchiyazukeServlet extends HttpServlet {
 				e.printStackTrace();
 				out.println("false");
 			}
+
+
 		}else if ("/answer_question".equals(requestStr)) {
 			try {
 				int questionId = Integer.parseInt(request.getParameter("questionId"));

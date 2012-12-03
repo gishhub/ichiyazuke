@@ -43,10 +43,11 @@ public class QuestionAction {
 		return idList;
 	}
 
-	public HashMap<String, String> getQuestionById() {
+	//テスト@高田
+	public HashMap<String, String> getQuestionById2() {
 		QuestionsDAO questionsDao = new QuestionsDAO();
 		Connection questionsCon = questionsDao.getConection(QUESTIONS_DB_NAME);
-		HashMap<String, String> qHashMap = questionsDao.selectQuestionById(questionsCon, questionId);
+		HashMap<String, String> qHashMap = questionsDao.selectQuestionById2(questionsCon, questionId);
 		questionsDao.closeConnection(questionsCon);
 
 		return qHashMap;
