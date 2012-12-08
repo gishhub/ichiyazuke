@@ -18,7 +18,7 @@ public class IchiyazukeUtilTest {
 		//String expectation = "期待値ほげほげ";
 
 		IchiyazukeUtil ichiyazukeUtil = new IchiyazukeUtil();
-		String result = ichiyazukeUtil.splitCharAndTex(test);
+		String result = ichiyazukeUtil.splitCharAndTex2(test);
 		//assertEquals("結果と期待値が合いません.", expectation, test);
 
 		System.out.println(result);
