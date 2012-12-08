@@ -7,18 +7,23 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.log4j.Logger;
+
 public class IchiyazukeUtil {
+	static Logger log = Logger.getLogger(IchiyazukeUtil.class.getName());
 
 	/*
-	 * 問題文など、DB内に数式を含んだ形で格納されている文字列を、単純文字列と数式(tex)に分割するメソッド 
-	 * 奈良作のsplitCharAndTex()を作り直したいと思ってます.String返すようにしたいんです.
+	 * 問題文など、DB内に数式を含んだ形で格納されている文字列を、単純文字列と数式(tex)に分割するメソッド
 	 */
-	public String splitCharAndTex2(String original) {
+	public String splitCharAndTex(String original) {
+		log.debug("変換開始: " + original);
+
 		String translatedStr = "";
 		List<String> list_str = new ArrayList<String>();
 		List<String> list_tex = new ArrayList<String>();
 
-		Pattern pattern_str = Pattern.compile("(\'.+?\")|(^.+?\")|(\'.+?$)|^((?!(\'|\")).)*$");
+		Pattern pattern_str = Pattern
+				.compile("(\'.+?\")|(^.+?\")|(\'.+?$)|^((?!(\'|\")).)*$");
 		Pattern pattern_tex = Pattern.compile("\".+?\'");
 
 		Matcher matcher_str = pattern_str.matcher(original);
@@ -29,12 +34,12 @@ public class IchiyazukeUtil {
 			String tmp = matcher_str.group();
 			if (!tmp.isEmpty()) {
 
-				//最初の文字が'ならば、その'を除いた文字列をtmpへ格納
+				// 最初の文字が'ならば、その'を除いた文字列をtmpへ格納
 				if (tmp.substring(0, 1).equals("'")) {
 					tmp = tmp.substring(1);
 				}
 
-				//最後の文字が"ならば、その"を除いた文字列をtmpへ格納
+				// 最後の文字が"ならば、その"を除いた文字列をtmpへ格納
 				if (tmp.substring(tmp.length() - 1).equals("\"")) {
 					tmp = tmp.substring(0, tmp.length() - 1);
 				}
@@ -53,7 +58,7 @@ public class IchiyazukeUtil {
 				list_tex.add(tmp.substring(1, tmp.length() - 1));
 			}
 		}
-		
+
 		Pattern pattern_decision = Pattern.compile("^\".*");
 		Matcher matcher = pattern_decision.matcher(original);
 
@@ -61,7 +66,6 @@ public class IchiyazukeUtil {
 
 		boolean match = matcher.matches();
 		int tmp_i;
-		
 
 		// 変換前文字列の最初の文字が"であるならば
 		if (match == true) {
@@ -96,16 +100,15 @@ public class IchiyazukeUtil {
 				}
 			}
 		}
-//		System.out.println("変換前の文字列 : " + original);	//デバッグ
-//		System.out.println("変換後の文字列 : " + translatedStr);	//デバッグ
-//		System.out.println("");	//デバッグ
-		return translatedStr;
+		String result = convertHashTagBRToTagBR(translatedStr);
+		log.debug("変換完了: " + original + "から" + result + "へ変換しました.");
+		return result;
 	}
-	
-	public String convertHashTagBRToTagBR(String original){
+
+	public String convertHashTagBRToTagBR(String original) {
 		String regex_br = "#BR";
 		String convertedStr = original.replaceAll(regex_br, "<br>");
-		
+
 		return convertedStr;
 	}
 }

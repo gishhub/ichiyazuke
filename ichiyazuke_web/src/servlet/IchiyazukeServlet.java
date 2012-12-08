@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import action.QuestionAction;
 import action.PersonalAction;
 import action.UserAction;
@@ -19,6 +21,7 @@ import net.arnx.jsonic.JSON;
 
 public class IchiyazukeServlet extends HttpServlet {
 	private static final long serialVersionUID = 2319188394791324751L;
+	static Logger log = Logger.getLogger(IchiyazukeServlet.class.getName());
 
 	protected void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
@@ -32,6 +35,8 @@ public class IchiyazukeServlet extends HttpServlet {
 		String requestStr = request.getPathInfo();
 
 		if ("/select_question_id".equals(requestStr)) {
+			log.debug("アクセス: " + "select_question_id");
+
 			try {
 				int grade      = Integer.parseInt(request.getParameter("grade"));
 				int category   = Integer.parseInt(request.getParameter("category"));
@@ -56,12 +61,11 @@ public class IchiyazukeServlet extends HttpServlet {
 				out.println("false");
 			}
 
-		// テスト@高田
 		} else if ("/select_question_by_id".equals(requestStr)) {
 			try {
 				int questionId = Integer.parseInt(request.getParameter("questionId"));
 				QuestionAction questionAction = new QuestionAction(questionId);
-				HashMap<String, String> qHashMap = questionAction.getQuestionById2();
+				HashMap<String, String> qHashMap = questionAction.getQuestionById();
 
 				request.setAttribute("questionId", questionId);
 				request.setAttribute("test_title", qHashMap.get("title"));
@@ -78,7 +82,6 @@ public class IchiyazukeServlet extends HttpServlet {
 				e.printStackTrace();
 				out.println("false");
 			}
-
 
 		}else if ("/answer_question".equals(requestStr)) {
 			try {
