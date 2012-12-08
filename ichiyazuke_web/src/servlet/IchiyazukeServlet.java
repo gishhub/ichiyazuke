@@ -21,7 +21,7 @@ import net.arnx.jsonic.JSON;
 
 public class IchiyazukeServlet extends HttpServlet {
 	private static final long serialVersionUID = 2319188394791324751L;
-	static Logger log = Logger.getLogger(IchiyazukeServlet.class.getName());
+	Logger log = Logger.getLogger(IchiyazukeServlet.class.getName());
 
 	protected void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);

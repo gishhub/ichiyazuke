@@ -12,7 +12,7 @@ import org.apache.log4j.Logger;
 import util.IchiyazukeUtil;
 
 public class QuestionsDAO extends IchiyazukeDAO {
-	static Logger log = Logger.getLogger(QuestionsDAO.class.getName());
+	Logger log = Logger.getLogger(QuestionsDAO.class.getName());
 
 	private final String SELECT_QUESTION_IDS         = "SELECT id FROM questions WHERE grade = ? AND level = ? AND category = ?";
 	private final String SELECT_QUESTION_BY_ID       = "SELECT title, contents, choice1, choice2, choice3, choice4, answer, explanation, reg_date FROM questions WHERE id = ?";

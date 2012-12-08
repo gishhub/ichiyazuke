@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 import org.apache.log4j.Logger;
 
 public class IchiyazukeUtil {
-	static Logger log = Logger.getLogger(IchiyazukeUtil.class.getName());
+	Logger log = Logger.getLogger(IchiyazukeUtil.class.getName());
 
 	/*
 	 * 問題文など、DB内に数式を含んだ形で格納されている文字列を、単純文字列と数式(tex)に分割するメソッド

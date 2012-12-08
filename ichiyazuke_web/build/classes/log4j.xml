@@ -4,7 +4,6 @@
 <log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
 
 <!-- (1)appenderの設定 -->
-  <!--決められた期間でログを別ファイルに切り替えて書き込むDailyRollingFileAppenderをDAILYとして定義 -->
   <appender name="DAILY" class="org.apache.log4j.DailyRollingFileAppender">
   <param name="File" value="${catalina.home}/logs/ichiyazuke_web.log" />
   <param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
@@ -19,8 +18,28 @@
 </appender>
 
 <!-- (3)categoryの設定 -->
-<category name="ichiyazuke_web">
-  <priority value="info" />
+<category name="action">
+  <priority value="debug" />
+  <appender-ref ref="DAILY" />
+</category>
+
+<category name="dao">
+  <priority value="debug" />
+  <appender-ref ref="DAILY" />
+</category>
+
+<category name="init">
+  <priority value="debug" />
+  <appender-ref ref="DAILY" />
+</category>
+
+<category name="servlet">
+  <priority value="debug" />
+  <appender-ref ref="DAILY" />
+</category>
+
+<category name="util">
+  <priority value="debug" />
   <appender-ref ref="DAILY" />
 </category>
 
