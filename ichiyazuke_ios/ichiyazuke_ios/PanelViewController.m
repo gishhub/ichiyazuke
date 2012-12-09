@@ -107,6 +107,7 @@
     }
 
     NSString *url = @"http://49.212.136.103:8080/ichiyazuke_web/select_question_id";
+    //NSString *url = @"http://localhost:8080/ichiyazuke_web/select_question_id";
 
     /* POST */
     NSString *keyValue           = [NSString stringWithFormat:@"grade=%@&category=%@&level=%@&personalId=%@", self.grade, self.category, self.level, self.personalId];

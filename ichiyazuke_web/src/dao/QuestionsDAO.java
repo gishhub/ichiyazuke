@@ -36,7 +36,7 @@ public class QuestionsDAO extends IchiyazukeDAO {
 				idList.add(rs.getInt("id"));
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.error("selectQuestionIds: " + "",e);
 		}
 		return idList;
 	}
@@ -59,26 +59,17 @@ public class QuestionsDAO extends IchiyazukeDAO {
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
-				String modified_answer      = ichiyazukeUtil.splitCharAndTex(rs.getString("answer"));
-				String modified_title       = ichiyazukeUtil.splitCharAndTex(rs.getString("title"));
-				String modified_contents    = ichiyazukeUtil.splitCharAndTex(rs.getString("contents"));
-				String modified_choice1     = ichiyazukeUtil.splitCharAndTex(rs.getString("choice1"));
-				String modified_choice2     = ichiyazukeUtil.splitCharAndTex(rs.getString("choice2"));
-				String modified_choice3     = ichiyazukeUtil.splitCharAndTex(rs.getString("choice3"));
-				String modified_choice4     = ichiyazukeUtil.splitCharAndTex(rs.getString("choice4"));
-				String modified_explanation = ichiyazukeUtil.splitCharAndTex(rs.getString("explanation"));
-
-				qHashMap.put("answer", modified_answer);
-				qHashMap.put("title", modified_title);
-				qHashMap.put("contents", modified_contents);
-				qHashMap.put("choice1", modified_choice1);
-				qHashMap.put("choice2", modified_choice2);
-				qHashMap.put("choice3", modified_choice3);
-				qHashMap.put("choice4", modified_choice4);
-				qHashMap.put("explanation", modified_explanation);
+				qHashMap.put("answer",      ichiyazukeUtil.splitCharAndTex(rs.getString("answer")));
+				qHashMap.put("title",       ichiyazukeUtil.splitCharAndTex(rs.getString("title")));
+				qHashMap.put("contents",    ichiyazukeUtil.splitCharAndTex(rs.getString("contents")));
+				qHashMap.put("choice1",     ichiyazukeUtil.splitCharAndTex(rs.getString("choice1")));
+				qHashMap.put("choice2",     ichiyazukeUtil.splitCharAndTex(rs.getString("choice2")));
+				qHashMap.put("choice3",     ichiyazukeUtil.splitCharAndTex(rs.getString("choice3")));
+				qHashMap.put("choice4",     ichiyazukeUtil.splitCharAndTex(rs.getString("choice4")));
+				qHashMap.put("explanation", ichiyazukeUtil.splitCharAndTex(rs.getString("explanation")));
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.error("selectQuestionById: " + "",e);
 		}
 		return qHashMap;
 	}
@@ -90,10 +81,11 @@ public class QuestionsDAO extends IchiyazukeDAO {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 
-		sb.append(SELECT_QUESTION_BY_ID_LIGHT);
+		sb.append(SELECT_QUESTION_BY_ID);
 		sql = sb.toString();
 		log.debug("SQL: " + sql);
 
+		IchiyazukeUtil ichiyazukeUtil = new IchiyazukeUtil();
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, questionId);
@@ -101,31 +93,32 @@ public class QuestionsDAO extends IchiyazukeDAO {
 			int correctAnswer;
 			while (rs.next()) {
 				correctAnswer = rs.getInt("answer");
-				qHashMap.put("correctAnswer", String.valueOf(correctAnswer));
-				qHashMap.put("title",       rs.getString("title"));
-				qHashMap.put("explanation", rs.getString("explanation"));
+				qHashMap.put("correctAnswer", String.valueOf(rs.getInt("answer")));
+				qHashMap.put("title",       ichiyazukeUtil.splitCharAndTex(rs.getString("title")));
+				qHashMap.put("contents",    ichiyazukeUtil.splitCharAndTex(rs.getString("contents")));
+				qHashMap.put("explanation", ichiyazukeUtil.splitCharAndTex(rs.getString("explanation")));
 
 				switch(correctAnswer){
 				case 1:
-					qHashMap.put("choice", rs.getString("choice1"));
+					qHashMap.put("choice", ichiyazukeUtil.splitCharAndTex(rs.getString("choice1")));
 					break;
 				case 2:
-					qHashMap.put("choice", rs.getString("choice2"));
+					qHashMap.put("choice", ichiyazukeUtil.splitCharAndTex(rs.getString("choice2")));
 					break;
 				case 3:
-					qHashMap.put("choice", rs.getString("choice3"));
+					qHashMap.put("choice", ichiyazukeUtil.splitCharAndTex(rs.getString("choice3")));
 					break;
 				case 4:
-					qHashMap.put("choice", rs.getString("choice4"));
+					qHashMap.put("choice", ichiyazukeUtil.splitCharAndTex(rs.getString("choice4")));
 					break;
 				default:
 					throw new Exception("正解の選択肢を取得できませんでした.");
 				}
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			log.error("selectAnswerById: " + "",e);
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("selectAnswerById: " + "",e);
 		}
 		return qHashMap;
 	}

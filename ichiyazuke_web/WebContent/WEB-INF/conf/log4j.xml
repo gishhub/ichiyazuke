@@ -8,7 +8,7 @@
   <param name="File" value="${catalina.home}/logs/ichiyazuke_web.log" />
   <param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
 
-  <!-- すでにログが存在する場合、ファイルにログを追加 -->
+  <!-- すでにログが存在する場合、ファイルにログを追記 -->
   <param name="append" value="true" />
 
   <!-- (2)layoutの設定 -->

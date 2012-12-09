@@ -150,6 +150,7 @@
         //ログイン情報をPOSTで送信
         //trueならログイン成功、falseならログイン失敗
         NSString *url = @"http://49.212.136.103:8080/ichiyazuke_web/login";
+        //NSString *url = @"http://localhost:8080/ichiyazuke_web/login";
 
         /* POST */
         NSString *keyValue = [NSString stringWithFormat:@"username=%@&passward=%@", self.username.text, self.password.text];
@@ -200,6 +201,7 @@
         //新規登録情報をPOSTで送信
         //trueなら新規登録成功、falseなら新規登録失敗
         NSString *url = @"http://49.212.136.103:8080/ichiyazuke_web/signup";
+        //NSString *url = @"http://localhost:8080/ichiyazuke_web/signup";
         
         /* POST */
         NSString *keyValue = [NSString stringWithFormat:@"username=%@&passward=%@", self.username.text, self.password.text];

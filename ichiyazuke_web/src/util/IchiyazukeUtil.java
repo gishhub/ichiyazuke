@@ -18,96 +18,100 @@ public class IchiyazukeUtil {
 	public String splitCharAndTex(String original) {
 		log.debug("変換開始: " + original);
 
+		//改行コードを<br>に変換
+		String modifiedOriginal = convertLineFeedCodeToTag(original);
+
 		String translatedStr = "";
-		List<String> list_str = new ArrayList<String>();
-		List<String> list_tex = new ArrayList<String>();
+		List<String> listStr = new ArrayList<String>();
+		List<String> listTex = new ArrayList<String>();
 
-		Pattern pattern_str = Pattern
+		Pattern patternStr = Pattern
 				.compile("(\'.+?\")|(^.+?\")|(\'.+?$)|^((?!(\'|\")).)*$");
-		Pattern pattern_tex = Pattern.compile("\".+?\'");
+		Pattern patternTex = Pattern.compile("\".+?\'");
 
-		Matcher matcher_str = pattern_str.matcher(original);
-		Matcher matcher_tex = pattern_tex.matcher(original);
+		Matcher matcherStr = patternStr.matcher(modifiedOriginal);
+		Matcher matcherTex = patternTex.matcher(modifiedOriginal);
 
 		// 単純文字列('で始まって、"で終わる)であるならば
-		while (matcher_str.find()) {
-			String tmp = matcher_str.group();
+		while (matcherStr.find()) {
+			String tmp = matcherStr.group();
 			if (!tmp.isEmpty()) {
-
 				// 最初の文字が'ならば、その'を除いた文字列をtmpへ格納
 				if (tmp.substring(0, 1).equals("'")) {
 					tmp = tmp.substring(1);
 				}
-
 				// 最後の文字が"ならば、その"を除いた文字列をtmpへ格納
 				if (tmp.substring(tmp.length() - 1).equals("\"")) {
 					tmp = tmp.substring(0, tmp.length() - 1);
 				}
-				// list_strにtmp(単純文字列)を追加
-
-				list_str.add(tmp);
+				// listStrにtmp(単純文字列)を追加
+				listStr.add(tmp);
 			}
 		}
 
 		// 数式("で始まって、'で終わる)であるならば
-		while (matcher_tex.find()) {
-			String tmp = matcher_tex.group();
+		while (matcherTex.find()) {
+			String tmp = matcherTex.group();
 			if (!tmp.isEmpty()) {
-				// list_texにtmp(数式)を追加
-
-				list_tex.add(tmp.substring(1, tmp.length() - 1));
+				// listTexにtmp(数式)を追加
+				listTex.add(tmp.substring(1, tmp.length() - 1));
 			}
 		}
 
-		Pattern pattern_decision = Pattern.compile("^\".*");
-		Matcher matcher = pattern_decision.matcher(original);
-
-		int total_size = list_str.size() + list_tex.size();
-
+		Pattern patternDecision = Pattern.compile("^\".*");
+		Matcher matcher = patternDecision.matcher(modifiedOriginal);
+		int totalSize = listStr.size() + listTex.size();
 		boolean match = matcher.matches();
 		int tmp_i;
 
 		// 変換前文字列の最初の文字が"であるならば
 		if (match == true) {
-			for (int i = 0; i < total_size; ++i) {
+			for (int i = 0; i < totalSize; ++i) {
 				tmp_i = i / 2;
 				if (i % 2 == 0) {
 					try {
 						translatedStr += "<img src=\"https://chart.googleapis.com/chart?cht=tx&chl="
-								+ URLEncoder.encode(list_tex.get(tmp_i),
+								+ URLEncoder.encode(listTex.get(tmp_i),
 										"UTF-8") + "\"/>";
 					} catch (UnsupportedEncodingException e) {
 						e.printStackTrace();
 					}
 				} else {
-					translatedStr += list_str.get(tmp_i);
+					translatedStr += listStr.get(tmp_i);
 				}
 			}
 			// 変換前文字列の最初の文字が"でないならば
 		} else {
-			for (int i = 0; i < total_size; ++i) {
+			for (int i = 0; i < totalSize; ++i) {
 				tmp_i = i / 2;
 				if (i % 2 == 0) {
-					translatedStr += list_str.get(tmp_i);
+					translatedStr += listStr.get(tmp_i);
 				} else {
 					try {
 						translatedStr += "<img src=\"https://chart.googleapis.com/chart?cht=tx&chl="
-								+ URLEncoder.encode(list_tex.get(tmp_i),
+								+ URLEncoder.encode(listTex.get(tmp_i),
 										"UTF-8") + "\"/>";
 					} catch (UnsupportedEncodingException e) {
-						e.printStackTrace();
+						log.error("splitCharAndTex: " + "",e);
 					}
 				}
 			}
 		}
-		String result = convertHashTagBRToTagBR(translatedStr);
-		log.debug("変換完了: " + original + "から" + result + "へ変換しました.");
-		return result;
+		log.debug("変換完了: " + translatedStr);
+		return translatedStr;
 	}
 
-	public String convertHashTagBRToTagBR(String original) {
-		String regex_br = "#BR";
-		String convertedStr = original.replaceAll(regex_br, "<br>");
+	public String convertLineFeedCodeToTag(String original) {
+		String regex_BR = "#BR";
+		String regex_rn = "\r\n";
+		String regex_r  = "\r";
+		String regex_n  = "\n";
+
+		String convertedStr = original;
+		convertedStr = convertedStr.replaceAll(regex_BR, "<br>");
+		convertedStr = convertedStr.replaceAll(regex_rn, "<br>");
+		convertedStr = convertedStr.replaceAll(regex_r,  "<br>");
+		convertedStr = convertedStr.replaceAll(regex_n,  "<br>");
 
 		return convertedStr;
 	}

@@ -35,13 +35,18 @@ public class IchiyazukeServlet extends HttpServlet {
 		String requestStr = request.getPathInfo();
 
 		if ("/select_question_id".equals(requestStr)) {
-			log.debug("アクセス: " + "select_question_id");
+			log.info("request : " + request.getRequestURL());
 
 			try {
 				int grade      = Integer.parseInt(request.getParameter("grade"));
 				int category   = Integer.parseInt(request.getParameter("category"));
 				int level      = Integer.parseInt(request.getParameter("level"));
 				int personalId = Integer.parseInt(request.getParameter("personalId"));
+
+				log.info("grade=" + grade);
+				log.info("category=" + category);
+				log.info("level=" + level);
+				log.info("personalId=" + personalId);
 
 				QuestionAction questionAction = new QuestionAction(grade, level, category, personalId);
 				ArrayList<Integer> idList = questionAction.getQuestionIds();
@@ -50,48 +55,60 @@ public class IchiyazukeServlet extends HttpServlet {
 					throw new Exception("問題IDを9個以上取得できませんでした.");
 				}
 
-				String tmp = JSON.encode(idList);
-				out.println(tmp);
+				String json = JSON.encode(idList);
+				out.println(json);
 				idList.remove(0);
 
 			} catch (IndexOutOfBoundsException e){
-				e.printStackTrace();
+				log.error("select_question_id: " + "",e);
+				out.println("false");
 			} catch (Exception e) {
-				e.printStackTrace();
+				log.error("select_question_id: " + "",e);
 				out.println("false");
 			}
+			log.info("response: " + request.getRequestURL());
 
 		} else if ("/select_question_by_id".equals(requestStr)) {
+			log.info("request : " + request.getRequestURL());
 			try {
 				int questionId = Integer.parseInt(request.getParameter("questionId"));
+				log.info("questionId=" + questionId);
+
 				QuestionAction questionAction = new QuestionAction(questionId);
 				HashMap<String, String> qHashMap = questionAction.getQuestionById();
 
 				request.setAttribute("questionId", questionId);
-				request.setAttribute("test_title", qHashMap.get("title"));
-				request.setAttribute("test_choice1", qHashMap.get("choice1"));
-				request.setAttribute("test_choice2", qHashMap.get("choice2"));
-				request.setAttribute("test_choice3", qHashMap.get("choice3"));
-				request.setAttribute("test_choice4", qHashMap.get("choice4"));
-				request.setAttribute("test_contents", qHashMap.get("contents"));
+				request.setAttribute("title",      qHashMap.get("title"));
+				request.setAttribute("choice1",    qHashMap.get("choice1"));
+				request.setAttribute("choice2",    qHashMap.get("choice2"));
+				request.setAttribute("choice3",    qHashMap.get("choice3"));
+				request.setAttribute("choice4",    qHashMap.get("choice4"));
+				request.setAttribute("contents",   qHashMap.get("contents"));
 
 				RequestDispatcher rd = request.getRequestDispatcher("/question");
 				rd.forward(request, response);
 				qHashMap.remove(0);
 			} catch (Exception e){
-				e.printStackTrace();
+				log.error("select_question_by_id: " + "",e);
 				out.println("false");
 			}
+			log.info("response: " + request.getRequestURL());
 
 		}else if ("/answer_question".equals(requestStr)) {
+			log.info("request : " + request.getRequestURL());
 			try {
 				int questionId = Integer.parseInt(request.getParameter("questionId"));
 				int answer     = Integer.parseInt(request.getParameter("answer"));
+
+				log.info("questionId=" + questionId);
+				log.info("answer=" + answer);
+
 				QuestionAction questionAction = new QuestionAction(questionId);
 				HashMap<String, String> qHashMap = questionAction.getAnswerById(answer);
 
 				request.setAttribute("questionId",    questionId);
 				request.setAttribute("title",         qHashMap.get("title"));
+				request.setAttribute("contents",      qHashMap.get("contents"));
 				request.setAttribute("choice",        qHashMap.get("choice"));
 				request.setAttribute("correctAnswer", qHashMap.get("correctAnswer"));
 				request.setAttribute("judgment",      qHashMap.get("judgment"));
@@ -102,46 +119,69 @@ public class IchiyazukeServlet extends HttpServlet {
 				qHashMap.remove(0);
 
 			} catch (IndexOutOfBoundsException e){
-				e.printStackTrace();
+				log.error("answer_question: " + "",e);
+				out.println("false");
 			} catch (Exception e) {
-				e.printStackTrace();
+				log.error("answer_question: " + "",e);
 				out.println("false");
 			}
+			log.info("response: " + request.getRequestURL());
+
 		} else if ("/update_infomation".equals(requestStr)) {
+			log.info("request : " + request.getRequestURL());
+
 			try {
 				int personalId = Integer.parseInt(request.getParameter("personalId"));
 				int questionId = Integer.parseInt(request.getParameter("questionId"));
 				int result     = Integer.parseInt(request.getParameter("result"));
 
+				log.info("personalId=" + personalId);
+				log.info("questionId=" + questionId);
+				log.info("result=" + result);
+
 				PersonalAction personalAction = new PersonalAction(personalId, questionId,result);
 				out.println(personalAction.updatePersonalData());
 			} catch (NumberFormatException e) {
-				e.printStackTrace();
+				log.error("update_infomation: " + "",e);
 				out.println("false");
 			}
+			log.info("response: " + request.getRequestURL());
+
 		} else if ("/login".equals(requestStr)) {
+			log.info("request : " + request.getRequestURL());
 			try {
 				String username = request.getParameter("username");
 				String passward = request.getParameter("passward");
+
+				log.info("username=" + username);
+				log.info("passward=" + passward);
 
 				UserAction userAction = new UserAction(username, passward);
 				out.println(userAction.login());
 			} catch (NumberFormatException e) {
-				e.printStackTrace();
+				log.error("login: " + "",e);
 				out.println("false");
 			}
+			log.info("response: " + request.getRequestURL());
+
 		} else if ("/signup".equals(requestStr)) {
+			log.info("request : " + request.getRequestURL());
 			try {
 				String username = request.getParameter("username");
 				String passward = request.getParameter("passward");
 
+				log.info("username=" + username);
+				log.info("passward=" + passward);
+
 				UserAction userAction = new UserAction(username, passward);
 				out.println(userAction.signUp());
 			} catch (NumberFormatException e) {
-				e.printStackTrace();
+				log.error("signup: " + "",e);
 				out.println("false");
 			}
+			log.info("response: " + request.getRequestURL());
 		} else {
+			log.error("予期せぬリクエストurl: " + request.getRequestURL());
 			out.println("false");
 		}
 		out.close();

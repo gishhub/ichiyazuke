@@ -5,7 +5,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.apache.log4j.Logger;
+
 public class ConfReader {
+	Logger log = Logger.getLogger(ConfReader.class.getName());
 
 	private static ConfReader confReader = new ConfReader();
 
@@ -24,9 +27,9 @@ public class ConfReader {
 			this.dbUser = properties.getProperty("db.user");
 			this.dbPassword = properties.getProperty("db.password");
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			log.error("readConf: " + "",e);
 		} catch (IOException e) {
-			e.printStackTrace();
+			log.error("readConf: " + "",e);
 		}
 	}
 

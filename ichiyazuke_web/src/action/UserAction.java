@@ -6,35 +6,35 @@ import dao.UsersDAO;
 
 public class UserAction {
 
-    private final String USERS_DB_NAME = "onenight";
+	private final String USERS_DB_NAME = "onenight";
 
-    private String username;
-    private String passward;
+	private String username;
+	private String passward;
 
-    public UserAction(String username, String passward) {
+	public UserAction(String username, String passward) {
 		this.username = username;
 		this.passward = passward;
 	}
 
-    public boolean login(){
-    	boolean result = false;
+	public boolean login() {
+		boolean result = false;
 
-        UsersDAO usersDao = new UsersDAO();
-        Connection usersCon = usersDao.getConection(USERS_DB_NAME);
+		UsersDAO usersDao = new UsersDAO();
+		Connection usersCon = usersDao.getConection(USERS_DB_NAME);
+		result = usersDao.selectUser(usersCon, username, passward);
+		usersDao.closeConnection(usersCon);
 
-        result = usersDao.selectUser(usersCon, username, passward);
+		return result;
+	}
 
-        return result;
-    }
+	public boolean signUp() {
+		boolean result = false;
 
-    public boolean signUp(){
-    	boolean result = false;
+		UsersDAO usersDao = new UsersDAO();
+		Connection usersCon = usersDao.getConection(USERS_DB_NAME);
+		result = usersDao.insertUser(usersCon, username, passward);
+		usersDao.closeConnection(usersCon);
 
-        UsersDAO usersDao = new UsersDAO();
-        Connection usersCon = usersDao.getConection(USERS_DB_NAME);
-
-        result = usersDao.insertUser(usersCon, username, passward);
-
-        return result;
-    }
+		return result;
+	}
 }
