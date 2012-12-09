@@ -1,6 +1,5 @@
 # Mac
 .DS_Store
 
-# ichiyazuke.properties
 ichiyazuke_web/WebContent/WEB-INF/conf/ichiyazuke.properties
-
+ichiyazuke/ichiyazuke_web/build/
