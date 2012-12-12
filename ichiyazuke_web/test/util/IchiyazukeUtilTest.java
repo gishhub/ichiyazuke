@@ -13,7 +13,6 @@ public class IchiyazukeUtilTest {
 
 	@Test
 	public void testSplitCharAndTex2() {
-		//String test = "次の値を求めなさい。\" sin{15^{circ}} '";
 		String test = "次の値を求めなさい。\" sin{15^{circ}}\'次の値を求めなさい。\" sin{15^{circ}} \'";
 		//String expectation = "期待値ほげほげ";
 
