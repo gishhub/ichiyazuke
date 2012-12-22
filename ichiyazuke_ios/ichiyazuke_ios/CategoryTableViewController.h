@@ -10,6 +10,6 @@
 
 @interface CategoryTableViewController : UITableViewController
 
-@property (retain, readwrite) NSString *grade;
+@property (retain, nonatomic) NSString *grade;
 
 @end

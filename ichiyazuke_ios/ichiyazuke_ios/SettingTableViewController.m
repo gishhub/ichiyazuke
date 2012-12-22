@@ -19,6 +19,7 @@
 
 @implementation SettingTableViewController
 
+@synthesize userDefaults;
 @synthesize grade;
 @synthesize category;
 @synthesize level;
@@ -41,10 +42,10 @@
 - (void)configureView
 {
     //NSUserDefaultsに保存された値を読み込み
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    grade    = [defaults stringForKey:@"selectedGrade"];
-    category = [defaults stringForKey:@"selectedCategory"];
-    level    = [defaults stringForKey:@"selectedLevel"];
+    self.userDefaults = [NSUserDefaults standardUserDefaults];
+    self.grade    = [self.userDefaults stringForKey:@"selectedGrade"];
+    self.category = [self.userDefaults stringForKey:@"selectedCategory"];
+    self.level    = [self.userDefaults stringForKey:@"selectedLevel"];
     
     //ひとつ前のViewControllerを取得するために配列を使う
     NSArray *naviArray = [self.navigationController viewControllers];
@@ -105,7 +106,6 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 2;
 }
 
@@ -118,35 +118,43 @@
         case 1:
             return NSLocalizedString(@"設定", @"");
             break;
+        default:
+            return @"";
+            break;
     }
-    return nil;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    if(section == 0) {
-        return 1;
+    switch(section) {
+        case 0:
+            return 1;
+            break;
+        case 1:
+            //return 3;
+            return 2;
+            break;
+        default:
+            return 3;
+            break;
     }
-    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    // Configure the cell...
+
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
     if(indexPath.section == 0) {
         if(indexPath.row == 0) {
 
-            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            self.userDefaults = [NSUserDefaults standardUserDefaults];
 
             // ログインしているかどうか
-            if ([defaults boolForKey:@"login"] == YES){
+            if ([self.userDefaults boolForKey:@"login"] == YES){
                 cell.textLabel.text = NSLocalizedString(@"ログアウト", @"");
             } else {
                 cell.textLabel.text = NSLocalizedString(@"ログインはこちら", @"");
@@ -175,10 +183,10 @@
     if(indexPath.section == 0) {
         if(indexPath.row == 0) {
 
-            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            self.userDefaults = [NSUserDefaults standardUserDefaults];
 
             // ログインしているかどうか
-            if ([defaults boolForKey:@"login"] == YES){
+            if ([self.userDefaults boolForKey:@"login"] == YES){
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"ログアウトしますか？", @"")
                                                                 message:nil
                                                                delegate:nil
@@ -216,11 +224,11 @@
 - (void)goPanel
 {
     //NSUserDefaultsに値を保存
-    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:grade    forKey:@"selectedGrade"];
-    [defaults setObject:category forKey:@"selectedCategory"];
-    [defaults setObject:level    forKey:@"selectedLevel"];
-    [defaults synchronize];
+    self.userDefaults = [NSUserDefaults standardUserDefaults];
+    [self.userDefaults setObject:self.grade    forKey:@"selectedGrade"];
+    [self.userDefaults setObject:self.category forKey:@"selectedCategory"];
+    [self.userDefaults setObject:self.level    forKey:@"selectedLevel"];
+    [self.userDefaults synchronize];
     
     //パネル画面へGO
     PanelViewController *panelViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"panelViewController"];
@@ -231,9 +239,9 @@
 {
     if (buttonIndex == 1) {
         //NSUserDefaultsに値を保存
-        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setBool:NO forKey:@"login"];  // ログアウト
-        [defaults synchronize];
+        self.userDefaults = [NSUserDefaults standardUserDefaults];
+        [self.userDefaults setBool:NO forKey:@"login"];  // ログアウト
+        [self.userDefaults synchronize];
 
         //ログイン画面へGO
         [self goLogin];

@@ -10,9 +10,12 @@
 
 @interface LoginTableViewController : UITableViewController
 
+@property (retain, nonatomic) NSUserDefaults *userDefaults;
 @property (retain, nonatomic) UITextField *username;
 @property (retain, nonatomic) UITextField *password;
 
 - (void)configureView;
+- (void)selectedLoginBtn:(id)sender;
+- (void)selectedSignUpBtn:(id)sender;
 
 @end

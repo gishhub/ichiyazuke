@@ -10,6 +10,6 @@
 
 @interface PanelImageView : UIImageView
 
-@property (retain, readwrite) NSString *questionId;
+@property (retain, nonatomic) NSString *questionId;
 
 @end

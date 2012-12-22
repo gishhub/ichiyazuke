@@ -15,6 +15,7 @@
 
 @implementation LoginTableViewController
 
+@synthesize userDefaults;
 @synthesize username;
 @synthesize password;
 
@@ -131,8 +132,6 @@
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
 	self.username = textField;
 	self.password = textField;
-    NSLog(@"%@",self.username);
-    NSLog(@"%@",self.password);
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -170,9 +169,9 @@
         
         if ([loginResult boolValue]){
             // NSUserDefaultsに値を保存
-            NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-            [defaults setBool:YES forKey:@"login"];  // ログイン
-            [defaults synchronize];
+            self.userDefaults = [NSUserDefaults standardUserDefaults];
+            [self.userDefaults setBool:YES forKey:@"login"];  // ログイン
+            [self.userDefaults synchronize];
             
             //設定画面へGO
             SettingTableViewController *settingTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"settingTableViewController"];
@@ -219,9 +218,9 @@
 
         if ([signupResult boolValue]) {
             // NSUserDefaultsに値を保存
-            NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-            [defaults setBool:YES forKey:@"login"];  // ログイン
-            [defaults synchronize];
+            self.userDefaults = [NSUserDefaults standardUserDefaults];
+            [self.userDefaults setBool:YES forKey:@"login"];  // ログイン
+            [self.userDefaults synchronize];
 
             //設定画面へGO
             SettingTableViewController *settingTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"settingTableViewController"];
