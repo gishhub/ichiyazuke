@@ -35,32 +35,36 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self configureView];
+}
 
+- (void)configureView
+{
     //NSUserDefaultsに保存された値を読み込み
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     grade    = [defaults stringForKey:@"selectedGrade"];
     category = [defaults stringForKey:@"selectedCategory"];
     level    = [defaults stringForKey:@"selectedLevel"];
-
+    
     //ひとつ前のViewControllerを取得するために配列を使う
     NSArray *naviArray = [self.navigationController viewControllers];
     NSInteger nowIndex = [naviArray count];
-
+    
     //ひとつ前の画面がログイン画面の場合
     if ([[naviArray objectAtIndex:nowIndex-2] isMemberOfClass:[LoginTableViewController class]]){
-
+        
         //戻るボタンを隠す
         self.navigationItem.hidesBackButton = YES;
-
+        
         //問題へボタン設置
-        UIBarButtonItem *updateBtn = [[UIBarButtonItem alloc] initWithTitle:@"問題へ"
+        UIBarButtonItem *updateBtn = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"問題へ", @"")
                                                                       style:UIBarButtonItemStylePlain
                                                                      target:self
                                                                      action:@selector(goPanel)];
         self.navigationItem.rightBarButtonItem = updateBtn;
     } else {
         //更新ボタン設置
-        UIBarButtonItem *updateBtn = [[UIBarButtonItem alloc] initWithTitle:@"更新"
+        UIBarButtonItem *updateBtn = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"更新", @"")
                                                                       style:UIBarButtonItemStylePlain
                                                                      target:self
                                                                      action:@selector(goPanel)];
@@ -81,12 +85,20 @@
 #pragma mark - Table view data source
 - (void)reloadTable
 {
-
     //学年とカテゴリの不整合があれば修正
-    
-
-
-
+    if ([self.grade isEqualToString:@"高校１年生"]) {
+        if (self.category != @"方程式と不等式" && self.category != @"二次関数" && self.category != @"三角比" && self.category != @"集合・命題・証明" &&self.category != @"場合の数・確率"){
+            self.category = @"方程式と不等式";
+        }
+    } else if ([self.grade isEqualToString:@"高校２年生"]) {
+        if (self.category != @"式と証明" && self.category != @"三角関数" && self.category != @"指数・対数関数" && self.category != @"微分と積分" &&self.category != @"数列" &&self.category != @"ベクトル"){
+            self.category = @"式と証明";
+        }
+    } else if ([self.grade isEqualToString:@"高校３年生"]) {
+        if (self.category != @"極限" && self.category != @"微分法と積分法" && self.category != @"行列"){
+            self.category = @"極限";
+        }
+    }
     //TableViewを再表示
     [self.tableView reloadData];
 }
@@ -104,7 +116,7 @@
             return @"";
             break;
         case 1:
-            return @"設定";
+            return NSLocalizedString(@"設定", @"");
             break;
     }
     return nil;
@@ -135,20 +147,20 @@
 
             // ログインしているかどうか
             if ([defaults boolForKey:@"login"] == YES){
-                cell.textLabel.text = @"ログアウト";
+                cell.textLabel.text = NSLocalizedString(@"ログアウト", @"");
             } else {
-                cell.textLabel.text = @"ログインはこちら";
+                cell.textLabel.text = NSLocalizedString(@"ログインはこちら", @"");
             }
         }
     } else {
         if(indexPath.row == 0) {
-            cell.textLabel.text = @"学年";
+            cell.textLabel.text = NSLocalizedString(@"学年", @"");
             cell.detailTextLabel.text = self.grade;
         }else if(indexPath.row == 1){
-            cell.textLabel.text = @"カテゴリ";
+            cell.textLabel.text = NSLocalizedString(@"カテゴリ", @"");
             cell.detailTextLabel.text = self.category;
         }else if(indexPath.row == 2){
-            cell.textLabel.text = @"難易度";
+            cell.textLabel.text = NSLocalizedString(@"難易度", @"");
             cell.detailTextLabel.text = self.level;
         }
     }
@@ -167,7 +179,7 @@
 
             // ログインしているかどうか
             if ([defaults boolForKey:@"login"] == YES){
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ログアウトしますか？"
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"ログアウトしますか？", @"")
                                                                 message:nil
                                                                delegate:nil
                                                       cancelButtonTitle:@"Cancel"
@@ -181,15 +193,15 @@
     } else {
         if(indexPath.row == 0) {
             GradeTableViewController *gradeTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"gradeTableViewController"];
-            gradeTableViewController.title = @"学年";
+            gradeTableViewController.title = NSLocalizedString(@"学年", @"");
             [self.navigationController pushViewController:gradeTableViewController animated:YES];
         } else if(indexPath.row == 1) {
             CategoryTableViewController *categoryTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"categoryTableViewController"];
-            categoryTableViewController.title = @"カテゴリ";
+            categoryTableViewController.title = NSLocalizedString(@"カテゴリ", @"");
             [self.navigationController pushViewController:categoryTableViewController animated:YES];
         } else {
             LevelTableViewController *levelTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"levelTableViewController"];
-            levelTableViewController.title = @"難易度";
+            levelTableViewController.title = NSLocalizedString(@"難易度", @"");
             [self.navigationController pushViewController:levelTableViewController animated:YES];
         }
     }

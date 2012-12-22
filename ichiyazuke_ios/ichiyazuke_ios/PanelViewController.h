@@ -15,4 +15,8 @@
 @property (retain, readwrite) NSString *level;
 @property (retain, readwrite) NSString *personalId;
 
+- (void)configureView;
+- (void)goLogin;
+- (void)goQuestion:(NSString *)questionId;
+
 @end

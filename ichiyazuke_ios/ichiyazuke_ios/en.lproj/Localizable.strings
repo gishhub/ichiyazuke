@@ -1,0 +1,29 @@
+/* 
+  Localizable.strings
+  ichiyazuke_ios
+
+  Created by Yuichi Takada on 12/12/22.
+
+*/
+
+"サインイン" = "Signin";
+"ログイン" = "Login";
+"ログインはこちら" = "Login";
+"ログアウト" = "Logout";
+"ログアウトしますか？" = "Are you sure to logout?";
+"新規登録" = "Signup";
+"ユーザ名" = "User name";
+"パスワード" = "Password";
+"ログイン失敗" = "Fail to login";
+"ユーザ名またはパスワードが空です" = "Blank";
+"ユーザ名またはパスワードが間違っています" = "Wrong";
+"新規登録失敗" = "Fail to register";
+"もう既に使われているユーザ名です" = "Already exist";
+"IDまたはメールアドレス" = "UserID or Email";
+"入力してください" = "Password";
+"更新" = "Update";
+"問題へ" = "Quesions";
+"設定" = "Settings";
+"学年" = "Grade";
+"カテゴリ" = "Category";
+"難易度" = "Level";

@@ -9,7 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface QuestionViewController : UIViewController
+{
+    UIWebView *webView;
+}
 
 @property (retain, readwrite) NSString *questionId;
+
+- (void)configureView;
 
 @end

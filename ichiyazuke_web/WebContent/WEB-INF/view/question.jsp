@@ -28,7 +28,6 @@ img {
 	zoom: 200%;
 	margin-bottom: -0.1em;
 }
-
 div.radio-group {
 	margin-bottom: -0.1em;
 }
@@ -42,8 +41,8 @@ div.radio-group input {
 }
 div.radio-group label {
 	cursor: pointer;
-	font-size: 2.0em;
-	padding: 5px 10px;
+	font-size: 5.0em;
+	padding: 0.1em 0.2em;
 	float: left;
 	border: solid 1px #aaa;
 	margin-left: -1px;
@@ -72,6 +71,16 @@ div.radio-group label.checked {
 	background-image: -moz-linear-gradient(top, #C3C3C3, #DBDBDB);
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#C3C3C3), to(#DBDBDB));
 	text-shadow: 0px 0px 0px #fff;
+}
+input.submit_button {
+	padding: 0.3em 0.5em;
+	font-size: 1.5em;
+	widht: 100px;
+	height: 40px;
+	background-image: url("http://box.aflat.com/buttonmaker/images-user/121.101.98.159.gif?1355243495");
+	//background-color: #000080;
+	color: #FFFFFF;
+	border-style: none;
 }
 </style>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
@@ -128,8 +137,11 @@ function checkForm(){
 			<label for="Radio4">4</label>
 		</div>
 	</div>
-	<input type="hidden" name="questionId" value="<%=question_id%>"><br /><br />
-	<p><input type="submit" value="解答"></p>
+	<input type="hidden" name="questionId" value="<%=question_id%>">
+	<br /><br /><br /><br /><br /><br />
+	<div class="submit_button">
+	<input class="submit_button" type="submit" value="解答">
+	</div>
 	</form>
 </body>
 </html>

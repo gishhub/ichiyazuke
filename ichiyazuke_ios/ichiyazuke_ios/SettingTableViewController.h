@@ -14,6 +14,7 @@
 @property (retain, readwrite) NSString *category;
 @property (retain, readwrite) NSString *level;
 
+- (void)configureView;
 - (void)reloadTable;
 
 @end

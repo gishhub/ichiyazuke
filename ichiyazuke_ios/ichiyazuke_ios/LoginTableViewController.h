@@ -13,4 +13,6 @@
 @property (retain, nonatomic) UITextField *username;
 @property (retain, nonatomic) UITextField *password;
 
+- (void)configureView;
+
 @end

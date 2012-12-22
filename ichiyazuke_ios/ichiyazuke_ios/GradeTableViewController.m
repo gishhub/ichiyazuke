@@ -43,13 +43,11 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
     return 3;
 }
 
@@ -58,7 +56,6 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    // Configure the cell...
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
@@ -67,15 +64,12 @@
             case 0:
                 cell.textLabel.text = @"高校１年生";
                 break;
-
             case 1:
                 cell.textLabel.text = @"高校２年生";
                 break;
-
             case 2:
                 cell.textLabel.text = @"高校３年生";
                 break;
-
             default:
                 break;
         }
@@ -87,8 +81,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *logger = @"";
-
     // デフォルトでは選択されたrowはずっとハイライトされるけど、スッとそのハイライトが消えるようにする
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
@@ -113,20 +105,15 @@
             case 0:
                 settingTableViewController.grade = @"高校１年生";
                 break;
-
             case 1:
                 settingTableViewController.grade = @"高校２年生";
                 break;
-
             case 2:
                 settingTableViewController.grade = @"高校３年生";
                 break;
-
             default:
-                logger = @"GradeTableViewController:設定してない列です";
-                NSLog(@"%@", logger);
+                break;
         }
-
         //settingTableViewControllerの再描画
         [settingTableViewController reloadTable];
 

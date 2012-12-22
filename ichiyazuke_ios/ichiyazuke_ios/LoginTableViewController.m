@@ -15,8 +15,8 @@
 
 @implementation LoginTableViewController
 
-@synthesize username = _username;
-@synthesize password = _password;
+@synthesize username;
+@synthesize password;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -30,23 +30,27 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self configureView];
+}
 
+- (void)configureView
+{
     // 戻るボタン隠す
     self.navigationItem.hidesBackButton = YES;
     
-    self.title = @"サインイン";
+    self.title = NSLocalizedString(@"サインイン", @"");
     
     UIButton *loginBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    loginBtn.frame = CGRectMake(30, 120, 260, 35);
-    [loginBtn setTitle:@"ログイン" forState:UIControlStateNormal];
+    loginBtn.frame = CGRectMake(30, 120, 260, 40);
+    [loginBtn setTitle:NSLocalizedString(@"ログイン", @"") forState:UIControlStateNormal];
     [loginBtn addTarget:self
                  action:@selector(selectedLoginBtn:)
        forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:loginBtn];
     
     UIButton *signUpBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    signUpBtn.frame = CGRectMake(30, 160, 260, 35);
-    [signUpBtn setTitle:@"新規登録" forState:UIControlStateNormal];
+    signUpBtn.frame = CGRectMake(30, 170, 260, 40);
+    [signUpBtn setTitle:NSLocalizedString(@"新規登録", @"") forState:UIControlStateNormal];
     [signUpBtn addTarget:self
                   action:@selector(selectedSignUpBtn:)
         forControlEvents:UIControlEventTouchUpInside];
@@ -67,13 +71,11 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
     return 2;
 }
 
@@ -82,18 +84,19 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    // Configure the cell...
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
     if(indexPath.section == 0) {
         if (indexPath.row == 0) {
             self.username = [[UITextField alloc] initWithFrame:CGRectMake(100.0, 14.0, 200.0, 50.0)];
-            self.username.returnKeyType = UIReturnKeyDone;
-            self.username.placeholder = @"UserID or Email";
+            self.username.placeholder = NSLocalizedString(@"IDまたはメールアドレス", @"");
             self.username.font = [UIFont systemFontOfSize:[UIFont systemFontSize]];
+            self.username.returnKeyType = UIReturnKeyDone;
+            self.username.autocorrectionType = UITextAutocorrectionTypeNo;
+            self.username.autocapitalizationType = UITextAutocapitalizationTypeNone;
             [cell addSubview:self.username];
-            cell.textLabel.text = @"ユーザ名";
+            cell.textLabel.text = NSLocalizedString(@"ユーザ名", @"");
             cell.textLabel.font = [UIFont boldSystemFontOfSize:[UIFont systemFontSize]];
             if ([self.username resignFirstResponder]) {
                 [self.username becomeFirstResponder];
@@ -103,12 +106,14 @@
                     forControlEvents:UIControlEventEditingDidEndOnExit];
         } else if (indexPath.row == 1) {
             self.password = [[UITextField alloc] initWithFrame:CGRectMake(100.0, 14.0, 200.0, 50.0)];
+            self.password.placeholder = NSLocalizedString(@"入力してください", @"");
             self.password.returnKeyType = UIReturnKeyDone;
-            self.password.placeholder = @"Password";
             self.password.secureTextEntry = YES;
             self.password.font = [UIFont systemFontOfSize:[UIFont systemFontSize]];
+            self.password.autocorrectionType = UITextAutocorrectionTypeNo;
+            self.password.autocapitalizationType = UITextAutocapitalizationTypeNone;
             [cell addSubview:self.password];
-            cell.textLabel.text = @"パスワード";
+            cell.textLabel.text = NSLocalizedString(@"パスワード", @"");
             cell.textLabel.font = [UIFont boldSystemFontOfSize:[UIFont systemFontSize]];
         }
     }
@@ -139,8 +144,8 @@
 - (void)selectedLoginBtn:(id)sender
 {
     if ([self.username.text length] == 0 || [self.password.text  length] == 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ログイン失敗"
-                                                        message:@"ユーザ名またはパスワードが空です"
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"ログイン失敗", @"")
+                                                        message:NSLocalizedString(@"ユーザ名またはパスワードが空です", @"")
                                                        delegate:nil
                                               cancelButtonTitle:nil
                                               otherButtonTitles:@"OK",nil];
@@ -164,7 +169,6 @@
         NSString *loginResult = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
         
         if ([loginResult boolValue]){
-            NSLog(@"%@",@"ログイン成功です");
             // NSUserDefaultsに値を保存
             NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
             [defaults setBool:YES forKey:@"login"];  // ログイン
@@ -174,10 +178,9 @@
             SettingTableViewController *settingTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"settingTableViewController"];
             [self.navigationController pushViewController:settingTableViewController animated:YES];        
         } else {
-            NSLog(@"%@",@"ログイン失敗です");
             //ポップアップする
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ログイン失敗"
-                                                            message:@"ユーザ名またはパスワードが間違っています"
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"ログイン失敗", @"")
+                                                            message:NSLocalizedString(@"ユーザ名またはパスワードが間違っています", @"")
                                                            delegate:nil
                                                   cancelButtonTitle:nil
                                                   otherButtonTitles:@"OK",nil];
@@ -190,8 +193,8 @@
 - (void)selectedSignUpBtn:(id)sender
 {
     if ([self.username.text length] == 0 || [self.password.text length] == 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"新規登録失敗"
-                                                        message:@"ユーザ名またはパスワードが空です"
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"新規登録失敗", @"")
+                                                        message:NSLocalizedString(@"ユーザ名またはパスワードが空です", @"")
                                                        delegate:nil
                                               cancelButtonTitle:nil
                                               otherButtonTitles:@"OK",nil];
@@ -215,7 +218,6 @@
         NSString *signupResult = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
 
         if ([signupResult boolValue]) {
-            NSLog(@"%@",@"ユーザ登録成功です");
             // NSUserDefaultsに値を保存
             NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
             [defaults setBool:YES forKey:@"login"];  // ログイン
@@ -225,10 +227,9 @@
             SettingTableViewController *settingTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"settingTableViewController"];
             [self.navigationController pushViewController:settingTableViewController animated:YES];        
         } else {
-            NSLog(@"%@",@"ユーザ登録失敗です");
             //ポップアップする
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ユーザ登録失敗"
-                                                            message:@"もう既に使われているユーザ名です"
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"新規登録失敗", @"")
+                                                            message:NSLocalizedString(@"もう既に使われているユーザ名です", @"")
                                                            delegate:nil
                                                   cancelButtonTitle:nil
                                                   otherButtonTitles:@"OK",nil];

@@ -83,7 +83,7 @@
             </objects>
             <point key="canvasLocation" x="1664" y="106"/>
         </scene>
-        <!--Setting Table View Controller - Setting-->
+        <!--Setting Table View Controller - 設定-->
         <scene sceneID="qSU-2z-yZ7">
             <objects>
                 <tableViewController storyboardIdentifier="settingTableViewController" id="lw5-YI-ddu" customClass="SettingTableViewController" sceneMemberID="viewController">
@@ -142,7 +142,7 @@
                             <outlet property="delegate" destination="lw5-YI-ddu" id="agg-k4-Wo4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Setting" id="Fzt-jw-fzf"/>
+                    <navigationItem key="navigationItem" title="設定" id="Fzt-jw-fzf"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uQR-N9-4Ja" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -257,8 +257,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="O9m-Qa-L2D">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="MT1-ed-avv"/>
-                        <barButtonItem key="leftBarButtonItem" title="Setting" id="PDd-kx-NeA">
+                        <barButtonItem key="backBarButtonItem" title="戻る" id="MT1-ed-avv"/>
+                        <barButtonItem key="leftBarButtonItem" title="設定" id="PDd-kx-NeA">
                             <connections>
                                 <segue destination="lw5-YI-ddu" kind="push" id="673-Iu-ic9"/>
                             </connections>
@@ -294,6 +294,8 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
                             <tableViewSection id="k6U-3S-Zmr">
+                                <string key="footerTitle">数字が大きいほど、
+難易度が高くなります。</string>
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="47P-fl-dF1">
                                         <rect key="frame" x="0.0" y="10" width="320" height="45"/>
