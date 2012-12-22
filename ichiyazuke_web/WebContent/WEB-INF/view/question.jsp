@@ -41,7 +41,7 @@ div.radio-group input {
 }
 div.radio-group label {
 	cursor: pointer;
-	font-size: 5.0em;
+	font-size: 3.0em;
 	padding: 0.1em 0.2em;
 	float: left;
 	border: solid 1px #aaa;
@@ -77,8 +77,7 @@ input.submit_button {
 	font-size: 1.5em;
 	widht: 100px;
 	height: 40px;
-	background-image: url("http://box.aflat.com/buttonmaker/images-user/121.101.98.159.gif?1355243495");
-	//background-color: #000080;
+	background-color: #000080;
 	color: #FFFFFF;
 	border-style: none;
 }

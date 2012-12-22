@@ -154,8 +154,8 @@
     } else {
         //ログイン情報をPOSTで送信
         //trueならログイン成功、falseならログイン失敗
-        NSString *url = @"http://49.212.136.103:8080/ichiyazuke_web/login";
-        //NSString *url = @"http://localhost:8080/ichiyazuke_web/login";
+        //NSString *url = @"http://49.212.136.103:8080/ichiyazuke_web/login";
+        NSString *url = @"http://localhost:8080/ichiyazuke_web/login";
 
         /* POST */
         NSString *keyValue = [NSString stringWithFormat:@"username=%@&passward=%@", self.username.text, self.password.text];
