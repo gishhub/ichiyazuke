@@ -44,10 +44,23 @@
     [super viewDidUnload];
 }
 
+// ios5.1用の記述
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+	return YES;
 }
+
+// ios6.0用の記述
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskAll;
+}
+
 
 #pragma mark - Table view data source
 

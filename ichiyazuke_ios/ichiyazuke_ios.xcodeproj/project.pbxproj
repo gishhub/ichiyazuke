@@ -33,6 +33,7 @@
 		FD9302ED16213CEB00101032 /* q8.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9302E316213CEB00101032 /* q8.png */; };
 		FD9302EE16213CEB00101032 /* q9.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9302E416213CEB00101032 /* q9.png */; };
 		FD9877BA15A85D6F00CB32A4 /* LoginTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9877B915A85D6F00CB32A4 /* LoginTableViewController.m */; };
+		FDADE8FF1686E02D000D6CD7 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDADE8FE1686E02D000D6CD7 /* RootViewController.m */; };
 		FDE173471685A52C002B14EE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FDE173491685A52C002B14EE /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,8 @@
 		FD9302E416213CEB00101032 /* q9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = q9.png; sourceTree = "<group>"; };
 		FD9877B815A85D6F00CB32A4 /* LoginTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginTableViewController.h; sourceTree = "<group>"; };
 		FD9877B915A85D6F00CB32A4 /* LoginTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTableViewController.m; sourceTree = "<group>"; };
+		FDADE8FD1686E02D000D6CD7 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		FDADE8FE1686E02D000D6CD7 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		FDE173431685A463002B14EE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FDE173441685A463002B14EE /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		FDE173481685A52C002B14EE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -130,6 +133,8 @@
 				FD5F3081155258EC0076879C /* AppDelegate.h */,
 				FD5F3082155258EC0076879C /* AppDelegate.m */,
 				FD5F3084155258EC0076879C /* MainStoryboard.storyboard */,
+				FDADE8FD1686E02D000D6CD7 /* RootViewController.h */,
+				FDADE8FE1686E02D000D6CD7 /* RootViewController.m */,
 				FD87053E159CB905005E63E8 /* PanelImageView.h */,
 				FD87053F159CB905005E63E8 /* PanelImageView.m */,
 				FD24C468159B65CF00AE6262 /* PanelViewController.h */,
@@ -265,6 +270,7 @@
 				FD870540159CB905005E63E8 /* PanelImageView.m in Sources */,
 				FD870543159CBB8E005E63E8 /* QuestionViewController.m in Sources */,
 				FD9877BA15A85D6F00CB32A4 /* LoginTableViewController.m in Sources */,
+				FDADE8FF1686E02D000D6CD7 /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

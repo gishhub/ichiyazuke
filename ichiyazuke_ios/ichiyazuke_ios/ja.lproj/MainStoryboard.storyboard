@@ -338,10 +338,10 @@
             </objects>
             <point key="canvasLocation" x="2432" y="106"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Root View Controller-->
         <scene sceneID="Eb3-7t-NGC">
             <objects>
-                <navigationController id="laN-eg-zN0" sceneMemberID="viewController">
+                <navigationController id="laN-eg-zN0" customClass="RootViewController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="x18-sD-cSn"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="kdx-vq-ZKn">
@@ -380,6 +380,9 @@
         </class>
         <class className="QuestionViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/QuestionViewController.h"/>
+        </class>
+        <class className="RootViewController" superclassName="UINavigationController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RootViewController.h"/>
         </class>
         <class className="SettingTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingTableViewController.h"/>

@@ -63,10 +63,22 @@
     [super viewDidUnload];
 }
 
+// ios5.1用の記述
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return (interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown || interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+// ios6.0用の記述
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+
+- (NSUInteger)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 
 #pragma mark - Table view data source
 
@@ -142,6 +154,8 @@
 
 - (void)selectedLoginBtn:(id)sender
 {
+    NSLog(@"%@",self.username.text);
+    NSLog(@"%@",self.password.text);
     if ([self.username.text length] == 0 || [self.password.text  length] == 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"ログイン失敗", @"")
                                                         message:NSLocalizedString(@"ユーザ名またはパスワードが空です", @"")
@@ -153,8 +167,8 @@
     } else {
         //ログイン情報をPOSTで送信
         //trueならログイン成功、falseならログイン失敗
-        //NSString *url = @"http://49.212.136.103:8080/ichiyazuke_web/login";
-        NSString *url = @"http://localhost:8080/ichiyazuke_web/login";
+        NSString *url = @"http://49.212.136.103:8080/ichiyazuke_web/login";
+        //NSString *url = @"http://localhost:8080/ichiyazuke_web/login";
 
         /* POST */
         NSString *keyValue = [NSString stringWithFormat:@"username=%@&passward=%@", self.username.text, self.password.text];

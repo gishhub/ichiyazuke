@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QuestionViewController : UIViewController
+@interface QuestionViewController : UIViewController <UIWebViewDelegate>
 
 @property (retain, nonatomic) UIWebView *webView;
 @property (retain, nonatomic) NSString *questionId;

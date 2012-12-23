@@ -18,6 +18,7 @@
 @implementation PanelViewController
 
 @synthesize userDefaults;
+@synthesize myView;
 @synthesize grade;
 @synthesize category;
 @synthesize level;
@@ -85,6 +86,11 @@
         return;
     }
 
+    
+    CGRect frame = [[UIScreen mainScreen] applicationFrame];
+    self.myView = [[UIView alloc] initWithFrame:CGRectMake(0,0,frame.size.width,frame.size.height)];
+    self.myView.backgroundColor = [UIColor blueColor];
+    
     //パネル9枚を設置
     for(int i = 1; i <= 9; i++){
         NSString *file  = [NSString stringWithFormat:@"q%d",i];
@@ -106,8 +112,9 @@
         
         //問題ID設定
         imageview.questionId = [NSString stringWithFormat:@"%@",[questionIds objectAtIndex:i-1]];
-        [self.view addSubview:imageview];
+        [self.myView addSubview:imageview];
     }
+    [self.view addSubview:self.myView];
 }
 
 - (void)viewDidUnload
@@ -199,18 +206,31 @@
     }
 }
 
+// ios5.1用の記述
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
+    return (interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown || interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+// ios6.0用の記述
+- (BOOL)shouldAutorotate
+{
     return YES;
+}
+
+- (NSUInteger)supportedInterfaceOrientations{
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation duration:(NSTimeInterval)duration
 {
 	UIInterfaceOrientation toInterfaceOrientation = self.interfaceOrientation;
 	if (toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
-        //CGRect frame = [[UIScreen mainScreen] applicationFrame];
+        CGRect frame = [[UIScreen mainScreen] applicationFrame];
+        self.myView.frame = CGRectMake(0,0,frame.size.width,frame.size.height);
 	} else {
-        //CGRect frame = [[UIScreen mainScreen] applicationFrame];
+        CGRect frame = [[UIScreen mainScreen] applicationFrame];
+        self.myView.frame = CGRectMake(0,0,frame.size.height,frame.size.width);
     }
 }
 

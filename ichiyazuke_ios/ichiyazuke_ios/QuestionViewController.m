@@ -48,10 +48,11 @@
     // デバッグ
     NSLog(@"questionID:%@", self.questionId);
 
-    CGRect frame = [[UIScreen mainScreen] applicationFrame];
+    CGRect frame = [[UIScreen mainScreen] bounds];
     self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0,0,frame.size.width,frame.size.height)];
-    webView.scalesPageToFit = YES;
-    [self.view addSubview:webView];
+    self.webView.scalesPageToFit = YES;
+    self.webView.delegate = self;
+    [self.view addSubview:self.webView];
 
     [self.webView loadRequest:request];
 }
@@ -61,19 +62,31 @@
     [super viewDidUnload];
 }
 
+// ios5.1用の記述
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
 	return YES;
+}
+
+// ios6.0用の記述
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskAll;
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation duration:(NSTimeInterval)duration
 {
 	UIInterfaceOrientation toInterfaceOrientation = self.interfaceOrientation;
 	if (toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
-        CGRect frame = [[UIScreen mainScreen] applicationFrame];
+        CGRect frame = [[UIScreen mainScreen] bounds];
         self.webView.frame = CGRectMake(0,0,frame.size.width,frame.size.height);
 	} else {
-        CGRect frame = [[UIScreen mainScreen] applicationFrame];
+        CGRect frame = [[UIScreen mainScreen] bounds];
         self.webView.frame = CGRectMake(0,0,frame.size.height,frame.size.width);
     }
 }
