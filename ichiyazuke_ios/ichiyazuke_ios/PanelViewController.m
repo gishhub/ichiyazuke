@@ -41,6 +41,12 @@
 
 - (void)configureView
 {
+    //背景色をグラデーションに
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = CGRectMake(0,0,[[UIScreen mainScreen] bounds].size.width,170);
+    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor whiteColor] CGColor], (id)[[UIColor orangeColor] CGColor], nil];
+    [self.view.layer insertSublayer:gradient atIndex:0];
+
     // NSUserDefaultsに初期値を登録する
     self.userDefaults = [NSUserDefaults standardUserDefaults];
     NSMutableDictionary *initial = [NSMutableDictionary dictionary];
@@ -86,11 +92,6 @@
         return;
     }
 
-    
-    CGRect frame = [[UIScreen mainScreen] applicationFrame];
-    self.myView = [[UIView alloc] initWithFrame:CGRectMake(0,0,frame.size.width,frame.size.height)];
-    self.myView.backgroundColor = [UIColor blueColor];
-    
     //パネル9枚を設置
     for(int i = 1; i <= 9; i++){
         NSString *file  = [NSString stringWithFormat:@"q%d",i];
@@ -101,20 +102,19 @@
         CGRect rect;
         
         if (i%3 == 1){
-            rect = CGRectMake( 20,(i-1)/3*55+130,90,50);
+            rect = CGRectMake( 20,(i-1)/3*55+230,90,50);
         }else if (i%3 == 2){
-            rect = CGRectMake(115,(i-1)/3*55+130,90,50);
+            rect = CGRectMake(115,(i-1)/3*55+230,90,50);
         }else{
-            rect = CGRectMake(210,(i-1)/3*55+130,90,50);
+            rect = CGRectMake(210,(i-1)/3*55+230,90,50);
         }
         PanelImageView *imageview = [[PanelImageView alloc] initWithFrame:rect];
         imageview.image = image;
         
         //問題ID設定
         imageview.questionId = [NSString stringWithFormat:@"%@",[questionIds objectAtIndex:i-1]];
-        [self.myView addSubview:imageview];
+        [self.view addSubview:imageview];
     }
-    [self.view addSubview:self.myView];
 }
 
 - (void)viewDidUnload
@@ -220,18 +220,6 @@
 
 - (NSUInteger)supportedInterfaceOrientations{
     return UIInterfaceOrientationMaskPortrait;
-}
-
-- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation duration:(NSTimeInterval)duration
-{
-	UIInterfaceOrientation toInterfaceOrientation = self.interfaceOrientation;
-	if (toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
-        CGRect frame = [[UIScreen mainScreen] applicationFrame];
-        self.myView.frame = CGRectMake(0,0,frame.size.width,frame.size.height);
-	} else {
-        CGRect frame = [[UIScreen mainScreen] applicationFrame];
-        self.myView.frame = CGRectMake(0,0,frame.size.height,frame.size.width);
-    }
 }
 
 @end

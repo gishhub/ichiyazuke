@@ -14,7 +14,7 @@
 
 @implementation QuestionViewController
 
-@synthesize webView;
+@synthesize myWebView;
 @synthesize questionId;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -49,12 +49,12 @@
     NSLog(@"questionID:%@", self.questionId);
 
     CGRect frame = [[UIScreen mainScreen] bounds];
-    self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0,0,frame.size.width,frame.size.height)];
-    self.webView.scalesPageToFit = YES;
-    self.webView.delegate = self;
-    [self.view addSubview:self.webView];
+    self.myWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0,0,frame.size.width,frame.size.height)];
+    self.myWebView.scalesPageToFit = YES;
+    self.myWebView.delegate = self;
+    [self.view addSubview:self.myWebView];
 
-    [self.webView loadRequest:request];
+    [self.myWebView loadRequest:request];
 }
 
 - (void)viewDidUnload
@@ -84,10 +84,10 @@
 	UIInterfaceOrientation toInterfaceOrientation = self.interfaceOrientation;
 	if (toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
         CGRect frame = [[UIScreen mainScreen] bounds];
-        self.webView.frame = CGRectMake(0,0,frame.size.width,frame.size.height);
+        self.myWebView.frame = CGRectMake(0,0,frame.size.width,frame.size.height);
 	} else {
         CGRect frame = [[UIScreen mainScreen] bounds];
-        self.webView.frame = CGRectMake(0,0,frame.size.height,frame.size.width);
+        self.myWebView.frame = CGRectMake(0,0,frame.size.height,frame.size.width);
     }
 }
 
@@ -99,6 +99,7 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    self.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error

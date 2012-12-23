@@ -10,7 +10,7 @@
 
 @interface QuestionViewController : UIViewController <UIWebViewDelegate>
 
-@property (retain, nonatomic) UIWebView *webView;
+@property (retain, nonatomic) UIWebView *myWebView;
 @property (retain, nonatomic) NSString *questionId;
 
 - (void)configureView;
