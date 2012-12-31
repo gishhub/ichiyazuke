@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FD24C46A159B65CF00AE6262 /* PanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD24C469159B65CF00AE6262 /* PanelViewController.m */; };
+		FD2A83BB1691833100385807 /* PanelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2A83BA1691833100385807 /* PanelTableViewCell.m */; };
 		FD579424156798E800FC8EDB /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD579423156798E800FC8EDB /* SettingTableViewController.m */; };
 		FD5F3073155258EC0076879C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5F3072155258EC0076879C /* UIKit.framework */; };
 		FD5F3075155258EC0076879C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5F3074155258EC0076879C /* Foundation.framework */; };
@@ -20,7 +20,6 @@
 		FD7605D9157093010078D464 /* GradeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7605D8157093010078D464 /* GradeTableViewController.m */; };
 		FD7605E01570D54F0078D464 /* CategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7605DF1570D54F0078D464 /* CategoryTableViewController.m */; };
 		FD7605E31570D7C90078D464 /* LevelTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7605E21570D7C80078D464 /* LevelTableViewController.m */; };
-		FD870540159CB905005E63E8 /* PanelImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD87053F159CB905005E63E8 /* PanelImageView.m */; };
 		FD870543159CBB8E005E63E8 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD870542159CBB8E005E63E8 /* QuestionViewController.m */; };
 		FD9302E516213CEB00101032 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9302DB16213CEB00101032 /* Default.png */; };
 		FD9302E616213CEB00101032 /* q1.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9302DC16213CEB00101032 /* q1.png */; };
@@ -36,11 +35,12 @@
 		FDADE8FF1686E02D000D6CD7 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDADE8FE1686E02D000D6CD7 /* RootViewController.m */; };
 		FDADE9021687016B000D6CD7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDADE9001687014B000D6CD7 /* QuartzCore.framework */; };
 		FDE173471685A52C002B14EE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FDE173491685A52C002B14EE /* Localizable.strings */; };
+		FDE4C5051689E3030058215B /* PanelTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE4C5041689E3030058215B /* PanelTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FD24C468159B65CF00AE6262 /* PanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelViewController.h; sourceTree = "<group>"; };
-		FD24C469159B65CF00AE6262 /* PanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelViewController.m; sourceTree = "<group>"; };
+		FD2A83B91691833100385807 /* PanelTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PanelTableViewCell.h; path = ../PanelTableViewCell.h; sourceTree = "<group>"; };
+		FD2A83BA1691833100385807 /* PanelTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PanelTableViewCell.m; path = ../PanelTableViewCell.m; sourceTree = "<group>"; };
 		FD579422156798E700FC8EDB /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
 		FD579423156798E800FC8EDB /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
 		FD5F306E155258EC0076879C /* ichiyazuke_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ichiyazuke_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,8 +61,6 @@
 		FD7605DF1570D54F0078D464 /* CategoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryTableViewController.m; sourceTree = "<group>"; };
 		FD7605E11570D7C80078D464 /* LevelTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelTableViewController.h; sourceTree = "<group>"; };
 		FD7605E21570D7C80078D464 /* LevelTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelTableViewController.m; sourceTree = "<group>"; };
-		FD87053E159CB905005E63E8 /* PanelImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelImageView.h; sourceTree = "<group>"; };
-		FD87053F159CB905005E63E8 /* PanelImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelImageView.m; sourceTree = "<group>"; };
 		FD870541159CBB8E005E63E8 /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
 		FD870542159CBB8E005E63E8 /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
 		FD9302DB16213CEB00101032 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -84,6 +82,8 @@
 		FDE173441685A463002B14EE /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ja; path = ja.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		FDE173481685A52C002B14EE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FDE1734A1685A530002B14EE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FDE4C5031689E3030058215B /* PanelTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PanelTableViewController.h; path = ../PanelTableViewController.h; sourceTree = "<group>"; };
+		FDE4C5041689E3030058215B /* PanelTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PanelTableViewController.m; path = ../PanelTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,10 +139,10 @@
 				FD5F3084155258EC0076879C /* MainStoryboard.storyboard */,
 				FDADE8FD1686E02D000D6CD7 /* RootViewController.h */,
 				FDADE8FE1686E02D000D6CD7 /* RootViewController.m */,
-				FD87053E159CB905005E63E8 /* PanelImageView.h */,
-				FD87053F159CB905005E63E8 /* PanelImageView.m */,
-				FD24C468159B65CF00AE6262 /* PanelViewController.h */,
-				FD24C469159B65CF00AE6262 /* PanelViewController.m */,
+				FD2A83B91691833100385807 /* PanelTableViewCell.h */,
+				FD2A83BA1691833100385807 /* PanelTableViewCell.m */,
+				FDE4C5031689E3030058215B /* PanelTableViewController.h */,
+				FDE4C5041689E3030058215B /* PanelTableViewController.m */,
 				FD870541159CBB8E005E63E8 /* QuestionViewController.h */,
 				FD870542159CBB8E005E63E8 /* QuestionViewController.m */,
 				FD9877B815A85D6F00CB32A4 /* LoginTableViewController.h */,
@@ -270,11 +270,11 @@
 				FD7605D9157093010078D464 /* GradeTableViewController.m in Sources */,
 				FD7605E01570D54F0078D464 /* CategoryTableViewController.m in Sources */,
 				FD7605E31570D7C90078D464 /* LevelTableViewController.m in Sources */,
-				FD24C46A159B65CF00AE6262 /* PanelViewController.m in Sources */,
-				FD870540159CB905005E63E8 /* PanelImageView.m in Sources */,
 				FD870543159CBB8E005E63E8 /* QuestionViewController.m in Sources */,
 				FD9877BA15A85D6F00CB32A4 /* LoginTableViewController.m in Sources */,
 				FDADE8FF1686E02D000D6CD7 /* RootViewController.m in Sources */,
+				FDE4C5051689E3030058215B /* PanelTableViewController.m in Sources */,
+				FD2A83BB1691833100385807 /* PanelTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

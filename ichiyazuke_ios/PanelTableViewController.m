@@ -1,21 +1,21 @@
 //
-//  PanelViewController.m
+//  PanelTableViewController.m
 //  ichiyazuke_ios
 //
-//  Created by 高田 祐一 on 12/06/28.
-//  Copyright (c) 2012年 gishhub. All rights reserved.
+//  Created by Yuichi Takada on 12/12/25.
+//
 //
 
-#import "PanelViewController.h"
-#import "PanelImageView.h"
+#import "PanelTableViewController.h"
+#import "PanelTableViewCell.h"
 #import "LoginTableViewController.h"
 #import "QuestionViewController.h"
 
-@interface PanelViewController ()
+@interface PanelTableViewController ()
 
 @end
 
-@implementation PanelViewController
+@implementation PanelTableViewController
 
 @synthesize userDefaults;
 @synthesize myView;
@@ -23,10 +23,11 @@
 @synthesize category;
 @synthesize level;
 @synthesize personalId;
+@synthesize questionIds;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithStyle:(UITableViewStyle)style
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
     }
@@ -41,12 +42,6 @@
 
 - (void)configureView
 {
-    //背景色をグラデーションに
-    CAGradientLayer *gradient = [CAGradientLayer layer];
-    gradient.frame = CGRectMake(0,0,[[UIScreen mainScreen] bounds].size.width,170);
-    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor whiteColor] CGColor], (id)[[UIColor orangeColor] CGColor], nil];
-    [self.view.layer insertSublayer:gradient atIndex:0];
-
     // NSUserDefaultsに初期値を登録する
     self.userDefaults = [NSUserDefaults standardUserDefaults];
     NSMutableDictionary *initial = [NSMutableDictionary dictionary];
@@ -65,6 +60,8 @@
     //API仕様に合わせ、設定情報を数値に変換
     [self translateFromValueToNumber];
 
+    self.title = [self.userDefaults stringForKey:@"selectedCategory"];
+
     NSString *url = @"http://49.212.136.103:8080/ichiyazuke_web/select_question_id";
     //NSString *url = @"http://localhost:8080/ichiyazuke_web/select_question_id";
     
@@ -76,75 +73,59 @@
     [request setHTTPMethod:@"POST"];
     [request setHTTPBody:post];
     
-    NSData  *response    = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    NSError *jsonError   = nil;
-    NSArray *questionIds = [NSJSONSerialization JSONObjectWithData:response
+    NSData  *response  = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSError *jsonError = nil;
+    self.questionIds   = [NSJSONSerialization JSONObjectWithData:response
                                                            options:0
                                                              error:&jsonError];
-    
     // JSONデータのパースエラー
-    if (questionIds == nil || [questionIds count] < 9){
+    if (self.questionIds == nil){
         NSLog(@"JSON Parser error: %d", jsonError.code);
-        NSLog(@"%@",@"falseです");
         
         // ここでポップアップ出そうかな
-
+        
         return;
     }
-
-    //パネル9枚を設置
-    for(int i = 1; i <= 9; i++){
-        NSString *file  = [NSString stringWithFormat:@"q%d",i];
-        NSString *path  = [[NSBundle mainBundle] pathForResource:file ofType:@"png"];
-        NSURL *imageUrl = [NSURL fileURLWithPath:path];
-        UIImage *image  = [UIImage imageWithData:[NSData dataWithContentsOfURL:imageUrl]];
-        
-        CGRect rect;
-        
-        if (i%3 == 1){
-            rect = CGRectMake( 20,(i-1)/3*55+230,90,50);
-        }else if (i%3 == 2){
-            rect = CGRectMake(115,(i-1)/3*55+230,90,50);
-        }else{
-            rect = CGRectMake(210,(i-1)/3*55+230,90,50);
-        }
-        PanelImageView *imageview = [[PanelImageView alloc] initWithFrame:rect];
-        imageview.image = image;
-        
-        //問題ID設定
-        imageview.questionId = [NSString stringWithFormat:@"%@",[questionIds objectAtIndex:i-1]];
-        [self.view addSubview:imageview];
-    }
 }
 
-- (void)viewDidUnload
+- (void)didReceiveMemoryWarning
 {
-    [super viewDidUnload];
+    [super didReceiveMemoryWarning];
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    UITouch *touch = [touches anyObject];
-    UIView *touchView = touch.view;
-    
-    //タッチされたのがPanelImageViewならば、問題画面へGO
-    if ([touchView isMemberOfClass:[PanelImageView class]]){
-        PanelImageView *touchView = (PanelImageView *)touch.view;
-        
-        [self goQuestion:touchView.questionId];
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.questionIds count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"PanelTableViewCell";
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    PanelTableViewCell *cell = (PanelTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+
+    if (cell == nil) {
+        cell = [[PanelTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
-}
-
-- (void)goLogin
-{    
-    LoginTableViewController *loginTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"loginTableViewController"];
-    [self.navigationController pushViewController:loginTableViewController animated:YES];
-}
-
-- (void)goQuestion:(NSString *)questionId
-{    
-    QuestionViewController *questionViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"questionViewController"];
-    questionViewController.questionId = questionId;
-    [self.navigationController pushViewController:questionViewController animated:YES];
+    if(indexPath.section == 0) {
+        int i = 0;
+        for (NSDictionary *question in self.questionIds){
+            if(indexPath.row == i) {
+                cell.tag = [[question objectForKey:@"id"] intValue];
+                cell.titleLabel.text = [question objectForKey:@"title"];
+                cell.contentsLabel.text = [question objectForKey:@"contents"];
+            }
+            i++;
+        }
+    }
+    return cell;
 }
 
 - (void)translateFromValueToNumber
@@ -220,6 +201,27 @@
 
 - (NSUInteger)supportedInterfaceOrientations{
     return UIInterfaceOrientationMaskPortrait;
+}
+
+- (void)goLogin
+{
+    LoginTableViewController *loginTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"loginTableViewController"];
+    [self.navigationController pushViewController:loginTableViewController animated:YES];
+}
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    QuestionViewController *questionViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"questionViewController"];
+    questionViewController.questionId = [NSString stringWithFormat:@"%d",cell.tag];
+    [self.navigationController pushViewController:questionViewController animated:YES];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100;
 }
 
 @end

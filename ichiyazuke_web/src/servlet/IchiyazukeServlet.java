@@ -3,7 +3,6 @@ package servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
+
+import bean.Answer;
+import bean.Question;
+
 
 import action.QuestionAction;
 import action.PersonalAction;
@@ -49,15 +52,11 @@ public class IchiyazukeServlet extends HttpServlet {
 				log.info("personalId=" + personalId);
 
 				QuestionAction questionAction = new QuestionAction(grade, level, category, personalId);
-				ArrayList<Integer> idList = questionAction.getQuestionIds();
+				ArrayList<Question> questions = questionAction.getQuestionIds();
 
-				if (idList.size() < 9){
-					throw new Exception("問題IDを9個以上取得できませんでした.");
-				}
-
-				String json = JSON.encode(idList);
-				out.println(json);
-				idList.remove(0);
+				String jsonData = JSON.encode(questions);
+				out.println(jsonData);
+				questions.remove(0);
 
 			} catch (IndexOutOfBoundsException e){
 				log.error("select_question_id: " + "",e);
@@ -75,19 +74,18 @@ public class IchiyazukeServlet extends HttpServlet {
 				log.info("questionId=" + questionId);
 
 				QuestionAction questionAction = new QuestionAction(questionId);
-				HashMap<String, String> qHashMap = questionAction.getQuestionById();
+				Question question = questionAction.getQuestionById();
 
 				request.setAttribute("questionId", questionId);
-				request.setAttribute("title",      qHashMap.get("title"));
-				request.setAttribute("choice1",    qHashMap.get("choice1"));
-				request.setAttribute("choice2",    qHashMap.get("choice2"));
-				request.setAttribute("choice3",    qHashMap.get("choice3"));
-				request.setAttribute("choice4",    qHashMap.get("choice4"));
-				request.setAttribute("contents",   qHashMap.get("contents"));
+				request.setAttribute("title",      question.getTitle());
+				request.setAttribute("choice1",    question.getChoice1());
+				request.setAttribute("choice2",    question.getChoice2());
+				request.setAttribute("choice3",    question.getChoice3());
+				request.setAttribute("choice4",    question.getChoice4());
+				request.setAttribute("contents",   question.getContents());
 
 				RequestDispatcher rd = request.getRequestDispatcher("/question");
 				rd.forward(request, response);
-				qHashMap.remove(0);
 			} catch (Exception e){
 				log.error("select_question_by_id: " + "",e);
 				out.println("false");
@@ -104,19 +102,18 @@ public class IchiyazukeServlet extends HttpServlet {
 				log.info("answer=" + answer);
 
 				QuestionAction questionAction = new QuestionAction(questionId);
-				HashMap<String, String> qHashMap = questionAction.getAnswerById(answer);
+				Answer answerBean = questionAction.getAnswerById(answer);
 
 				request.setAttribute("questionId",    questionId);
-				request.setAttribute("title",         qHashMap.get("title"));
-				request.setAttribute("contents",      qHashMap.get("contents"));
-				request.setAttribute("choice",        qHashMap.get("choice"));
-				request.setAttribute("correctAnswer", qHashMap.get("correctAnswer"));
-				request.setAttribute("judgment",      qHashMap.get("judgment"));
-				request.setAttribute("explanation",   qHashMap.get("explanation"));
+				request.setAttribute("title",         answerBean.getTitle());
+				request.setAttribute("contents",      answerBean.getContents());
+				request.setAttribute("choice",        answerBean.getCorrectChoice());
+				request.setAttribute("correctAnswer", answerBean.getCorrectAnswer());
+				request.setAttribute("judgment",      answerBean.getJudgement());
+				request.setAttribute("explanation",   answerBean.getExplanation());
 
 				RequestDispatcher rd = request.getRequestDispatcher("/answer");
 				rd.forward(request, response);
-				qHashMap.remove(0);
 
 			} catch (IndexOutOfBoundsException e){
 				log.error("answer_question: " + "",e);

@@ -108,7 +108,7 @@ function checkForm(){
 	return true;
 }
 </script>
-<title>問題ページ</title>
+<title><%=title%></title>
 </head>
 	<body>
 		<h1><%=title%></h1>

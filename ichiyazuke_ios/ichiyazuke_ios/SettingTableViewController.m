@@ -11,7 +11,7 @@
 #import "GradeTableViewController.h"
 #import "CategoryTableViewController.h"
 #import "LevelTableViewController.h"
-#import "PanelViewController.h"
+#import "PanelTableViewController.h"
 
 @interface SettingTableViewController ()
 
@@ -244,8 +244,8 @@
     [self.userDefaults synchronize];
     
     //パネル画面へGO
-    PanelViewController *panelViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"panelViewController"];
-    [self.navigationController pushViewController:panelViewController animated:YES];
+    PanelTableViewController *panelTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"panelTableViewController"];
+    [self.navigationController pushViewController:panelTableViewController animated:YES];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

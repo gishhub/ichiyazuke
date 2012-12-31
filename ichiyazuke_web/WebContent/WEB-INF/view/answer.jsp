@@ -28,7 +28,7 @@ img {
 	margin-bottom: -0.1em;
 }
 </style>
-<title>解答ページ</title>
+<title><%=title%></title>
 </head>
 <body>
 	<h1><%=judgment%></h1>
