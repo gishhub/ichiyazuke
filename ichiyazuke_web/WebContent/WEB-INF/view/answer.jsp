@@ -14,9 +14,8 @@
 <style type="text/css">
 body {
 	font-size:80%;
-	margin-left : 5.0em;
-	margin-right: 5.0em;
-	padding: 0.1em;
+	margin : 0.0em 5.0em 10.0em;
+	padding: 0.5em 0.5em 10.0em;
 	font-family: HiraKakuProN-W3;
 }
 h1 { font-size: 2.5em; color: red; font-weight: bold }

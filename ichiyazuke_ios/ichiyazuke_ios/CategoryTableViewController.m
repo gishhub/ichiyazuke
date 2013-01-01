@@ -33,10 +33,7 @@
     NSArray *naviArray = [self.navigationController viewControllers];
     NSInteger nowIndex = [naviArray count];
     SettingTableViewController *settingTableViewController = (SettingTableViewController *)[naviArray objectAtIndex:nowIndex-2];
-    
     self.grade = settingTableViewController.grade;
-    
-    NSLog(@"%@", self.grade);
 }
 
 - (void)viewDidUnload

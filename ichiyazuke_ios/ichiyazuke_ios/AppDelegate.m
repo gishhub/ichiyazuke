@@ -14,8 +14,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     return YES;
+}
+
+void uncaughtExceptionHandler(NSException *exception)
+{
+    NSLog(@"%@", exception.name);
+    NSLog(@"%@", exception.reason);
+    NSLog(@"%@", exception.callStackSymbols);
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

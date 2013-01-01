@@ -15,9 +15,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style type="text/css">
 body {
-	margin-left : 5.0em;
-	margin-right: 5.0em;
-	padding: 0.1em;
+	margin : 0.0em 5.0em 10.0em;
+	padding: 0.5em 0.5em 10.0em;
 	font-family: HiraKakuProN-W3;
 }
 h1 { font-size: 2.5em; }
@@ -30,56 +29,50 @@ img {
 }
 div.radio-group {
 	margin-bottom: -0.1em;
+	border-top: transparent 5.0em solid;
+	border-bottom: transparent 15.0em solid;
 }
 div.radio-group div {
 	position: relative;
 }
 div.radio-group input {
-	position: absolute;
-	left: 0px;
-	outline:none;
+	display: none;
 }
 div.radio-group label {
 	cursor: pointer;
 	font-size: 3.0em;
-	padding: 0.1em 0.2em;
+	font-weight: bold;
+	padding: 0.5em 1.5em;
 	float: left;
-	border: solid 1px #aaa;
-	margin-left: -1px;
-	background: #eee;
-	background-image: -moz-linear-gradient(top, #F6F6F6, #ccc);
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#F6F6F6), to(#ccc));
-	-moz-box-shadow: 2px 2px 6px #ddd;
-	-webkit-box-shadow: 2px 2px 6px #ddd;
-	text-shadow: 1px 1px 0px #fff;
+	border: solid 1px #AAAAAA;
+	background: #EEEEEE;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#F6F6F6), to(#C0C0C0));
+	-webkit-box-shadow: 2px 2px 6px #DDDDDD;
+	text-shadow: 1px 1px 0px #FFFFFF;
 }
 div.radio-group div:first-child label {
-	-webkit-border-top-left-radius: 7px;
-	-webkit-border-bottom-left-radius: 7px;
-	-moz-border-radius-topleft: 7px;
-	-moz-border-radius-bottomleft: 7px;
+	-webkit-border-top-left-radius: 0.5em;
+	-webkit-border-bottom-left-radius: 0.5em;
 }
 div.radio-group div:last-child label {
-	-webkit-border-top-right-radius: 7px;
-	-webkit-border-bottom-right-radius: 7px;
-	-moz-border-radius-topright: 7px;
-	-moz-border-radius-bottomright: 7px;
+	-webkit-border-top-right-radius: 0.5em;
+	-webkit-border-bottom-right-radius: 0.5em;
 }
 div.radio-group label.checked {
-	color: #fff;
+	color: #FFFFFF;
 	background: #C3C3C3;
-	background-image: -moz-linear-gradient(top, #C3C3C3, #DBDBDB);
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#C3C3C3), to(#DBDBDB));
-	text-shadow: 0px 0px 0px #fff;
+	text-shadow: 0px 0px 0px #FFFFFF;
 }
 input.submit_button {
-	padding: 0.3em 0.5em;
-	font-size: 1.5em;
-	widht: 100px;
-	height: 40px;
-	background-color: #000080;
+	margin-top: 0.1em;
+	padding: 0.5em;
+	font-size: 2.5em;
+	widht: 300px;
+	height: 200px;
+	background-color: #333333;
 	color: #FFFFFF;
-	border-style: none;
+	border: none;
 }
 </style>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
@@ -120,26 +113,25 @@ function checkForm(){
 	<form name="choice" method="post" action="answer_question" onSubmit="return checkForm()">
 	<div class="radio-group clearfix">
 		<div>
-			<input id="Radio1" type="radio" class="radio" name="answer" value="1" />
-			<label for="Radio1">1</label>
+			<input id="radio1" type="radio" class="radio" name="answer" value="1" />
+			<label for="radio1"> 1 </label>
 		</div>
 		<div>
-			<input id="Radio2" type="radio" class="radio" name="answer" value="2" />
-			<label for="Radio2">2</label>
+			<input id="radio2" type="radio" class="radio" name="answer" value="2" />
+			<label for="radio2"> 2 </label>
 		</div>
 		<div>
-			<input id="Radio3" type="radio" class="radio" name="answer" value="3" />
-			<label for="Radio3">3</label>
+			<input id="radio3" type="radio" class="radio" name="answer" value="3" />
+			<label for="radio3"> 3 </label>
 		</div>
 		<div>
-			<input id="Radio4" type="radio" class="radio" name="answer" value="4" />
-			<label for="Radio4">4</label>
+			<input id="radio4" type="radio" class="radio" name="answer" value="4" />
+			<label for="radio4"> 4 </label>
 		</div>
 	</div>
 	<input type="hidden" name="questionId" value="<%=question_id%>">
-	<br /><br /><br /><br /><br /><br />
 	<div class="submit_button">
-	<input class="submit_button" type="submit" value="解答">
+		<input class="submit_button" type="submit" value="解答">
 	</div>
 	</form>
 </body>

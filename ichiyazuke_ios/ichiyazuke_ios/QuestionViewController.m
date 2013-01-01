@@ -45,9 +45,6 @@
     [request setHTTPMethod:@"POST"];
     [request setHTTPBody:post];
 
-    // デバッグ
-    NSLog(@"questionID:%@", self.questionId);
-
     CGRect frame = [[UIScreen mainScreen] bounds];
     self.myWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0,0,frame.size.width,frame.size.height)];
     self.myWebView.scalesPageToFit = YES;
