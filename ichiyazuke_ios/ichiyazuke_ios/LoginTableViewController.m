@@ -108,6 +108,7 @@
             self.username.returnKeyType = UIReturnKeyDone;
             self.username.autocorrectionType = UITextAutocorrectionTypeNo;
             self.username.autocapitalizationType = UITextAutocapitalizationTypeNone;
+            self.username.delegate = self;
             [cell addSubview:self.username];
             cell.textLabel.text = NSLocalizedString(@"ユーザ名", @"");
             cell.textLabel.font = [UIFont boldSystemFontOfSize:[UIFont systemFontSize]];
@@ -125,6 +126,7 @@
             self.password.font = [UIFont systemFontOfSize:[UIFont systemFontSize]];
             self.password.autocorrectionType = UITextAutocorrectionTypeNo;
             self.password.autocapitalizationType = UITextAutocapitalizationTypeNone;
+            self.password.delegate = self;
             [cell addSubview:self.password];
             cell.textLabel.text = NSLocalizedString(@"パスワード", @"");
             cell.textLabel.font = [UIFont boldSystemFontOfSize:[UIFont systemFontSize]];

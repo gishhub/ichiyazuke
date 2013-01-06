@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginTableViewController : UITableViewController
+@interface LoginTableViewController : UITableViewController <UITextFieldDelegate>
 
 @property (retain, nonatomic) NSUserDefaults *userDefaults;
 @property (retain, nonatomic) UITextField *username;
