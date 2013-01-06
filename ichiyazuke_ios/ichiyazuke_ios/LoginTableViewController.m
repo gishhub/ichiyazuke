@@ -143,11 +143,6 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField {
-	self.username = textField;
-	self.password = textField;
-}
-
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
 	[textField resignFirstResponder];
@@ -156,8 +151,6 @@
 
 - (void)selectedLoginBtn:(id)sender
 {
-    NSLog(@"%@",self.username.text);
-    NSLog(@"%@",self.password.text);
     if ([self.username.text length] == 0 || [self.password.text  length] == 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"ログイン失敗", @"")
                                                         message:NSLocalizedString(@"ユーザ名またはパスワードが空です", @"")

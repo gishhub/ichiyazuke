@@ -81,8 +81,21 @@
     [request setURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:@"POST"];
     [request setHTTPBody:post];
-    
-    NSData  *response  = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+
+    NSError *requestError = nil;
+    NSData  *response  = [NSURLConnection sendSynchronousRequest:request
+                                               returningResponse:nil
+                                                           error:&requestError];
+
+    // HTTPリクエストのエラー
+    if (response == nil){
+        NSLog(@"HTTP error: %d", requestError.code);
+        
+        // ここでポップアップ出そうかな
+        
+        return;
+    }
+
     NSError *jsonError = nil;
     self.questionIds   = [NSJSONSerialization JSONObjectWithData:response
                                                            options:0
@@ -165,7 +178,7 @@
 
 - (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
 {
-    NSLog(@"広告表示が失敗しました");
+    //NSLog(@"広告表示が失敗しました");
 }
 
 - (void)translateFromValueToNumber
