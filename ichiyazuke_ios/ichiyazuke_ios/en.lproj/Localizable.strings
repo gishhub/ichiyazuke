@@ -6,15 +6,15 @@
 
 */
 
-"サインイン" = "Signin";
-"ログイン" = "Login";
-"ログインはこちら" = "Login";
-"ログアウト" = "Logout";
-"ログアウトしますか？" = "Are you sure to logout?";
-"新規登録" = "Signup";
+"サインイン" = "Sign In";
+"ログイン" = "Sign In";
+"ログインはこちら" = "Sign In";
+"ログアウト" = "Sing Out";
+"ログアウトしますか？" = "Are you sure to Sign Out?";
+"新規登録" = "Sign Up";
 "ユーザ名" = "User name";
 "パスワード" = "Password";
-"ログイン失敗" = "Fail to login";
+"ログイン失敗" = "Fail to Sign In";
 "ユーザ名またはパスワードが空です" = "Blank";
 "ユーザ名またはパスワードが間違っています" = "Wrong";
 "新規登録失敗" = "Fail to register";
