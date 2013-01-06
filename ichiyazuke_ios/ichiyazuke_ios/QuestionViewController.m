@@ -62,6 +62,10 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     [self.myWebView stopLoading];
+    [self.myWebView removeFromSuperview];
+    self.myWebView.delegate = nil;
+    [super viewDidDisappear:animated];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
 // ios5.1用の記述
