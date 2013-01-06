@@ -98,10 +98,6 @@ public class IchiyazukeUtil {
 			}
 		}
 		log.debug("変換完了: " + translatedStr);
-		System.out.println(listStr);
-		System.out.println(listTex);
-		System.out.println(matcherStr.find());
-		System.out.println(translatedStr);
 		return translatedStr;
 	}
 

@@ -17,6 +17,7 @@
 
 @implementation PanelTableViewController
 
+@synthesize customAdView;
 @synthesize userDefaults;
 @synthesize myView;
 @synthesize grade;
@@ -42,6 +43,14 @@
 
 - (void)configureView
 {
+    // 広告バナー
+    self.customAdView = [[ADBannerView alloc] initWithFrame:CGRectMake(0.0, 480.0, 0.0, 0.0)];
+    self.customAdView.currentContentSizeIdentifier = ADBannerContentSizeIdentifierPortrait;
+    self.customAdView.delegate = self;
+    [self.view addSubview:customAdView];
+
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 0.0, self.customAdView.frame.size.height)];
+    
     // NSUserDefaultsに初期値を登録する
     self.userDefaults = [NSUserDefaults standardUserDefaults];
     NSMutableDictionary *initial = [NSMutableDictionary dictionary];
@@ -126,6 +135,37 @@
         }
     }
     return cell;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGRect frame = [[UIScreen mainScreen] applicationFrame];
+    float viewHeight = frame.size.height;
+    float adViewWidth = self.customAdView.frame.size.width;
+    float adViewHeight = self.customAdView.frame.size.height;
+    // 44 はnavigationBarの高さ
+    self.customAdView.center = CGPointMake(adViewWidth / 2, self.tableView.contentOffset.y + viewHeight - 44.0 - adViewHeight / 2);
+    [self.view bringSubviewToFront:self.customAdView];
+}
+
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner
+{
+    CGRect frame = [[UIScreen mainScreen] applicationFrame];
+    float viewHeight = frame.size.height;
+    float adViewHeight = self.customAdView.frame.size.height;
+    [UIView animateWithDuration:2.0
+                          delay:0.0
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         self.customAdView.center = CGPointMake(160.0, self.tableView.contentOffset.y + viewHeight - 44.0 - adViewHeight / 2);
+                         self.customAdView.alpha = 1.0;
+                     }
+                     completion:nil];
+}
+
+- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
+{
+    NSLog(@"広告表示が失敗しました");
 }
 
 - (void)translateFromValueToNumber

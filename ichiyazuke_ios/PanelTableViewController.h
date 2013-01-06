@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iAd/iAd.h>
 
-@interface PanelTableViewController : UITableViewController
+@interface PanelTableViewController : UITableViewController <ADBannerViewDelegate>
 
+@property (retain, nonatomic) ADBannerView *customAdView;
 @property (retain, nonatomic) NSUserDefaults *userDefaults;
 @property (retain, nonatomic) UIView *myView;
 @property (retain, nonatomic) NSString *grade;

@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ page session="false" %>
 <%
 	int question_id = (Integer)request.getAttribute("questionId");
 	String title    = (String)request.getAttribute("title");
