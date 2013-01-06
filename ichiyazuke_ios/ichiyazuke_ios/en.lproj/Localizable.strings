@@ -9,10 +9,10 @@
 "サインイン" = "Sign In";
 "ログイン" = "Sign In";
 "ログインはこちら" = "Sign In";
-"ログアウト" = "Sing Out";
+"ログアウト" = "Sign Out";
 "ログアウトしますか？" = "Are you sure to Sign Out?";
 "新規登録" = "Sign Up";
-"ユーザ名" = "User name";
+"ユーザ名" = "Username";
 "パスワード" = "Password";
 "ログイン失敗" = "Fail to Sign In";
 "ユーザ名またはパスワードが空です" = "Blank";
