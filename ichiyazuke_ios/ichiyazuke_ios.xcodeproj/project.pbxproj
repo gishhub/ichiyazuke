@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		FD2A83BB1691833100385807 /* PanelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2A83BA1691833100385807 /* PanelTableViewCell.m */; };
+		FD4BAF5C1699ABC2007702DD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD4BAF591699ABC2007702DD /* Default-568h@2x.png */; };
+		FD4BAF5D1699ABC2007702DD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FD4BAF5A1699ABC2007702DD /* Default.png */; };
+		FD4BAF5E1699ABC2007702DD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD4BAF5B1699ABC2007702DD /* Default@2x.png */; };
+		FD4BAF621699ABE3007702DD /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD4BAF5F1699ABE3007702DD /* Icon-Small@2x.png */; };
+		FD4BAF631699ABE3007702DD /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FD4BAF601699ABE3007702DD /* Icon.png */; };
+		FD4BAF641699ABE3007702DD /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD4BAF611699ABE3007702DD /* Icon@2x.png */; };
+		FD4BAF661699ABF2007702DD /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = FD4BAF651699ABF2007702DD /* iTunesArtwork.png */; };
 		FD579424156798E800FC8EDB /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD579423156798E800FC8EDB /* SettingTableViewController.m */; };
 		FD5F3073155258EC0076879C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5F3072155258EC0076879C /* UIKit.framework */; };
 		FD5F3075155258EC0076879C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5F3074155258EC0076879C /* Foundation.framework */; };
@@ -16,12 +23,10 @@
 		FD5F307F155258EC0076879C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5F307E155258EC0076879C /* main.m */; };
 		FD5F3083155258EC0076879C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD5F3082155258EC0076879C /* AppDelegate.m */; };
 		FD5F3086155258EC0076879C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD5F3084155258EC0076879C /* MainStoryboard.storyboard */; };
-		FD60275B1610A141005A485B /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FD60275A1610A141005A485B /* Icon.png */; };
 		FD7605D9157093010078D464 /* GradeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7605D8157093010078D464 /* GradeTableViewController.m */; };
 		FD7605E01570D54F0078D464 /* CategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7605DF1570D54F0078D464 /* CategoryTableViewController.m */; };
 		FD7605E31570D7C90078D464 /* LevelTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7605E21570D7C80078D464 /* LevelTableViewController.m */; };
 		FD870543159CBB8E005E63E8 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD870542159CBB8E005E63E8 /* QuestionViewController.m */; };
-		FD9302E516213CEB00101032 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9302DB16213CEB00101032 /* Default.png */; };
 		FD9877BA15A85D6F00CB32A4 /* LoginTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9877B915A85D6F00CB32A4 /* LoginTableViewController.m */; };
 		FDADE8FF1686E02D000D6CD7 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDADE8FE1686E02D000D6CD7 /* RootViewController.m */; };
 		FDADE9021687016B000D6CD7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDADE9001687014B000D6CD7 /* QuartzCore.framework */; };
@@ -33,6 +38,13 @@
 /* Begin PBXFileReference section */
 		FD2A83B91691833100385807 /* PanelTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PanelTableViewCell.h; path = ../PanelTableViewCell.h; sourceTree = "<group>"; };
 		FD2A83BA1691833100385807 /* PanelTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PanelTableViewCell.m; path = ../PanelTableViewCell.m; sourceTree = "<group>"; };
+		FD4BAF591699ABC2007702DD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		FD4BAF5A1699ABC2007702DD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		FD4BAF5B1699ABC2007702DD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		FD4BAF5F1699ABE3007702DD /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		FD4BAF601699ABE3007702DD /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		FD4BAF611699ABE3007702DD /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		FD4BAF651699ABF2007702DD /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		FD579422156798E700FC8EDB /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
 		FD579423156798E800FC8EDB /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
 		FD5F306E155258EC0076879C /* ichiyazuke_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ichiyazuke_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,7 +58,6 @@
 		FD5F3081155258EC0076879C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FD5F3082155258EC0076879C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FD5F3085155258EC0076879C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		FD60275A1610A141005A485B /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		FD7605D7157093010078D464 /* GradeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradeTableViewController.h; sourceTree = "<group>"; };
 		FD7605D8157093010078D464 /* GradeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradeTableViewController.m; sourceTree = "<group>"; };
 		FD7605DE1570D54E0078D464 /* CategoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryTableViewController.h; sourceTree = "<group>"; };
@@ -55,7 +66,6 @@
 		FD7605E21570D7C80078D464 /* LevelTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelTableViewController.m; sourceTree = "<group>"; };
 		FD870541159CBB8E005E63E8 /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
 		FD870542159CBB8E005E63E8 /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
-		FD9302DB16213CEB00101032 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		FD9877B815A85D6F00CB32A4 /* LoginTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginTableViewController.h; sourceTree = "<group>"; };
 		FD9877B915A85D6F00CB32A4 /* LoginTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTableViewController.m; sourceTree = "<group>"; };
 		FDADE8FD1686E02D000D6CD7 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
@@ -160,8 +170,13 @@
 		FDC5CD9C1555169200FC64BA /* images */ = {
 			isa = PBXGroup;
 			children = (
-				FD9302DB16213CEB00101032 /* Default.png */,
-				FD60275A1610A141005A485B /* Icon.png */,
+				FD4BAF651699ABF2007702DD /* iTunesArtwork.png */,
+				FD4BAF591699ABC2007702DD /* Default-568h@2x.png */,
+				FD4BAF5A1699ABC2007702DD /* Default.png */,
+				FD4BAF5B1699ABC2007702DD /* Default@2x.png */,
+				FD4BAF5F1699ABE3007702DD /* Icon-Small@2x.png */,
+				FD4BAF601699ABE3007702DD /* Icon.png */,
+				FD4BAF611699ABE3007702DD /* Icon@2x.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -219,9 +234,14 @@
 			files = (
 				FD5F307D155258EC0076879C /* InfoPlist.strings in Resources */,
 				FD5F3086155258EC0076879C /* MainStoryboard.storyboard in Resources */,
-				FD60275B1610A141005A485B /* Icon.png in Resources */,
-				FD9302E516213CEB00101032 /* Default.png in Resources */,
 				FDE173471685A52C002B14EE /* Localizable.strings in Resources */,
+				FD4BAF5C1699ABC2007702DD /* Default-568h@2x.png in Resources */,
+				FD4BAF5D1699ABC2007702DD /* Default.png in Resources */,
+				FD4BAF5E1699ABC2007702DD /* Default@2x.png in Resources */,
+				FD4BAF621699ABE3007702DD /* Icon-Small@2x.png in Resources */,
+				FD4BAF631699ABE3007702DD /* Icon.png in Resources */,
+				FD4BAF641699ABE3007702DD /* Icon@2x.png in Resources */,
+				FD4BAF661699ABF2007702DD /* iTunesArtwork.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

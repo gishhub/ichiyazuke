@@ -20,7 +20,6 @@
 
 @synthesize customAdView;
 @synthesize userDefaults;
-@synthesize myView;
 @synthesize grade;
 @synthesize category;
 @synthesize level;
@@ -73,7 +72,7 @@
 
     self.title = [self.userDefaults stringForKey:@"selectedCategory"];
 
-    NSString *url = @"http://49.212.136.103:8080/ichiyazuke_web/select_question_id";
+    NSString *url = @"http://www8089uf.sakura.ne.jp:8080/ichiyazuke_web/select_question_id";
     //NSString *url = @"http://localhost:8080/ichiyazuke_web/select_question_id";
     
     /* POST */
@@ -166,8 +165,8 @@
     float viewHeight = frame.size.height;
     float adViewWidth = self.customAdView.frame.size.width;
     float adViewHeight = self.customAdView.frame.size.height;
-    // 44 はnavigationBarの高さ
-    self.customAdView.center = CGPointMake(adViewWidth / 2, self.tableView.contentOffset.y + viewHeight - 44.0 - adViewHeight / 2);
+    float navBarHeight = self.navigationController.navigationBar.frame.size.height;
+    self.customAdView.center = CGPointMake(adViewWidth / 2, self.tableView.contentOffset.y + viewHeight - navBarHeight - adViewHeight / 2);
     [self.view bringSubviewToFront:self.customAdView];
 }
 
@@ -175,12 +174,14 @@
 {
     CGRect frame = [[UIScreen mainScreen] applicationFrame];
     float viewHeight = frame.size.height;
+    float adViewWidth = self.customAdView.frame.size.width;
     float adViewHeight = self.customAdView.frame.size.height;
+    float navBarHeight = self.navigationController.navigationBar.frame.size.height;
     [UIView animateWithDuration:2.0
                           delay:0.0
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
-                         self.customAdView.center = CGPointMake(160.0, self.tableView.contentOffset.y + viewHeight - 44.0 - adViewHeight / 2);
+                         self.customAdView.center = CGPointMake(adViewWidth / 2, self.tableView.contentOffset.y + viewHeight - navBarHeight - adViewHeight / 2);
                          self.customAdView.alpha = 1.0;
                      }
                      completion:nil];
