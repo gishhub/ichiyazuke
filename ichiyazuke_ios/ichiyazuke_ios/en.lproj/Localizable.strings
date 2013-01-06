@@ -27,3 +27,4 @@
 "学年" = "Grade";
 "カテゴリ" = "Category";
 "難易度" = "Level";
+"問題の読み込みに失敗しました" = "Fail to load";

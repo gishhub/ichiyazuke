@@ -22,6 +22,7 @@
 
 - (void)configureView;
 - (void)goLogin;
+- (void)goSetting;
 - (void)translateFromValueToNumber;
 
 @end

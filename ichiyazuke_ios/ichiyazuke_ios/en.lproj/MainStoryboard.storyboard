@@ -83,7 +83,7 @@
             </objects>
             <point key="canvasLocation" x="1664" y="106"/>
         </scene>
-        <!--Setting Table View Controller - Setting-->
+        <!--Setting Table View Controller - Settings-->
         <scene sceneID="qSU-2z-yZ7">
             <objects>
                 <tableViewController storyboardIdentifier="settingTableViewController" id="lw5-YI-ddu" customClass="SettingTableViewController" sceneMemberID="viewController">
@@ -142,7 +142,7 @@
                             <outlet property="delegate" destination="lw5-YI-ddu" id="agg-k4-Wo4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Setting" id="Fzt-jw-fzf"/>
+                    <navigationItem key="navigationItem" title="Settings" id="Fzt-jw-fzf"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uQR-N9-4Ja" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1258,7 +1258,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="MbJ-N5-AJS">
-                        <barButtonItem key="leftBarButtonItem" title="Setting" id="brv-dd-SjJ">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="brv-dd-SjJ">
                             <connections>
                                 <segue destination="lw5-YI-ddu" kind="push" id="anl-mw-FfD"/>
                             </connections>

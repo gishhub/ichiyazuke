@@ -9,6 +9,7 @@
 #import "PanelTableViewController.h"
 #import "PanelTableViewCell.h"
 #import "LoginTableViewController.h"
+#import "SettingTableViewController.h"
 #import "QuestionViewController.h"
 
 @interface PanelTableViewController ()
@@ -49,8 +50,9 @@
     self.customAdView.delegate = self;
     [self.view addSubview:customAdView];
 
+    // 一番下の問題Cellが広告バナーに隠れてしまわないように空のフッター設置
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 0.0, self.customAdView.frame.size.height)];
-    
+
     // NSUserDefaultsに初期値を登録する
     self.userDefaults = [NSUserDefaults standardUserDefaults];
     NSMutableDictionary *initial = [NSMutableDictionary dictionary];
@@ -59,7 +61,7 @@
     [initial setObject:@"レベル１"      forKey:@"selectedLevel"];
     [initial setObject:[NSNumber numberWithBool:NO] forKey:@"login"];
     [self.userDefaults registerDefaults:initial];
-    
+
     //ログインしてなかったら、設定画面へGO
     BOOL login = [self.userDefaults boolForKey:@"login"];
     if (login == NO){
@@ -82,30 +84,32 @@
     [request setHTTPMethod:@"POST"];
     [request setHTTPBody:post];
 
-    NSError *requestError = nil;
     NSData  *response  = [NSURLConnection sendSynchronousRequest:request
                                                returningResponse:nil
-                                                           error:&requestError];
+                                                           error:nil];
 
     // HTTPリクエストのエラー
     if (response == nil){
-        NSLog(@"HTTP error: %d", requestError.code);
-        
-        // ここでポップアップ出そうかな
-        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"問題の読み込みに失敗しました", @"")
+                                                        message:nil
+                                                       delegate:self
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"OK",nil];
+        [alert show];
         return;
     }
 
-    NSError *jsonError = nil;
     self.questionIds   = [NSJSONSerialization JSONObjectWithData:response
                                                            options:0
-                                                             error:&jsonError];
+                                                             error:nil];
     // JSONデータのパースエラー
     if (self.questionIds == nil){
-        NSLog(@"JSON Parser error: %d", jsonError.code);
-        
-        // ここでポップアップ出そうかな
-        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"問題の読み込みに失敗しました", @"")
+                                                        message:nil
+                                                       delegate:self
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"OK",nil];
+        [alert show];
         return;
     }
 }
@@ -130,7 +134,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"PanelTableViewCell";
-    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     PanelTableViewCell *cell = (PanelTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
     if (cell == nil) {
@@ -148,6 +151,13 @@
         }
     }
     return cell;
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        [self goSetting];
+    }
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -260,6 +270,13 @@
 {
     LoginTableViewController *loginTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"loginTableViewController"];
     [self.navigationController pushViewController:loginTableViewController animated:YES];
+}
+
+- (void)goSetting
+{
+    SettingTableViewController *settingTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"settingTableViewController"];
+    settingTableViewController.navigationItem.hidesBackButton = YES;
+    [self.navigationController pushViewController:settingTableViewController animated:YES];
 }
 
 #pragma mark - Table view delegate

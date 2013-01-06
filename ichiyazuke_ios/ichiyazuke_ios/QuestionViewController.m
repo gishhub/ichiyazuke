@@ -59,6 +59,11 @@
     [super viewDidUnload];
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [self.myWebView stopLoading];
+}
+
 // ios5.1用の記述
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -102,6 +107,21 @@
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"問題の読み込みに失敗しました", @"")
+                                                    message:nil
+                                                   delegate:self
+                                          cancelButtonTitle:nil
+                                          otherButtonTitles:@"OK",nil];
+    [alert show];
+    return;
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        // 前画面に戻る
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 @end
