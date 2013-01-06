@@ -101,12 +101,12 @@
 {
     //学年とカテゴリの不整合があれば修正
     if ([self.grade isEqualToString:@"高校１年生"]) {
-        if (self.category != @"方程式と不等式" && self.category != @"二次関数" && self.category != @"三角比" && self.category != @"集合・命題・証明" &&self.category != @"場合の数・確率"){
+        if (self.category != @"方程式と不等式" && self.category != @"二次関数" && self.category != @"三角比" && self.category != @"場合の数・確率"){
             self.category = @"方程式と不等式";
         }
     } else if ([self.grade isEqualToString:@"高校２年生"]) {
-        if (self.category != @"式と証明" && self.category != @"三角関数" && self.category != @"指数・対数関数" && self.category != @"微分と積分" &&self.category != @"数列" &&self.category != @"ベクトル"){
-            self.category = @"式と証明";
+        if (self.category != @"三角関数" && self.category != @"指数・対数関数" && self.category != @"微分と積分" && self.category != @"数列" && self.category != @"ベクトル"){
+            self.category = @"三角関数";
         }
     } else if ([self.grade isEqualToString:@"高校３年生"]) {
         if (self.category != @"極限" && self.category != @"微分法と積分法" && self.category != @"行列"){

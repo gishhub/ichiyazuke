@@ -70,9 +70,9 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if ([self.grade isEqualToString:@"高校１年生"]) {
-        return 5;
+        return 4;
     } else if ([self.grade isEqualToString:@"高校２年生"]) {
-        return 6;
+        return 5;
     } else if ([self.grade isEqualToString:@"高校３年生"]) {
         return 3;
     } else {
@@ -103,9 +103,6 @@
                     cell.textLabel.text = @"三角比";
                     break;
                 case 3:
-                    cell.textLabel.text = @"集合・命題・証明";
-                    break;
-                case 4:
                     cell.textLabel.text = @"場合の数・確率";
                     break;
                 default:
@@ -114,21 +111,18 @@
         } else if ([self.grade isEqualToString:@"高校２年生"]) {
             switch (indexPath.row) {
                 case 0:
-                    cell.textLabel.text = @"式と証明";
-                    break;
-                case 1:
                     cell.textLabel.text = @"三角関数";
                     break;
-                case 2:
+                case 1:
                     cell.textLabel.text = @"指数・対数関数";
                     break;
-                case 3:
+                case 2:
                     cell.textLabel.text = @"微分と積分";
                     break;
-                case 4:
+                case 3:
                     cell.textLabel.text = @"数列";
                     break;
-                case 5:
+                case 4:
                     cell.textLabel.text = @"ベクトル";
                     break;
                 default:
@@ -190,9 +184,6 @@
                     settingTableViewController.category = @"三角比";
                     break;
                 case 3:
-                    settingTableViewController.category = @"集合・命題・証明";
-                    break;
-                case 4:
                     settingTableViewController.category = @"場合の数・確率";
                     break;
                 default:
@@ -201,21 +192,18 @@
         } else if ([self.grade isEqualToString:@"高校２年生"]) {
             switch (indexPath.row) {
                 case 0:
-                    settingTableViewController.category = @"式と証明";
-                    break;
-                case 1:
                     settingTableViewController.category = @"三角関数";
                     break;
-                case 2:
+                case 1:
                     settingTableViewController.category = @"指数・対数関数";
                     break;
-                case 3:
+                case 2:
                     settingTableViewController.category = @"微分と積分";
                     break;
-                case 4:
+                case 3:
                     settingTableViewController.category = @"数列";
                     break;
-                case 5:
+                case 4:
                     settingTableViewController.category = @"ベクトル";
                     break;
                 default:
