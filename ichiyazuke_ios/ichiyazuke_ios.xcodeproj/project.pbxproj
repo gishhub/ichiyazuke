@@ -22,15 +22,6 @@
 		FD7605E31570D7C90078D464 /* LevelTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7605E21570D7C80078D464 /* LevelTableViewController.m */; };
 		FD870543159CBB8E005E63E8 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD870542159CBB8E005E63E8 /* QuestionViewController.m */; };
 		FD9302E516213CEB00101032 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9302DB16213CEB00101032 /* Default.png */; };
-		FD9302E616213CEB00101032 /* q1.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9302DC16213CEB00101032 /* q1.png */; };
-		FD9302E716213CEB00101032 /* q2.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9302DD16213CEB00101032 /* q2.png */; };
-		FD9302E816213CEB00101032 /* q3.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9302DE16213CEB00101032 /* q3.png */; };
-		FD9302E916213CEB00101032 /* q4.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9302DF16213CEB00101032 /* q4.png */; };
-		FD9302EA16213CEB00101032 /* q5.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9302E016213CEB00101032 /* q5.png */; };
-		FD9302EB16213CEB00101032 /* q6.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9302E116213CEB00101032 /* q6.png */; };
-		FD9302EC16213CEB00101032 /* q7.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9302E216213CEB00101032 /* q7.png */; };
-		FD9302ED16213CEB00101032 /* q8.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9302E316213CEB00101032 /* q8.png */; };
-		FD9302EE16213CEB00101032 /* q9.png in Resources */ = {isa = PBXBuildFile; fileRef = FD9302E416213CEB00101032 /* q9.png */; };
 		FD9877BA15A85D6F00CB32A4 /* LoginTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9877B915A85D6F00CB32A4 /* LoginTableViewController.m */; };
 		FDADE8FF1686E02D000D6CD7 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDADE8FE1686E02D000D6CD7 /* RootViewController.m */; };
 		FDADE9021687016B000D6CD7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDADE9001687014B000D6CD7 /* QuartzCore.framework */; };
@@ -65,15 +56,6 @@
 		FD870541159CBB8E005E63E8 /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
 		FD870542159CBB8E005E63E8 /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
 		FD9302DB16213CEB00101032 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		FD9302DC16213CEB00101032 /* q1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = q1.png; sourceTree = "<group>"; };
-		FD9302DD16213CEB00101032 /* q2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = q2.png; sourceTree = "<group>"; };
-		FD9302DE16213CEB00101032 /* q3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = q3.png; sourceTree = "<group>"; };
-		FD9302DF16213CEB00101032 /* q4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = q4.png; sourceTree = "<group>"; };
-		FD9302E016213CEB00101032 /* q5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = q5.png; sourceTree = "<group>"; };
-		FD9302E116213CEB00101032 /* q6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = q6.png; sourceTree = "<group>"; };
-		FD9302E216213CEB00101032 /* q7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = q7.png; sourceTree = "<group>"; };
-		FD9302E316213CEB00101032 /* q8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = q8.png; sourceTree = "<group>"; };
-		FD9302E416213CEB00101032 /* q9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = q9.png; sourceTree = "<group>"; };
 		FD9877B815A85D6F00CB32A4 /* LoginTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginTableViewController.h; sourceTree = "<group>"; };
 		FD9877B915A85D6F00CB32A4 /* LoginTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTableViewController.m; sourceTree = "<group>"; };
 		FDADE8FD1686E02D000D6CD7 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
@@ -179,15 +161,6 @@
 			isa = PBXGroup;
 			children = (
 				FD9302DB16213CEB00101032 /* Default.png */,
-				FD9302DC16213CEB00101032 /* q1.png */,
-				FD9302DD16213CEB00101032 /* q2.png */,
-				FD9302DE16213CEB00101032 /* q3.png */,
-				FD9302DF16213CEB00101032 /* q4.png */,
-				FD9302E016213CEB00101032 /* q5.png */,
-				FD9302E116213CEB00101032 /* q6.png */,
-				FD9302E216213CEB00101032 /* q7.png */,
-				FD9302E316213CEB00101032 /* q8.png */,
-				FD9302E416213CEB00101032 /* q9.png */,
 				FD60275A1610A141005A485B /* Icon.png */,
 			);
 			name = images;
@@ -248,15 +221,6 @@
 				FD5F3086155258EC0076879C /* MainStoryboard.storyboard in Resources */,
 				FD60275B1610A141005A485B /* Icon.png in Resources */,
 				FD9302E516213CEB00101032 /* Default.png in Resources */,
-				FD9302E616213CEB00101032 /* q1.png in Resources */,
-				FD9302E716213CEB00101032 /* q2.png in Resources */,
-				FD9302E816213CEB00101032 /* q3.png in Resources */,
-				FD9302E916213CEB00101032 /* q4.png in Resources */,
-				FD9302EA16213CEB00101032 /* q5.png in Resources */,
-				FD9302EB16213CEB00101032 /* q6.png in Resources */,
-				FD9302EC16213CEB00101032 /* q7.png in Resources */,
-				FD9302ED16213CEB00101032 /* q8.png in Resources */,
-				FD9302EE16213CEB00101032 /* q9.png in Resources */,
 				FDE173471685A52C002B14EE /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
