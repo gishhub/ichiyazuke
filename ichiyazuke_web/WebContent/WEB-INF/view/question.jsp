@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%@ page session="false" %>
 <%
 	int question_id = (Integer)request.getAttribute("questionId");
 	String title    = (String)request.getAttribute("title");
@@ -20,9 +19,11 @@ body {
 	padding: 0.5em 0.5em 10.0em;
 	font-family: HiraKakuProN-W3;
 }
-h1 { font-size: 2.5em; }
-h2 { font-size: 2.0em; }
-h3 { font-size: 2.0em; }
+h1 { font-size: 3em; font-weight: bold }
+<! h1 { font-size: 3em; font-weight: bold; border-bottom:double 3px } >
+h2 { font-size: 2em; font-weight: bold }
+h3 { font-size: 2em; }
+h4 { font-size: 3em; color: blue; font-weight: bold }
 p  { font-size: 1.2em; }
 img {
 	zoom: 200%;
@@ -105,12 +106,21 @@ function checkForm(){
 <title><%=title%></title>
 </head>
 	<body>
-		<h1><%=title%></h1>
-		<h2><%=contents%></h2><br />
-		<h3>1. <%=choice1%></h3>
+		<h4>問題</h4>
+		<table border="1" width="800">
+		<tr>
+		<td><h2><%=contents%></h2></td>
+		</tr>
+		</table><br>
+		<h4>選択肢</h4>
+		<table border="1" width="800">
+		<tr>
+		<td><h3>1. <%=choice1%></h3>
 		<h3>2. <%=choice2%></h3>
 		<h3>3. <%=choice3%></h3>
-		<h3>4. <%=choice4%></h3>
+		<h3>4. <%=choice4%></h3></td>
+		</tr>
+		</table>
 	<form name="choice" method="post" action="answer_question" onSubmit="return checkForm()">
 	<div class="radio-group clearfix">
 		<div>

@@ -36,16 +36,7 @@
 		</init-param>
 	</servlet>
 
-	<servlet>
-		<servlet-name>Error</servlet-name>
-		<jsp-file>/WEB-INF/view/error.jsp</jsp-file>
-		<init-param>
-		<param-name>encoding</param-name>
-		<param-value>UTF-8</param-value>
-		</init-param>
-	</servlet>
-
-	<servlet-mapping>
+		<servlet-mapping>
 		<servlet-name>IchiyazukeServlet</servlet-name>
 		<url-pattern>/*</url-pattern>
 	</servlet-mapping>
@@ -60,12 +51,7 @@
 		<url-pattern>/answer</url-pattern>
 	</servlet-mapping>
 
-	<servlet-mapping>
-		<servlet-name>Error</servlet-name>
-		<url-pattern>/error</url-pattern>
-	</servlet-mapping>
-
-	<error-page>
+		<error-page>
 		<error-code>401</error-code>
 		<location>/WEB-INF/view/error/401.html</location>
 	</error-page>

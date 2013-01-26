@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page session="false" %>
 <%
 	String correctAnswer = (String)request.getAttribute("correctAnswer");
 	String contents      = (String)request.getAttribute("contents");
@@ -19,9 +18,10 @@ body {
 	padding: 0.5em 0.5em 10.0em;
 	font-family: HiraKakuProN-W3;
 }
-h1 { font-size: 2.5em; color: red; font-weight: bold }
-h2 { font-size: 2.0em; }
-h3 { font-size: 2.0em; }
+h1 { font-size: 5em; color: red; font-weight: bold }
+h2 { font-size: 2em; }
+h3 { font-size: 2em; }
+h4 { font-size: 3em; color: blue; font-weight: bold }
 p  { font-size: 1.2em; }
 img {
 	zoom: 200%;
@@ -32,11 +32,23 @@ img {
 </head>
 <body>
 	<h1><%=judgment%></h1>
-	<h2><%=title%></h2>
-	<h2><%=contents%></h2>
-	<h2>正解は <%=correctAnswer%> </h2>
-	<h2><%=choice%></h2>
-	<h3>解説</h3>
-	<h3><%=explanation%></h3>
+	<h4>問題</h4>
+	<table border="1" width="800">
+	<tr>
+	<td><h2><%=contents%></h2></td>	
+	</tr>
+	</table>
+	<h4>正解</h4>
+	<table border="1" width="800">
+	<tr>
+	<td><h2><%=correctAnswer%>. <%=choice%></h2></td>
+	</tr>
+	</table>
+	<h4>解説</h4>
+        <table border="1" width="800">
+        <tr>
+	<td><h2><%=explanation%></h2></td>
+        </tr>
+        </table>
 </body>
 </html>
